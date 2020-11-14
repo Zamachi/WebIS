@@ -1,0 +1,9 @@
+{
+    "name": "zamachi/wbis-framework",
+    "require": {},
+    "autoload" : {
+        "psr-4": {
+            "app\\":"./"
+        }
+    }
+}
