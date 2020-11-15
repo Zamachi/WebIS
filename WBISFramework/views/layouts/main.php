@@ -1,5 +1,9 @@
 <?php
+	if(isset($_GET)){
 
+		if(isset($_GET['logout']) && $_GET['logout'] ==1)
+			session_unset();
+	}
 ?>
 
 <!DOCTYPE html>
@@ -75,11 +79,11 @@
 								
 								<?php if (isset($_SESSION["is_ulogovan"])): ?>
 
-									<li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+									<li><a href="/home?logout=1"><i class="fa fa-sign-out"></i> Logout</a></li>
 
 								<?php else: ?>
 								
-									<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+									<li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
 								
 								<?php endif ?>
 								
@@ -111,7 +115,7 @@
 										<li><a href="product-details.html">Product Details</a></li> 
 										<li><a href="checkout.html">Checkout</a></li> 
 										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html">Login</a></li> 
+										
                                     </ul>
                                 </li> 
 								<li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
@@ -127,7 +131,9 @@
 					</div>
 					<div class="col-sm-3">
 						<div class="search_box pull-right">
-							<input type="text" placeholder="Search"/>
+							<form action="">
+								<input type="search" placeholder="Search"/>
+							</form>
 						</div>
 					</div>
 				</div>

@@ -25,24 +25,24 @@ class Router
         if(!$callback){
             
             http_response_code(404);
-            return $this->renderView("notFound",'main');
+            return $this->renderView("notFound",'main',null);
         }
         if (is_string($callback)) {
             // var_dump($callback);
             return $this->renderView($callback, 'main');
         }
-        if(is_array($callback)){
-
+        if (is_array($callback))
+        {
+            $callback[0] = new $callback[0]();
         }
-        if ($rezultat = call_user_func($callback))
-            return $rezultat;
+        return call_user_func($callback);
 
     }
 
-    public function renderView($view,$layout)
+    public function renderView($view,$layout,$params=null)
     {
         
-        $onlyView = $this->renderOnlyView($view);
+        $onlyView = $this->renderOnlyView($view,$params);
         $layout = $this->layoutContent($layout);
 
         return str_replace("{{ renderSection }}",$onlyView,$layout);
@@ -55,8 +55,15 @@ class Router
         return ob_get_clean();
     }
 
-    public function renderOnlyView($view)
+    public function renderOnlyView($view,$params=null)
     {
+        if($params!=null){
+
+            foreach ($params as $key => $value) {
+                $$key = $value;
+            }
+            
+        }
         ob_start();
         include_once Application::$rootDir . "/views/$view.php";
         return ob_get_clean();
