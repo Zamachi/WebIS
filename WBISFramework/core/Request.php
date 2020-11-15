@@ -20,13 +20,6 @@ class Request
       return strtolower($_SERVER["REQUEST_METHOD"]);
   }
 
-  // public function getURI()
-  // {
-  //     # code... NIJE NAM POTREBNO
-  //     return strtolower($_SERVER["REQUEST_URI"]);
-
-  // }
-
 }
 
 
