@@ -74,7 +74,6 @@
 							<ul class="nav navbar-nav">
 								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-								<li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
 								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 								
 								<?php if (isset($_SESSION["is_ulogovan"])): ?>
@@ -84,6 +83,7 @@
 								<?php else: ?>
 								
 									<li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
+									<li><a href="/register"><i class="fa fa-users"></i> Register</a></li>
 								
 								<?php endif ?>
 								

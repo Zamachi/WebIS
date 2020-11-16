@@ -1,12 +1,13 @@
 <?php ?>
 
-
-<form action="#" method="POST">
-
-    <label for="mail">Unesite Vas e-mail:</label><br>
-    <input type="email" name="mail" id="mail"><br>
-    <label for="password">Unesite Vas password:</label><br>
-    <input type="password" name="password" id="password"><br>
-    <button type="submit">Posalji</button>
-
-</form>
+<html>
+    <div class="middle">
+        <form action="#" method="POST" class="login-form">
+        <label for="mail" class="form-label">Enter your e-mail:</label></br>
+        <input type="email" name="mail" class="mail" placeholder="email@email.com"></br>
+        <label for="password" class="form-label">Enter your password:</label></br>
+        <input type="password" name="password" class="password" placeholder="password"></br>
+        <button type="submit" class="login-button">Send</button>
+        </form>
+    </div>
+</html>

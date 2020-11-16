@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="./css/font-awesome.min.css" rel="stylesheet">
+    <title>Login/Register</title>
     <style>
         *{ padding: 0; margin: 0; clear: both;}
         .autorizacija {
@@ -18,7 +20,7 @@
 <body>
     <main class="autorizacija">
 
-        <h1>Ovo je layout za autorizovanje</h1>
+        <h1 class="h1-view">Authentication Layout</h1>
             {{ renderSection }}
 
     </main>
