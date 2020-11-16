@@ -1,4 +1,9 @@
 <?php ?>
 
 <h1> Ovo je home </h1>
-<?php echo "Dobrodosao, ". $forename ." ".$lastname?>
+<?php 
+
+foreach($params as $item){
+    echo "Dobrodosao, ". $item["username"] . "<br>"; 
+}
+?>

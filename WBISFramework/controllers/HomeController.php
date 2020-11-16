@@ -10,10 +10,13 @@ class HomeController extends Controller
    
     public function dashboard()
     {
-        $params = [
-            "forename" => "Stefan",
-            "lastname" => "Dimitrijevic"
-        ];
+        $params = [];
+        $result = $this->getKonekcija()->conn()->query("SELECT * FROM users");
+
+        while($red = $result->fetch_assoc()){
+            array_push($params,$red);
+        }
+
         return $this->view("home","main",$params);
     }
 }
