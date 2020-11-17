@@ -1400,19 +1400,46 @@ h2.title {
 
 
 /*************************
-*******login page CSS******
+*******Jovana******
 **************************/
 
-.middle{
+.autorizacija{
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 }
 
 .h1-view{
   color: #a0b1c5;
   margin-top: 1em;
   margin-bottom: 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.back-button{
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+.wrapper{
+  width: 98%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.middle{
+  width: 93%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .login-form, .register-form{
@@ -1422,8 +1449,8 @@ h2.title {
   width: 30%;
   height: auto;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 }
 
 .mail, .password, .date, .country{
@@ -1436,11 +1463,11 @@ h2.title {
 }
 
 .form-label{
-margin-top: 1em;
-margin-bottom: 0.5em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
 }
 
-.login-button, .register-button, .reset-button{
+.login-button, .register-button, .reset-button, .back-button{
   background: #0B1622;
   color: #a0b1c5;
   border: 0.1em solid #0B1622;
@@ -1456,7 +1483,7 @@ margin-bottom: 0.5em;
   width: 7em;
 }
 
-.login-button:hover, .register-button:hover, .reset-button:hover{
+.login-button:hover, .register-button:hover, .reset-button:hover, .back-button:hover{
   background: darkgreen;
   border: 0.1em solid #0B1622;
   color: #0B1622;

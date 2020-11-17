@@ -36,36 +36,38 @@ $drzave = ["Afghanistan"  , " Akrotiri"  , " Albania"  , " Algeria"  , " America
 ?>
 
 <html>
-    <div class="middle">
-        <form action="registerProcess" method="post" class="register-form">
-             <label for="mail" class="form-label">Enter your e-mail:</label><br>
-             <input type="email" name="mail" class="mail" placeholder="email@email.com" required><br>
-            <label for="password" class="form-label">Enter your password:</label><br>
-            <input type="password" name="password" class="password" placeholder="password" required><br>
-            <label for="confirmPassword" class="form-label">Confirm your password:</label><br>
-            <input type="password" name="confirmPassword" class="password" placeholder="confirm password" required><br>
-            <label for="datumRodjenja" class="form-label">Choose your date of birth:</label><br>
-            <?php
-				$godina=strval(intval(date('Y'))-18);
-				
-				$mesec=date('m');
-				
-				$dan=date('d');
-				
-				$birthday=$godina . "-" . $mesec . "-" . $dan;
-				echo "<input required type=\"date\" name=\"datumRodjenja\" id=\"birthday\" maxlength=\"4\" class=\"date\" placeholder=\"Year...\" max=\"$birthday\">";
-            ?>
-            <!-- <input type="date" name="datumRodjenja" class="date"><br> -->
-            <label for="drzava" class="form-label">Choose your country:</label><br>
-            <select name="country" class="country">
-                <?php 
-                    foreach($drzave as $drzava){
-                        echo "<option value='$drzava'>$drzava</option>";
-                    }
+    <main class="wrapper">
+        <div class="middle">
+            <form action="registerProcess" method="post" class="register-form">
+                <label for="mail" class="form-label">Enter your e-mail:</label><br>
+                <input type="email" name="mail" class="mail" placeholder="email@email.com" required><br>
+                <label for="password" class="form-label">Enter your password:</label><br>
+                <input type="password" name="password" class="password" placeholder="password" required><br>
+                <label for="confirmPassword" class="form-label">Confirm your password:</label><br>
+                <input type="password" name="confirmPassword" class="password" placeholder="confirm password" required><br>
+                <label for="datumRodjenja" class="form-label">Choose your date of birth:</label><br>
+                <?php
+                    $godina=strval(intval(date('Y'))-18);
+                    
+                    $mesec=date('m');
+                    
+                    $dan=date('d');
+                    
+                    $birthday=$godina . "-" . $mesec . "-" . $dan;
+                    echo "<input required type=\"date\" name=\"datumRodjenja\" id=\"birthday\" maxlength=\"4\" class=\"date\" placeholder=\"Year...\" max=\"$birthday\">";
                 ?>
-            </select>
-            <button type="submit" class="register-button">Send</button>
-            <button type="reset" class="reset-button">Reset Fields</button>
-        </form>
-    </div>
+                <!-- <input type="date" name="datumRodjenja" class="date"><br> -->
+                <label for="drzava" class="form-label">Choose your country:</label><br>
+                <select name="country" class="country">
+                    <?php 
+                        foreach($drzave as $drzava){
+                            echo "<option value='$drzava'>$drzava</option>";
+                        }
+                    ?>
+                </select>
+                <button type="submit" class="register-button">Send</button>
+                <button type="reset" class="reset-button">Reset Fields</button>
+            </form>
+        </div>
+    </main>    
 </html>
