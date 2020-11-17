@@ -1,4 +1,6 @@
-<?php ?>
+<?php 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +22,7 @@
 <body>
     <main class="autorizacija">
 
-        <h1 class="h1-view">Authentication Layout</h1>
+        <h1 class="h1-view">Please, input your credentials</h1>
             {{ renderSection }}
 
     </main>

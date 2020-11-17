@@ -2,7 +2,7 @@
 
 <html>
     <div class="middle">
-        <form action="#" method="POST" class="login-form">
+        <form action="loginProcess" method="POST" class="login-form">
         <label for="mail" class="form-label">Enter your e-mail:</label></br>
         <input type="email" name="mail" class="mail" placeholder="email@email.com"></br>
         <label for="password" class="form-label">Enter your password:</label></br>

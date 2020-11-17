@@ -20,8 +20,8 @@ class Router
     public function resolve(){
         $path = $this->request->getPath();
         $method = $this->request->getMethod();
-
         $callback = $this->rute[$method][$path] ?? false;
+       
         if(!$callback){
             
             http_response_code(404);
@@ -39,10 +39,10 @@ class Router
 
     }
 
-    public function renderView($view,$layout,$params=null)
+    public function renderView($view,$layout,$model=null)
     {
         
-        $onlyView = $this->renderOnlyView($view,$params);
+        $onlyView = $this->renderOnlyView($view,$model);
         $layout = $this->layoutContent($layout);
 
         return str_replace("{{ renderSection }}",$onlyView,$layout);
@@ -55,11 +55,11 @@ class Router
         return ob_get_clean();
     }
 
-    public function renderOnlyView($view,$params=null)
+    public function renderOnlyView($view,$model=null)
     {
-        if($params!=null){
+        if($model!=null){ #TODO: moguce da treba promeniti logiku ovde ako prosledjujemo objekat modela
 
-            foreach ($params as $key => $value) {
+            foreach ($model as $key => $value) {
                 $$key = $value;
             }
             
