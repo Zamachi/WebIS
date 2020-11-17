@@ -39,8 +39,10 @@ $drzave = ["Afghanistan"  , " Akrotiri"  , " Albania"  , " Algeria"  , " America
     <main class="wrapper">
         <div class="middle">
             <form action="registerProcess" method="post" class="register-form">
+                <label for="username" class="form-label">Enter your username:</label><br>
+                <input type="text" name="username" class="username" placeholder="username" required><br>
                 <label for="mail" class="form-label">Enter your e-mail:</label><br>
-                <input type="email" name="mail" class="mail" placeholder="email@email.com" required><br>
+                <input type="email" name="mail" class="mail" placeholder="email" required><br>
                 <label for="password" class="form-label">Enter your password:</label><br>
                 <input type="password" name="password" class="password" placeholder="password" required><br>
                 <label for="confirmPassword" class="form-label">Confirm your password:</label><br>
