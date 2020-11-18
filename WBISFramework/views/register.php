@@ -68,8 +68,9 @@ $drzave = ["Afghanistan"  , " Akrotiri"  , " Albania"  , " Algeria"  , " America
                     ?>
                 </select>
                 <button type="submit" class="register-button">Send</button>
-                <button type="reset" class="reset-button">Reset Fields</button>
+                <button type="reset" class="reset-button">Reset Fields</button></br>
             </form>
+            <a href="/login" class="redirect-button">Already a member? Login here</a></br>
         </div>
     </main>    
 </html>
