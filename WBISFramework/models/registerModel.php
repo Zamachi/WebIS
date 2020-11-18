@@ -18,7 +18,8 @@ class RegisterModel extends BaseModel
         return [
             'mail' => [self::RULE_EMAIL,self::RULE_REQUIRED],
             'password' => [self::RULE_PASSWORD,self::RULE_REQUIRED],
-            'username' => [self::RULE_USERNAME,self::RULE_REQUIRED]
+            'username' => [self::RULE_USERNAME,self::RULE_REQUIRED],
+            "confirmPassword" => [self::RULE_REQUIRED, [self::RULE_MATCH, 'match' => 'password']]
         ];
     }
 }

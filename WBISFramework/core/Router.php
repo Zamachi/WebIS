@@ -25,7 +25,7 @@ class Router
         if(!$callback){
             
             http_response_code(404);
-            return $this->renderView("notFound",'main',null);
+            return $this->renderView("notFound",'main');
         }
         if (is_string($callback)) {
             // var_dump($callback);

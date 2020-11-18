@@ -13,6 +13,7 @@ abstract class BaseModel
     public const RULE_REQUIRED = "required";
     public const RULE_PASSWORD = "password";
     public const RULE_USERNAME = "username";
+    public const RULE_MATCH = "match";
 
     public array $greske = [];
 
@@ -46,13 +47,28 @@ abstract class BaseModel
                     $this->addErrors($attribute,$ruleName);
                 }
 
+                if ($ruleName === self::RULE_MATCH && $value !== $this->{$rule['match']} ) {
+                    $this->addErrorsWithParams($attribute,self::RULE_MATCH,$rule);
+                }
+
             }
         }
     }
 
     public function addErrors($attribute,$rule)
     {
+
         $message = $this->errorMessages()[$rule];
+        return $this->greske[$attribute][] = $message;
+    }
+
+    public function addErrorsWithParams($attribute,$rule,$params)
+    {
+
+        $message = $this->errorMessages()[$rule];
+        foreach ($params as $key => $value) {
+            $message = str_replace("{$key}",$value,$message);
+        }
         return $this->greske[$attribute][] = $message;
     }
 
@@ -62,7 +78,8 @@ abstract class BaseModel
             self::RULE_EMAIL => "The email is in invalid format",
             self::RULE_PASSWORD => "The password is in invalid format",
             self::RULE_REQUIRED => "This field is required",
-            self::RULE_USERNAME => "Username is invalid format"
+            self::RULE_USERNAME => "Username is invalid format",
+            self::RULE_MATCH => "This field must be the same as {match}"
 
         ];
     }

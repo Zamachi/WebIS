@@ -11,7 +11,7 @@ class Request
         return $putanja;
       }
       $putanja = substr_replace($putanja,"",$pozicija);
-      
+                # nije isto sto i str_replace()
       return $putanja;
   }
 
