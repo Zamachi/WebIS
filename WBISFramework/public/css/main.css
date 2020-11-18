@@ -1411,7 +1411,20 @@ h2.title {
   display: flex;
   align-items: center;
   flex-direction: column;
-  
+}
+
+.redirect-button{
+  text-decoration: none;
+  color: #a0b1c5;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1em;
+}
+
+.redirect-button:hover{
+  transition: 0.5s;
+  color: green;
 }
 
 .wrapper{
