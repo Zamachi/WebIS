@@ -53,8 +53,8 @@ class Field
     {
        // var_dump($this->model);
         return sprintf("
-        <label for='%s'>%s</label><br>
-         <input type='%s' name='%s' id='%s' value='%s' class='%s %s' placeholder='%s' required><br>
+        <label for='%s'>%s</label> <br>
+         <input type='%s' name='%s' value='%s' class='%s %s' placeholder='%s' required> <br>
          <div class='invalid-feedback'>
          %s
          </div><br>
@@ -62,7 +62,6 @@ class Field
          , $this->attribute
          , $this->model->labels()[$this->attribute]
          , $this->type
-         , $this->attribute
          , $this->attribute
          , $this->model->{$this->attribute}
          , $this->attribute
