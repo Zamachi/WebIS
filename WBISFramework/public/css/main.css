@@ -1454,7 +1454,7 @@ h2.title {
   flex-direction: column;
 }
 
-.mail, .password, .date, .country, .username{
+.mail, .password, .date, .country, .username, .confirmPassword{
   background: #0B1622;
   color: #a0b1c5;
   border: 0.1em solid #0B1622;

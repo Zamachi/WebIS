@@ -20,10 +20,9 @@ class AuthController extends Controller
 
     public function register()
     {
-        $parametri = $this->getZahtev()->all();
-        $mail = $this->getZahtev()->getOne("mail");
+        $model = new RegisterModel();
 
-        return $this->view("register", "auth");
+        return $this->view("register", "auth",$model);
     }
 
     public function registerProcess()
@@ -33,21 +32,10 @@ class AuthController extends Controller
         $data = $this->zahtev->all();
 
         $model->loadData($data);
-        // if ($model->mail === '' or $model->mail === null) {
-        //     $model->greske['emailEmptyError'] = "Email obavezno polje!";
-        // }else if(!preg_match('/^[A-z]{1}[A-z_\d\-\.]+@[a-z]+mail\.(com|ac\.rs)$/',$model->mail)){
-        //     $model->greske['emailWrongFormat'] = "Los format e-maila!";
-        // }
-
-        // if($model->password === '' or $model->password === null){
-        //     $model->greske['passwordEmptyError'] = "Password je obavezno polje!";
-        // }else if(!preg_match("/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])\w{8,}$/",$model->password)){
-        //     $model->greske['passwordWrongFormat'] = "Los format Passworda!";
-        // }
 
         $model->validate();
 
-        //     var_dump($model);
+        //var_dump($model);
 
         // return "test";
         return $this->view("register", "auth", $model);

@@ -83,4 +83,14 @@ abstract class BaseModel
 
         ];
     }
+
+    public function existError($attribute)
+    {
+        return $this->greske[$attribute] ?? false;
+    }
+
+    public function firstError($attribute)
+    {
+        return $this->greske[$attribute][0] ?? false;
+    }
 }
