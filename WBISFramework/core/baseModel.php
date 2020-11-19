@@ -45,7 +45,7 @@ abstract class BaseModel
 
                 if($ruleName === self::RULE_EMAIL && !filter_var($value,FILTER_VALIDATE_EMAIL)){
                     $this->addErrors($attribute,$ruleName);
-                }
+                }   
 
                 if ($ruleName === self::RULE_MATCH && $value !== $this->{$rule['match']} ) {
                     $this->addErrorsWithParams($attribute,self::RULE_MATCH,$rule);
