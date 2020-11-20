@@ -51,6 +51,19 @@ abstract class BaseModel
                     $this->addErrorsWithParams($attribute,self::RULE_MATCH,$rule);
                 }
 
+                if($ruleName === self::RULE_PASSWORD){
+                    $res = array("options"=>array("regexp"=>"/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])\w{8,}$/"));
+                    if(!filter_var($value,FILTER_VALIDATE_REGEXP,$res)){
+                        $this->addErrors($attribute,$ruleName);
+                    }
+                }
+
+                if ($ruleName === self::RULE_USERNAME) {
+                    $res = array("options"=>array("regexp"=>"/^([A-z]{3,}\s*){1,3}$/"));
+                    if(!filter_var($value,FILTER_VALIDATE_REGEXP,$res)){
+                        $this->addErrors($attribute,$ruleName);
+                    }
+                }
             }
         }
     }
