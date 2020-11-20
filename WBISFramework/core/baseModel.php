@@ -4,11 +4,6 @@ namespace app\core;
 
 abstract class BaseModel
 {
-    // public const RULE_EMAIL = '/^[A-z]{1}[A-z_\d\-\.]+@[a-z]+mail\.(com|ac\.rs)$/';
-    // public const RULE_REQUIRED = "Required";
-    // public const RULE_PASSWORD = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])\w{8,}$/";
-    // public const RULE_USERNAME = "/^(\w{8,32}\s)+$/";
-
     public const RULE_EMAIL = 'email';
     public const RULE_REQUIRED = "required";
     public const RULE_PASSWORD = "password";
@@ -80,7 +75,7 @@ abstract class BaseModel
 
         $message = $this->errorMessages()[$rule];
         foreach ($params as $key => $value) {
-            $message = str_replace("{$key}",$value,$message);
+            $message = str_replace("{".$key."}",$value,$message);
         }
         return $this->greske[$attribute][] = $message;
     }

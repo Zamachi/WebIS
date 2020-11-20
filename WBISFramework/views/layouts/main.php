@@ -74,9 +74,9 @@
 									<li><a href="/home?logout=1"><i class="fa fa-sign-out"></i> Logout</a></li>
 
 								<?php else: ?>
-								
-									<li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
 									<li><a href="/register"><i class="fa fa-users"></i> Register</a></li>
+									<li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
+									
 								
 								<?php endif ?>
 								

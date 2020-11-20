@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\core\Controller;
+use app\models\LoginModel;
 use app\models\RegisterModel;
 
 class AuthController extends Controller
@@ -10,12 +11,16 @@ class AuthController extends Controller
 
     public function login()
     {
-        return $this->view("login", "auth");
+        $model = new LoginModel();
+
+        //TODO: logika ovde
+
+        return $this->view("login", "auth", $model);
     }
 
     public function loginProcess()
     {
-        # code...
+       return "Success!"; //TODO: logika ovde
     }
 
     public function register()

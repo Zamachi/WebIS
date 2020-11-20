@@ -10,7 +10,7 @@ use app\core\Form;
 <main class="wrapper">
     <div class="middle">
         <!-- <form> -->
-        <?php echo Form::beginForm("/registerProcess", "post", "register-form") ?>
+        <?php echo Form::beginForm("registerProcess", "post", "register-form") ?>
             <?php echo Form::field($model, 'username', 'text'); ?>
             <?php echo Form::field($model, 'mail', 'email') ?>
             <?php echo Form::field($model, 'password', 'password') ?>
