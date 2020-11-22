@@ -3,128 +3,98 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
-						<h2>Category</h2>
+						<h2>Tags</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
-							<div class="panel panel-default">
+						<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Sportswear
-										</a>
-									</h4>
-								</div>
-								<div id="sportswear" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="">Nike </a></li>
-											<li><a href="">Under Armour </a></li>
-											<li><a href="">Adidas </a></li>
-											<li><a href="">Puma</a></li>
-											<li><a href="">ASICS </a></li>
-										</ul>
-									</div>
+									<h4 class="panel-title"><a href="#">2D</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#mens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Mens
-										</a>
-									</h4>
-								</div>
-								<div id="mens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="">Fendi</a></li>
-											<li><a href="">Guess</a></li>
-											<li><a href="">Valentino</a></li>
-											<li><a href="">Dior</a></li>
-											<li><a href="">Versace</a></li>
-											<li><a href="">Armani</a></li>
-											<li><a href="">Prada</a></li>
-											<li><a href="">Dolce and Gabbana</a></li>
-											<li><a href="">Chanel</a></li>
-											<li><a href="">Gucci</a></li>
-										</ul>
-									</div>
+									<h4 class="panel-title"><a href="#">Fantasy</a></h4>
 								</div>
 							</div>
 							
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#womens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Womens
-										</a>
-									</h4>
-								</div>
-								<div id="womens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="">Fendi</a></li>
-											<li><a href="">Guess</a></li>
-											<li><a href="">Valentino</a></li>
-											<li><a href="">Dior</a></li>
-											<li><a href="">Versace</a></li>
-										</ul>
-									</div>
+									<h4 class="panel-title"><a href="#">FPS</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Kids</a></h4>
+									<h4 class="panel-title"><a href="#">Horror</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Fashion</a></h4>
+									<h4 class="panel-title"><a href="#">Indie</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Households</a></h4>
+									<h4 class="panel-title"><a href="#">Medieval</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Interiors</a></h4>
+									<h4 class="panel-title"><a href="#">MMO</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Clothing</a></h4>
+									<h4 class="panel-title"><a href="#">Multiplayer</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Bags</a></h4>
+									<h4 class="panel-title"><a href="#">Roguelike</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Shoes</a></h4>
+									<h4 class="panel-title"><a href="#">RPG</a></h4>
 								</div>
 							</div>
-						</div><!--/category-products-->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="#">RTS</a></h4>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="#">Sandbox</a></h4>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title"><a href="#">Singleplayer</a></h4>
+								</div>
+							</div>
+						</div>
 					
-						<div class="brands_products"><!--brands_products-->
-							<h2>Brands</h2>
+						<div class="brands_products">
+							<h2>Developers</h2>
 							<div class="brands-name">
 								<ul class="nav nav-pills nav-stacked">
-									<li><a href=""> <span class="pull-right">(50)</span>Acne</a></li>
-									<li><a href=""> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-									<li><a href=""> <span class="pull-right">(27)</span>Albiro</a></li>
-									<li><a href=""> <span class="pull-right">(32)</span>Ronhill</a></li>
-									<li><a href=""> <span class="pull-right">(5)</span>Oddmolly</a></li>
-									<li><a href=""> <span class="pull-right">(9)</span>Boudestijn</a></li>
-									<li><a href=""> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+									<li><a href=""> <span class="pull-right">(0)</span>Bethesda Softworks</a></li>
+									<li><a href=""> <span class="pull-right">(0)</span>Blizzard Entertainment</a></li>
+									<li><a href=""> <span class="pull-right">(0)</span>Capcom</a></li>
+									<li><a href=""> <span class="pull-right">(0)</span>CD Projekt</a></li>
+									<li><a href=""> <span class="pull-right">(0)</span>EA Games</a></li>
+									<li><a href=""> <span class="pull-right">(0)</span>Epic Games</a></li>
+									<li><a href=""> <span class="pull-right">(0)</span>NCsoft</a></li>
+									<li><a href=""> <span class="pull-right">(0)</span>Paradox Development Studio</a></li>
+									<li><a href=""> <span class="pull-right">(0)</span>Rockstar</a></li>
+									<li><a href=""> <span class="pull-right">(0)</span>Square Enix</a></li>
+									<li><a href=""> <span class="pull-right">(0)</span>THQ</a></li>
+									<li><a href=""> <span class="pull-right">(0)</span>Ubisoft</a></li>
+									<li><a href=""> <span class="pull-right">(0)</span>Valve Corporation</a></li>
+									<li><a href=""> <span class="pull-right">(0)</span>XL Games</a></li>
+									<li><a href=""> <span class="pull-right">(0)</span>Zenimax Media</a></li>
 								</ul>
 							</div>
-						</div><!--/brands_products-->
+						</div>
 						
 						<div class="price-range"><!--price-range-->
 							<h2>Price Range</h2>
@@ -142,7 +112,6 @@
 						<div class="col-sm-5">
 							<div class="view-product">
 								<img src="images/product-details/1.jpg" alt="">
-								<h3>ZOOM</h3>
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
 								
@@ -178,10 +147,8 @@
 						</div>
 						<div class="col-sm-7">
 							<div class="product-information"><!--/product-information-->
-								<img src="images/product-details/new.jpg" class="newarrival" alt="">
 								<h2>Anne Klein Sleeveless Colorblock Scuba</h2>
 								<p>Web ID: 1089772</p>
-								<img src="images/product-details/rating.png" alt="">
 								<span>
 									<span>US $59</span>
 									<label>Quantity:</label>
@@ -194,7 +161,6 @@
 								<p><b>Availability:</b> In Stock</p>
 								<p><b>Condition:</b> New</p>
 								<p><b>Brand:</b> E-SHOPPER</p>
-								<a href=""><img src="images/product-details/share.png" class="share img-responsive" alt=""></a>
 							</div><!--/product-information-->
 						</div>
 					</div><!--/product-details-->
@@ -378,7 +344,6 @@
 											<input type="email" placeholder="Email Address">
 										</span>
 										<textarea name=""></textarea>
-										<b>Rating: </b> <img src="images/product-details/rating.png" alt="">
 										<button type="button" class="btn btn-default pull-right">
 											Submit
 										</button>

@@ -117,6 +117,17 @@ a#scrollUp i{
 	padding-right:0;
 }
 
+#cart-flex{
+  display: flex !important;
+  align-items: center !important;
+  flex-direction: column !important;
+}
+
+#cart-checkout{
+  display: flex !important;
+  align-items: center !important;
+}
+
 .usa {
   border-radius: 0;
   color: #B4B1AB;
@@ -224,13 +235,14 @@ a#scrollUp i{
   font-family: 'roboto';
   font-size: 12px;
   font-weight: 300;
-  height: 35px;
+  height: 30px;
   outline: medium none;
   padding-left: 10px;
-  width: 160px;
+  margin-top: 2.5px;
+  width: 250px;
   background-image: url(../images/home/searchicon.png);
   background-repeat: no-repeat;
-  background-position: 130px;
+  background-position: 230px;
 }
 
 /*  Dropdown menu*/
@@ -313,7 +325,6 @@ ul.sub-menu {
 #footer {
   background: #152232;
 }
-
 
 .footer-top .container {
   border-bottom: 1px solid #E0E0DA;
@@ -539,17 +550,12 @@ ul.sub-menu {
 }
 
 .carousel-indicators li {
-  background: #C4C4BE;
+  background: #152232;
 }
 
 .carousel-indicators li.active {
-	  background: #FE980F;
+	  background: green;
 }
-
-.item {
-  padding-left: 100px;
-}
-
 
 .pricing {
   position: absolute;
@@ -608,11 +614,11 @@ ul.sub-menu {
   position: absolute;
   top: 50%;
   font-size: 60px;
-  color: #C2C2C1;
+  color: darkgreen;
 }
 
 .control-carousel:hover{
-  color: #FE980F ;
+  color: green ;
 }
 
 .right {
@@ -695,6 +701,11 @@ h2.title:before{
   text-transform: uppercase;
 }
 
+.panel-title a:hover{
+  color: green !important;
+  transition: 0.3s;
+}
+
 .panel-group .panel-heading + .panel-collapse .panel-body {
   border-top: 0 none;
 }
@@ -762,9 +773,9 @@ h2.title:before{
 }
 
 .well {
-  background-color: #FFFFFF;
-  border: 1px solid #F7F7F0;
-  border-radius: 4px;
+  background-color: #152232;
+  border: 1px solid #152232;
+  color: #a0b1c5;
   box-shadow: none;
   margin-bottom: 20px;
   min-height: 20px;
@@ -773,9 +784,9 @@ h2.title:before{
 
 
 .tooltip-inner {
-  background-color: #FE980F;
+  background-color: darkgreen;
   border-radius: 4px;
-  color: #FFFFFF;
+  color: #a0b1c5;
   max-width: 200px;
   padding: 3px 8px;
   text-align: center;
@@ -783,7 +794,7 @@ h2.title:before{
 }
 
 .tooltip.top .tooltip-arrow {
-  border-top-color: #FE980F;
+  border-top-color: darkgreen;
   border-width: 5px 5px 0;
   bottom: 0;
   left: 50%;
@@ -819,12 +830,6 @@ h2.title {
 
 .single-products {
   position: relative;
-}
-
-.new, .sale {
-  position: absolute;
-  top: 0;
-  right: 0;
 }
 
 .productinfo h2{
@@ -1134,19 +1139,6 @@ h2.title {
   width: 100%;
 }
 
-.view-product h3 {
-  background: darkgreen;
-  bottom: 0;
-  color: #a0b1c5;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 0;
-  padding: 8px 20px;
-  position: absolute;
-  right: 0;
-}
-
 #similar-product .carousel-inner .item{
 	padding-left:0px;
 }
@@ -1178,12 +1170,6 @@ h2.title {
   padding-left: 60px;
   padding-top: 60px;
   position: relative;
-}
-
-.newarrival{
-	position:absolute;
-	top:0;
-	left:0
 }
 
 .product-information h2 {
@@ -1388,6 +1374,15 @@ h2.title {
 /*************************
 *******Jovana******
 **************************/
+
+.top4{
+  text-align: center;
+  color: #a0b1c5;
+}
+
+.slideshow{
+
+}
 
 .autorizacija{
   display: flex;
