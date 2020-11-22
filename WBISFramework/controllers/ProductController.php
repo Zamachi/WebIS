@@ -14,5 +14,8 @@ class ProductController extends Controller{
 
         return $this->view("products","main",$model);
     }
-
+    public function athorize()
+    {
+        
+    }
 }

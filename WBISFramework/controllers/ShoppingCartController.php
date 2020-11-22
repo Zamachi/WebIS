@@ -12,4 +12,9 @@ class ShoppingCartController extends Controller{
         $model = new cartModel();
         return $this->view("shoppingCart","main",$model);
     }
+
+    public function athorize()
+    {
+        
+    }
 }

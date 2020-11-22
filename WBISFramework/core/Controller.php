@@ -3,7 +3,7 @@
 use app\core\Router;
 namespace app\core;
 
-class Controller
+abstract class Controller
 {
     
     private static Router $ruter;
@@ -42,4 +42,36 @@ class Controller
     {
         return $this->zahtev;
     }
+
+    abstract public function athorize();
+
+    public function checkRole($roles, $user)
+    {
+        $access = false;
+        $guestAccess = false;
+
+        if ($user !== false) {
+            foreach ($roles as $role) {
+                if ($role !== $user->{'roleName'}) {
+                } else {
+                    $access = true;
+                }
+            }
+
+            if (!$access) {
+                Application::$app->response->redirect("/accessDenied");
+            }
+        }
+
+        foreach ($roles as $role) {
+            if ($role === "Guest") {
+                $guestAccess = true;
+            }
+        }
+
+        if (!$guestAccess and !$access) {
+            Application::$app->response->redirect("/login");
+        }
+    }
+
 }

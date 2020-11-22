@@ -4,6 +4,18 @@ use app\core\Field;
 use app\core\Form;
 
 // var_dump($model);
+use app\core\Application;
+
+/** @var $params \app\models\RegisterModel
+ */
+
+$errors = Application::$app->session->getFlash('errors');
+
+if ($errors !== false)
+{
+    $model->greske = $errors;
+}
+
 ?>
 
 <html>

@@ -1,30 +1,58 @@
-<?php 
+<?php
+
 
 namespace app\models;
 
-use app\core\BaseModel;
 
-class LoginModel extends BaseModel{
+use app\core\DBModel;
 
-    public string $mail='';
-    public string $password='';
+class LoginModel extends DBModel
+{
+    public string $mail = '';
+    public string $password = '';
 
-    function rules(): array
+    public function tableName()
+    {
+        return "users";
+    }
+
+    public function attributes(): array
     {
         return [
-            
-            'mail' => [self::RULE_EMAIL,self::RULE_REQUIRED],
-            
-            'password' => [self::RULE_PASSWORD,self::RULE_REQUIRED]
+            'mail',
+            'password'
+        ];
+    }
+
+    public function rules(): array
+    {
+        return [
+            'mail' => [self::RULE_EMAIL, self::RULE_REQUIRED],
+            'password' => [self::RULE_REQUIRED]
         ];
     }
 
     public function labels(): array
     {
         return [
-           
-            'password' => "Enter your password",
-            'mail' => "Enter your email"
+            'mail' => "Email",
+            'password' => "Password"
         ];
+    }
+
+    public function login(LoginModel $model)
+    {
+        $modelDB = new LoginModel();
+
+        $modelDB->loadData($model->one("mail = '$model->mail';"));
+
+        if ($modelDB !== null)
+        {
+            if (password_verify($model->password, $modelDB->password)){
+                return true;
+            }
+        }
+
+        return false;
     }
 }

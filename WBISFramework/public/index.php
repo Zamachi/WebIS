@@ -19,7 +19,7 @@ $app->ruter->get("/register",[AuthController::class,'register']);
 $app->ruter->get("/shoppingCart",[ShoppingCartController::class,'cart']); 
 $app->ruter->get("/products",[ProductController::class, 'products']); 
 $app->ruter->get("/productDetails","productDetails"); #TODO: figure out what to do with this
-
+$app->ruter->get("/logout", [AuthController::class, 'logout']);
 $app->ruter->post("/loginProcess",[AuthController::class,'loginProcess']);
 $app->ruter->post("/registerProcess",[AuthController::class,'registerProcess']);
 

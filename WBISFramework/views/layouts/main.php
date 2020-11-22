@@ -1,9 +1,15 @@
 <?php
-	if(isset($_GET)){
 
-		if(isset($_GET['logout']) && $_GET['logout'] ==1)
-			session_unset();
+use app\controllers\AuthController;
+
+if(isset($_GET)){
+
+		if(isset($_GET['logout']) && $_GET['logout'] ==1){
+			//return call_user_func([[new AuthController(),'logout'] ]);
 	}
+}
+	
+
 ?>
 
 <!DOCTYPE html>
@@ -71,7 +77,7 @@
 								
 								<?php if (isset($_SESSION["is_ulogovan"])): ?>
 
-									<li><a href="/home?logout=1"><i class="fa fa-sign-out"></i> Logout</a></li>
+									<li><a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
 
 								<?php else: ?>
 									<li><a href="/register"><i class="fa fa-users"></i> Register</a></li>
@@ -101,7 +107,7 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.html" class="active">Home</a></li>
+								<li><a href="/home" class="active">Home</a></li>
 								<li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="/products">Products</a></li>
