@@ -14,11 +14,21 @@ class ProductController extends Controller{
         $tags = new TagsModel();
         $developers = new DevelopersModel();
 
-        $model['products'] = $products->all();
+        $model['products'] = $products->gameSearch();
         $model['tags'] = $tags->all();
         $model['developers'] = $developers->all();
         return $this->view("products","main",$model);
     }
+
+    public function productDetails()
+    {
+       $model = new ProductModel();
+
+       $model = $model->fetchCodes((int)$_REQUEST['game_id']);
+
+       return $this->view("productDetails","main",$model);
+    }
+
     public function athorize()
     {
         return [

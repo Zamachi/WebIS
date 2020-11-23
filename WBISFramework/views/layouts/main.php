@@ -154,8 +154,8 @@ if ($errors !== false)
 					</div>
 					<div class="col-sm-3">
 						<div class="search_box pull-right">
-							<form action="">
-								<input type="search" placeholder="Search"/>
+							<form action="/products" method="GET">
+								<input type="search" name="search" placeholder="Search"/>
 							</form>
 						</div>
 					</div>

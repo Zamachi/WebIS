@@ -3,6 +3,8 @@
 // var_dump($products);
 // var_dump($tags);
 // var_dump($developers);
+
+
 ?>
 
 <section>
@@ -57,7 +59,6 @@
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Game List</h2>
 						<?php
-
 							foreach ($products as $key=>$value) { 
 								echo "<div class='col-sm-4'>";
 									echo "<div class='product-image-wrapper'>";
@@ -66,15 +67,7 @@
 												echo "<img src='".$value['image']."' alt='slika ne radi'>";
 												echo "<h2>".$value['current_price']." $</h2>";
 												echo "<p>".$value['title']."</p>";
-												echo "<a href='/products?addToCart=1?game_id=".$value['game_id']."' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a>";
-											echo "</div>";
-											echo "<div class='product-overlay'>";
-												echo "<div class='overlay-content'>";
-													echo "<img src='".$value['image']."' alt='slika ne radi'>";
-													echo "<h2>".$value['current_price']."</h2>";
-													echo "<p>".$value['title']."</p>";
-													echo "<a href='/products?addToCart=1?game_id=".$value['game_id']."' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a>";
-												echo "</div>";
+												echo "<a href='/products?addToCart=1&game_id=".$value['game_id']."' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a>";
 											echo "</div>";
 										echo "</div>";
 										echo "<div class='choose'>";

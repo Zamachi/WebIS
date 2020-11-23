@@ -5,7 +5,8 @@ namespace app\models;
 use app\core\BaseModel;
 use app\core\DBModel;
 
-class ProductModel extends DBModel{
+class ProductModel extends DBModel
+{
 
     public $game_id;
     public $title;
@@ -20,7 +21,8 @@ class ProductModel extends DBModel{
         return [];
     }
 
-    function tableName(){
+    function tableName()
+    {
         return "games";
     }
 
@@ -59,5 +61,63 @@ class ProductModel extends DBModel{
         $tagsModel->create();
 
         return true;
+    }
+
+    public function gameSearch()
+    {
+
+        if (!empty($_REQUEST)) {
+
+            switch ((array_keys($_REQUEST)[0])) {
+                case 'search':
+                    $queryString = $_REQUEST['search'];
+                    $sql = "SELECT *
+                FROM 
+                    `games`
+                WHERE UPPER(`title`) LIKE '%" . $queryString . "%'";
+                    break;
+                case 'tag_id':
+                    $queryString = (int)$_REQUEST['tag_id'];
+                    $sql = "SELECT g.*
+                    FROM `games` g INNER JOIN `games_tags` gt ON g.game_id = gt.game_id INNER JOIN `tags` t ON gt.tag_id = t.tag_id
+                    WHERE `gt`.`tag_id` = " . $queryString . "";
+                    break;
+                case 'developer_id':
+                    $queryString = (int)$_REQUEST['developer_id'];
+                    $sql = "SELECT g.*
+                    FROM `games` g INNER JOIN `developed_by` dbt ON g.game_id = dbt.game_id INNER JOIN `developers` t ON dbt.developer_id = t.developer_id
+                    WHERE `dbt`.`developer_id` = " . $queryString . "";
+                    break;
+
+                default:
+                    return "Greska";
+                    exit;
+            }
+
+            $dataResult = $this->dbConnection->conn()->query($sql) or die();
+            $resultArray = [];
+
+            while ($result = $dataResult->fetch_assoc()) {
+                array_push($resultArray, $result);
+            }
+
+            return $resultArray;
+        } else {
+            return $this->all();
+        }
+    }
+    public function fetchCodes($game_id)
+    {
+            $sql = "SELECT g.*,c.*
+            FROM `games` g INNER JOIN codes c ON c.game_id = ".$game_id.";";
+
+            $dataResult = $this->dbConnection->conn()->query($sql) or die();
+            $resultArray = [];
+
+            while ($result = $dataResult->fetch_assoc()) {
+                array_push($resultArray, $result);
+            }
+
+            return $resultArray;
     }
 }

@@ -4,7 +4,7 @@ namespace app\models;
 
 use app\core\BaseModel;
 
-class cartModel extends BaseModel{
+class CartModel extends BaseModel{
 
     public $polje;//TODO: dodati potrebna polja
 
