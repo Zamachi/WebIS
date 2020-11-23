@@ -15,6 +15,10 @@ class ShoppingCartController extends Controller{
 
     public function athorize()
     {
-        
+        return [
+            'User',
+            'Admin',
+            'SuperAdmin'
+        ];
     }
 }

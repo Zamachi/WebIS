@@ -1,3 +1,10 @@
+<?php
+
+// var_dump($products);
+// var_dump($tags);
+// var_dump($developers);
+?>
+
 <section>
 		<div class="container">
 			<div class="row">
@@ -5,93 +12,32 @@
 					<div class="left-sidebar">
 						<h2>Tags</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
-						<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">2D</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Fantasy</a></h4>
-								</div>
-							</div>
-							
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">FPS</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Horror</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Indie</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Medieval</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">MMO</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Multiplayer</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Roguelike</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">RPG</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">RTS</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Sandbox</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Singleplayer</a></h4>
-								</div>
-							</div>
+							<!-- TODO: ovde for petljom ispisati elemennte liste -->
+							<?php
+
+							foreach ($tags as $key=>$value) { 
+								echo "<div class='panel panel-default'>";
+									echo "<div class='panel-heading'>";
+										echo "<h4 class='panel-title'><a href='/products?tag_id=".$value['tag_id']."'>".$value['tag_name']."</a></h	4>";
+									echo "</div>";
+								echo "</div>";
+							}
+								
+							?>
 						</div>
 					
 						<div class="brands_products">
 							<h2>Developers</h2>
 							<div class="brands-name">
 								<ul class="nav nav-pills nav-stacked">
-									<li><a href=""> <span class="pull-right">(0)</span>Bethesda Softworks</a></li>
-									<li><a href=""> <span class="pull-right">(0)</span>Blizzard Entertainment</a></li>
-									<li><a href=""> <span class="pull-right">(0)</span>Capcom</a></li>
-									<li><a href=""> <span class="pull-right">(0)</span>CD Projekt</a></li>
-									<li><a href=""> <span class="pull-right">(0)</span>EA Games</a></li>
-									<li><a href=""> <span class="pull-right">(0)</span>Epic Games</a></li>
-									<li><a href=""> <span class="pull-right">(0)</span>NCsoft</a></li>
-									<li><a href=""> <span class="pull-right">(0)</span>Paradox Development Studio</a></li>
-									<li><a href=""> <span class="pull-right">(0)</span>Rockstar</a></li>
-									<li><a href=""> <span class="pull-right">(0)</span>Square Enix</a></li>
-									<li><a href=""> <span class="pull-right">(0)</span>THQ</a></li>
-									<li><a href=""> <span class="pull-right">(0)</span>Ubisoft</a></li>
-									<li><a href=""> <span class="pull-right">(0)</span>Valve Corporation</a></li>
-									<li><a href=""> <span class="pull-right">(0)</span>XL Games</a></li>
-									<li><a href=""> <span class="pull-right">(0)</span>Zenimax Media</a></li>
+									<!-- TODO: ovde for petljom ispisati elemennte liste -->
+									<?php
+
+										foreach ($developers as $key=>$value) { 
+											echo "<li><a href='/products?developer_id=".$value['developer_id']."'> <span class='pull-right'>(0)</span>".$value['developer_name']."</a></li>";
+										}
+								
+									?>
 								</ul>
 							</div>
 						</div>
@@ -110,302 +56,37 @@
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Game List</h2>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/shop/product12.jpg" alt="">
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="/productDetails"><i class="fa fa-plus-square"></i>Description</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/shop/product11.jpg" alt="">
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="/productDetails"><i class="fa fa-plus-square"></i>Description</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/shop/product10.jpg" alt="">
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="/productDetails"><i class="fa fa-plus-square"></i>Description</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/shop/product9.jpg" alt="">
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="/productDetails"><i class="fa fa-plus-square"></i>Description</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/shop/product8.jpg" alt="">
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="/productDetails"><i class="fa fa-plus-square"></i>Description</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/shop/product7.jpg" alt="">
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="/productDetails"><i class="fa fa-plus-square"></i>Description</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product6.jpg" alt="">
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="/productDetails"><i class="fa fa-plus-square"></i>Description</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product5.jpg" alt="">
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="/productDetails"><i class="fa fa-plus-square"></i>Description</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product4.jpg" alt="">
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="/productDetails"><i class="fa fa-plus-square"></i>Description</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product3.jpg" alt="">
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="/productDetails"><i class="fa fa-plus-square"></i>Description</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product2.jpg" alt="">
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="/productDetails"><i class="fa fa-plus-square"></i>Description</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product1.jpg" alt="">
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-									<li><a href="/productDetails"><i class="fa fa-plus-square"></i>Description</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						
+						<?php
+
+							foreach ($products as $key=>$value) { 
+								echo "<div class='col-sm-4'>";
+									echo "<div class='product-image-wrapper'>";
+										echo "<div class='single-products'>";
+											echo "<div class='productinfo text-center'>";
+												echo "<img src='".$value['image']."' alt='slika ne radi'>";
+												echo "<h2>".$value['current_price']." $</h2>";
+												echo "<p>".$value['title']."</p>";
+												echo "<a href='/products?addToCart=1?game_id=".$value['game_id']."' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a>";
+											echo "</div>";
+											echo "<div class='product-overlay'>";
+												echo "<div class='overlay-content'>";
+													echo "<img src='".$value['image']."' alt='slika ne radi'>";
+													echo "<h2>".$value['current_price']."</h2>";
+													echo "<p>".$value['title']."</p>";
+													echo "<a href='/products?addToCart=1?game_id=".$value['game_id']."' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a>";
+												echo "</div>";
+											echo "</div>";
+										echo "</div>";
+										echo "<div class='choose'>";
+											echo "<ul class='nav nav-pills nav-justified'>";
+												echo "<li><a href='/productDetails?game_id=".$value['game_id']."'><i class='fa fa-plus-square'></i>".$value['description']."</a></li>";
+											echo "</ul>";
+										echo "</div>";
+									echo "</div>";
+								echo "</div>";
+							}
+					
+						?>
 						<ul class="pagination">
 							<li class="active"><a href="">1</a></li>
 							<li><a href="">2</a></li>

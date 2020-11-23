@@ -1,4 +1,13 @@
 
+<?php
+
+use app\core\Application;
+// var_dump($model);
+
+$success = Application::$app->session->getAuth('user');
+
+?>
+
 <section id="slider"><!--slider-->
 		<div class="container">
 			<div class="row">
@@ -12,20 +21,26 @@
 						
 						<div class="carousel-inner">
 							<div class="item active">
-								<div>
-									<img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
-								</div>
+								<a href="/productModel?game_id=<?php echo $model[0]['game_id'];?>">
+									<div>
+										<img src="<?php echo $model[0]['image']; ?>" class="girl img-responsive" alt="image not found" />
+									</div>
+								</a>
 							</div>
 							<div class="item">
-								<div>
-									<img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
-								</div>
+								<a href="/productModel?game_id=<?php echo $model[1]['game_id'];?>">
+									<div>
+										<img src="<?php echo $model[1]['image']; ?>" class="girl img-responsive" alt="image not found" />
+									</div>
+								</a>
 							</div>
 							
 							<div class="item">
-								<div>
-									<img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
-								</div>
+								<a href="/productModel?game_id=<?php echo $model[2]['game_id'];?>">
+									<div>
+										<img src="<?php echo $model[2]['image']; ?>" class="girl img-responsive" alt="image not found" />
+									</div>
+								</a>
 							</div>
 							
 						</div>

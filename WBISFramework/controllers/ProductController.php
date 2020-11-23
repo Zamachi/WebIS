@@ -2,20 +2,30 @@
 namespace app\controllers;
 
 use app\core\Controller;
+use app\models\DevelopersModel;
 use app\models\ProductModel;
+use app\models\TagsModel;
 
 class ProductController extends Controller{
 
     public function products()
     {
-        $model = new ProductModel();
+        $products = new ProductModel();
+        $tags = new TagsModel();
+        $developers = new DevelopersModel();
 
-        //TODO: napraviti telo funkcije
-
+        $model['products'] = $products->all();
+        $model['tags'] = $tags->all();
+        $model['developers'] = $developers->all();
         return $this->view("products","main",$model);
     }
     public function athorize()
     {
-        
+        return [
+            "SuperAdmin",
+            "Admin",
+            "User"
+        ];
     }
+    
 }

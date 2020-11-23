@@ -13,7 +13,9 @@ class UserModel extends DBModel
     public string $datumRodjenja = '';
     public string $username = '';
     public string $role_name = '';
+    public $account_balance = 0;
     public $user_id = '';
+    public $avatar = '';
 
     public function tableName()
     {
@@ -28,7 +30,9 @@ class UserModel extends DBModel
             'datumRodjenja',
             'username',
             'role_name',
-            'user_id'
+            'user_id',
+            'avatar',
+            'account_balance'
         ];
     }
 
@@ -54,7 +58,9 @@ class UserModel extends DBModel
                         u.datumRodjenja,
                         u.username, 
                         r.role_name, 
-                        u.user_id
+                        u.user_id,
+                        u.avatar,
+                        u.account_balance
                 from users u
                 inner join user_roles ur on u.user_id = ur.user_id
                 inner join roles r on r.role_id = ur.role_id

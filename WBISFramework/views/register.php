@@ -18,7 +18,7 @@ if ($errors !== false)
 
 ?>
 
-<html>
+
 <main class="wrapper">
     <div class="middle">
         <!-- <form> -->
@@ -36,5 +36,29 @@ if ($errors !== false)
         <a href="/login" class="redirect-button">Already a member? Login here</a></br>
     </div>
 </main>
+<?php
 
-</html>
+$success = Application::$app->session->getFlash('success');
+
+if ($success !== false)
+{
+    echo "
+        <script>
+            $(document).ready(function (){
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+
+
+                Toast.fire({
+                    icon: 'success',
+                    title: '$success'
+                })
+            });
+        </script>
+        ";
+}
+?>

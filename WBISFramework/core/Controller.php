@@ -13,6 +13,11 @@ abstract class Controller
         self::$ruter = new Router();
         $this->konekcija = new DBConnection();
         $this->zahtev = new Request();
+
+        $roles = $this->athorize();
+        $user = Application::$app->session->getAuth('user');
+     
+        $this->checkRole($roles, $user);
     }
 
     /**
@@ -52,7 +57,7 @@ abstract class Controller
 
         if ($user !== false) {
             foreach ($roles as $role) {
-                if ($role !== $user->{'roleName'}) {
+                if ($role !== $user->{'role_name'}) {
                 } else {
                     $access = true;
                 }
