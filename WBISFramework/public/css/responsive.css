@@ -5,8 +5,17 @@
 
 /* md */
 @media (min-width: 992px) and (max-width: 1199px) {
- 
- 
+
+.text-highlight{
+	font-size: 1.4rem !important;
+}	
+
+.girl {
+	width: 900px;
+	height: 400px;
+	overflow: hidden;
+}	
+
 .usa{
 	margin-right: 0;
 } 
@@ -37,7 +46,17 @@
 
 /* sm */
 @media (min-width: 768px) and (max-width: 991px) {
-   
+
+.text-highlight{
+	font-size: 1.3rem !important;
+}
+
+.girl {
+	width: 800px;
+	height: 350px;
+	overflow: hidden;
+}	
+
 .shop-menu ul li a{
 	padding-left: 0;
 }
@@ -124,6 +143,21 @@
 
 /* xs */
 @media (max-width: 767px) {
+
+.productinfo img{
+	width: 450px;
+	height: 350px;
+}
+
+.text-highlight{
+	font-size: 1.2rem !important;
+}
+
+.girl {
+	width: 500px;
+	height: 200px;
+	overflow: hidden;
+}
 
 .header_top .col-sm-6:first-child{
 	display: inline-block;
@@ -281,9 +315,24 @@ ul.sub-menu{
 /* XS Portrait */
 @media (max-width: 480px) {
 
+.productinfo img{
+	width: 400px;
+	height: 300px;
+}
+
 .contactinfo{
 	text-align: center;
 }
+
+.girl {
+	width: 350px;
+	height: 170px;
+	overflow: hidden;
+}
+
+.text-highlight{
+	font-size: 1rem !important;
+  }
 
 .contactinfo ul li a {
 	padding-right: 15px;

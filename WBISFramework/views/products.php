@@ -63,23 +63,16 @@
 									echo "<div class='product-image-wrapper'>";
 										echo "<div class='single-products'>";
 											echo "<div class='productinfo text-center'>";
-												echo "<img src='".$value['image']."' alt='slika ne radi'>";
+												echo "<a href='/productDetails?game_id=".$value['game_id']."'><img src='".$value['image']."' alt='slika ne radi'></a>";
 												echo "<h2>".$value['current_price']." $</h2>";
 												echo "<p>".$value['title']."</p>";
 												echo "<a href='/products?addToCart=1?game_id=".$value['game_id']."' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a>";
 											echo "</div>";
-											echo "<div class='product-overlay'>";
-												echo "<div class='overlay-content'>";
-													echo "<img src='".$value['image']."' alt='slika ne radi'>";
-													echo "<h2>".$value['current_price']."</h2>";
-													echo "<p>".$value['title']."</p>";
-													echo "<a href='/products?addToCart=1?game_id=".$value['game_id']."' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a>";
-												echo "</div>";
-											echo "</div>";
+											
 										echo "</div>";
 										echo "<div class='choose'>";
 											echo "<ul class='nav nav-pills nav-justified'>";
-												echo "<li><a href='/productDetails?game_id=".$value['game_id']."'><i class='fa fa-plus-square'></i>".$value['description']."</a></li>";
+												echo "<li class='text-item'>".$value['description']."</li>";
 											echo "</ul>";
 										echo "</div>";
 									echo "</div>";

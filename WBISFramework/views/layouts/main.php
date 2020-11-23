@@ -57,8 +57,8 @@ if ($errors !== false)
 			<div class="container">
 				<div class="row">
 
-					<div class="col-sm-6" style="height: 46px;">
-						<div class="social-icons pull-right">
+					<div class="col-sm-6">
+						<div class="social-icons pull-left">
 							<ul class="nav navbar-nav">
 								<li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
 								<li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
@@ -69,11 +69,11 @@ if ($errors !== false)
 						</div>
 					</div>
 
-					<div class="col-sm-6">
-						<div class="social-icons pull-right">
+					<div class="col-sm-6 col-sm-6-v">
+						<div>
 							<?php 
 								if (isset($_SESSION["is_ulogovan"])){
-									echo "<span style='color:white;'>Welcome, {$_SESSION['user']->username}! | Account balance: {$_SESSION['user']->account_balance} $ | <a href='/profile?user_id={$_SESSION['user']->user_id}'><div id=\"profile\" style=\"display: inline-block; width: 48px; height: 48px; border: 1px solid rgb(0,255,255);\"><img style=\"height: 100%; width: 100%;\" src='{$_SESSION['user']->avatar}' alt=\"?\"></div></a></span>";
+									echo "<span style='color:#a0b1c5;'>Welcome, {$_SESSION['user']->username}! | Account balance: {$_SESSION['user']->account_balance} $ | <a href='/profile?user_id={$_SESSION['user']->user_id}'><div id=\"profile\" style=\"display: inline-block; width: 48px; height: 48px; border: 1px solid rgb(0,255,255);\"><img style=\"height: 100%; width: 100%;\" src='{$_SESSION['user']->avatar}' alt=\"?\"></div></a></span>";
 								}
 
 							?>

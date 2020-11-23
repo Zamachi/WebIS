@@ -76,6 +76,11 @@ a#scrollUp i{
 .col-sm-6{
   display: flex;
   align-items: center;
+  flex-direction: row;
+}
+
+.col-sm-6-v{
+  flex-direction: row-reverse !important;
 }
 
 .social-icons ul li a {
@@ -83,8 +88,12 @@ a#scrollUp i{
   padding:0px;
 }
 
+.social-icons ul{
+  margin-top: 5px;
+}
+
 .social-icons ul li{
-	display:inline-block;
+	display: inline-block;
 }
 
 .social-icons ul li a i {
@@ -563,10 +572,6 @@ ul.sub-menu {
   top: 52%;
 }
 
-.girl {
-  margin-left: 0;
-}
-
 .item h1 {
   color: #B4B1AB;
   font-family: abel;
@@ -854,7 +859,9 @@ h2.title {
 }
 
 .productinfo img{
-  width: 100%;
+  width: 255px;
+  height: 200px;
+  overflow: hidden;
 }
 
 .productinfo{
@@ -1127,8 +1134,6 @@ h2.title {
   margin-top: 10px;
 }
 
-
-
 .view-product {
   position: relative;
 }
@@ -1375,13 +1380,46 @@ h2.title {
 *******Jovana******
 **************************/
 
-.top4{
-  text-align: center;
-  color: #a0b1c5;
+
+
+.girl {
+  width: 1000px;
+  height: 500px;
+  overflow: hidden;
 }
 
-.slideshow{
+.img{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 
+.text-box{
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  width: 85%;
+  transform: translate(-50%, -50%);
+  background-color: #0B1622;
+  border: 1px solid black;
+  opacity: 0.7;
+}
+
+.text-box p{
+  color: white !important;
+  font-weight: bold !important;
+  text-align: center;
+}
+
+.text-blog{
+  color: #a0b1c5 !important;
+  font-weight: bold !important;
+  text-align: center;
+}
+
+.text-item{
+  color: #a0b1c5 !important;
+  text-align: center;
 }
 
 .autorizacija{
@@ -2099,10 +2137,10 @@ h2.title {
 }
 
 .pager-area .pager li a {
-  background:#F0F0E9;
+  background:#152232;
   border: 0 none;
   border-radius: 0;
-  color: #696763;
+  color: #a0b1c5;
   font-size: 12px;
   font-weight: 700;
   padding: 4px;
@@ -2112,8 +2150,9 @@ h2.title {
 
 .pager-area 
 .pager li a:hover {
-  background: #FE980F;
-  color: #fff
+  background: green;
+  color: #a0b1c5;
+  transition: 0.4s;
 }
 
 .rating-area {
