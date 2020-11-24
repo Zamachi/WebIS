@@ -17,6 +17,7 @@
 
         .autorizacija > form > * { margin-top: 1em;}
     </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <body>
     <main class="autorizacija">
@@ -25,6 +26,5 @@
             {{ renderSection }}
             <a href="/index" class="back-button">Go back</a>
     </main>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>
 </html>

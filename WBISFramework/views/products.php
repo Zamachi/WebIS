@@ -14,7 +14,7 @@
 					<div class="left-sidebar">
 						<h2>Tags</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
-							<!-- TODO: ovde for petljom ispisati elemennte liste -->
+							
 							<?php
 
 							foreach ($tags as $key=>$value) { 
@@ -32,7 +32,7 @@
 							<h2>Developers</h2>
 							<div class="brands-name">
 								<ul class="nav nav-pills nav-stacked">
-									<!-- TODO: ovde for petljom ispisati elemennte liste -->
+								
 									<?php
 
 										foreach ($developers as $key=>$value) { 
