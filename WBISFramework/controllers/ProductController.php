@@ -14,7 +14,7 @@ class ProductController extends Controller{
         $tags = new TagsModel();
         $developers = new DevelopersModel();
 
-        $model['products'] = $products->gameSearch();
+        $model['products'] = $products->gameSearch($_REQUEST);
         $model['tags'] = $tags->all();
         $model['developers'] = $developers->all();
         return $this->view("products","main",$model);
