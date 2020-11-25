@@ -1474,7 +1474,7 @@ h2.title {
   flex-direction: column;
 }
 
-.login-form, .register-form{
+.login-form, .register-form, .upload-form, .news-form{
   background: #152232;
   border: 0.15em solid #1f2c3d;
   color: #a0b1c5;
@@ -1485,7 +1485,7 @@ h2.title {
   flex-direction: column;
 }
 
-.mail, .password, .date, .country, .username, .confirmPassword{
+.mail, .password, .date, .country, .username, .confirmPassword, .title{
   background: #0B1622;
   color: #a0b1c5;
   border: 0.1em solid #0B1622;
@@ -1499,7 +1499,7 @@ h2.title {
   margin-bottom: 0.5em;
 }
 
-.login-button, .register-button, .reset-button, .back-button{
+.login-button, .register-button, .reset-button, .back-button, .news-button, .upload-button{
   background: #0B1622;
   color: #a0b1c5;
   border: 0.1em solid #0B1622;
@@ -1515,14 +1515,14 @@ h2.title {
   width: 7em;
 }
 
-.login-button:hover, .register-button:hover, .reset-button:hover, .back-button:hover{
+.login-button:hover, .register-button:hover, .reset-button:hover, .back-button:hover, .news-button:hover, .upload-button:hover{
   background: darkgreen;
   border: 0.1em solid #0B1622;
   color: #0B1622;
   transition: 0.5s;
 }
 
-.mail:focus, .password:focus, .date:focus, .country:focus, .username:focus, .confirmPassword:focus{
+.mail:focus, .password:focus, .date:focus, .country:focus, .username:focus, .confirmPassword:focus, .title:focus, .description:focus{
   border: 0.1em solid darkgreen;
   transition: 0.3s;
 }

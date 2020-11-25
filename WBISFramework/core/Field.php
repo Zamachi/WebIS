@@ -39,6 +39,7 @@ class Field
         " United Kingdom", " United States", " Uruguay", " Uzbekistan", " Vanuatu", " Venezuela", " Vietnam", " Virgin Islands",
         " Wake Island", " Wallis and Futuna", " West Bank", " Western Sahara", " Yemen", " Zambia", " Zimbabwe"
     ];
+
     public $model;
     public $attribute;
     public $type;
@@ -97,6 +98,26 @@ class Field
         return $label ."<input required type=\"date\" name=\"datumRodjenja\" id=\"birthday\" maxlength=\"4\" class=\"date\" placeholder=\"Year...\" max=\"$birthday\">";
           
     }
+
+    /*
+    public static function inputGame($name,$class)
+    {  
+        $label= "<label for='$name' class='upload-label'>Choose the Game:</label><br>";
+            $opening = "<select name='$name' class='$class'>";
+            $closing = "</select>";
+            $niz=[];
+            foreach (self::games as $game) {
+                    
+                    array_push($niz,"<option value='$game'>$game</option>");
+            }
+
+            return $label . $opening . implode("<br>",$niz) . $closing;
+    }
+
+    Proveri i ovo, pretpostavljam da treba da se izmeni foreach jer treba da dohvatimo igrice iz baze
+
+    */
+
 }  
 
 ?>
