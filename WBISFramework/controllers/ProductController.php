@@ -14,9 +14,22 @@ class ProductController extends Controller{
         $tags = new TagsModel();
         $developers = new DevelopersModel();
 
-        $model['products'] = $products->gameSearch($_REQUEST);
+        $current_page = $_GET['page'] ?? 1;
+        $items_per_page = 9;
+        $start_from = ($current_page - 1) * $items_per_page;
+
+        $filter = null;
+        if(isset(array_keys($_REQUEST)[0])){
+            $filter = in_array( array_keys($_REQUEST)[0]  ,["search","developer_id","tag_id"] ) ? $_REQUEST:null;
+        }
+      
+        $rezultat = $products->gameSearch( $filter , $start_from , $items_per_page );
+        $model['products'] = $rezultat[0];
         $model['tags'] = $tags->all();
         $model['developers'] = $developers->all();
+        $model['total_pages']= ceil( $rezultat[1]/ $items_per_page );
+        $model['current_page'] = $current_page;
+
         return $this->view("products","main",$model);
     }
 

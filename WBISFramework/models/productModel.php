@@ -63,7 +63,7 @@ class ProductModel extends DBModel
         return true;
     }
 
-    public function gameSearch($parametri)
+    public function gameSearch($parametri,$start,$how_much)
     {
 
         if (!empty($parametri)) {
@@ -74,7 +74,7 @@ class ProductModel extends DBModel
                     $sql = "SELECT *
                 FROM 
                     `games`
-                WHERE UPPER(`title`) LIKE '%" . $queryString . "%'";
+                WHERE UPPER(`title`) LIKE '%" . $queryString . "%' LIMIT $start,$how_much";
                     break;
                 case 'tag_id':
                     $queryString = (int)$parametri['tag_id'];
@@ -100,11 +100,10 @@ class ProductModel extends DBModel
             while ($result = $dataResult->fetch_assoc()) {
                 array_push($resultArray, $result);
             }
-
-            return $resultArray;
         } else {
-            return $this->all();
+            $resultArray = $this->all();
         }
+        return [array_slice($resultArray,$start,$how_much),count($resultArray)];
     }
     public function fetchCodes($game_id)
     {

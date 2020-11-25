@@ -43,15 +43,6 @@
 								</ul>
 							</div>
 						</div>
-						
-						<div class="price-range"><!--price-range-->
-							<h2>Price Range</h2>
-							<div class="well">
-								 <div class="slider slider-horizontal" style="width: 166px;"><div class="slider-track"><div class="slider-selection" style="left: 41.6667%; width: 33.3333%;"></div><div class="slider-handle round left-round" style="left: 41.6667%;"></div><div class="slider-handle round" style="left: 75%;"></div></div><div class="tooltip top" style="top: -29px; left: 63.75px;"><div class="tooltip-arrow"></div><div class="tooltip-inner">250 : 450</div></div><input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" style=""></div><br>
-								 <b>$ 0</b> <b class="pull-right">$ 600</b>
-							</div>
-						</div><!--/price-range-->
-						
 					</div>
 				</div>
 				
@@ -67,12 +58,12 @@
 												echo "<a href='/productDetails?game_id=".$value['game_id']."'><img src='".$value['image']."' alt='slika ne radi'></a>";
 												echo "<h2>".$value['current_price']." $</h2>";
 												echo "<p>".$value['title']."</p>";
-												echo "<a href='/products?addToCart=1&game_id=".$value['game_id']."' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a>";
+												//echo "<a href='/products?addToCart=1&game_id=".$value['game_id']."' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a>";
 											echo "</div>";
 										echo "</div>";
 										echo "<div class='choose'>";
 											echo "<ul class='nav nav-pills nav-justified'>";
-												echo "<li class='text-item'>".$value['description']."</li>";
+												echo "<li class='text-item'><a href='/productDetails?game_id=".$value['game_id']."'>".( strlen($value['description']) > 100 ? substr_replace($value['description'],"...READ MORE",100):$value['description'] )."</a></li>";
 											echo "</ul>";
 										echo "</div>";
 									echo "</div>";
@@ -80,12 +71,17 @@
 							}
 					
 						?>
-						<ul class="pagination">
-							<li class="active"><a href="">1</a></li>
-							<li><a href="">2</a></li>
-							<li><a href="">3</a></li>
-							<li><a href="">»</a></li>
-						</ul>
+						<div class="col-sm-12">
+							<ul class="pagination">
+								<?php for($i = 1 ; $i <= $model['total_pages']; $i++): ?>
+									<?php if ($i == $model['current_page']): ?>
+										<li class="active"><a><?php echo $i; ?></a></li>
+									<?php else: ?>
+										<li><a href="/products?page=<?php echo $i?>"><?php echo $i; ?></a></li>
+									<?php endif; ?>
+								<?php endfor; ?>
+							</ul>
+						</div>
 					</div><!--features_items-->
 				</div>
 			</div>
