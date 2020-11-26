@@ -75,9 +75,9 @@
 							<ul class="pagination">
 								<?php for($i = 1 ; $i <= $model['total_pages']; $i++): ?>
 									<?php if ($i == $model['current_page']): ?>
-										<li class="active"><a><?php echo $i; ?></a></li>
+										<li class="active pages" data-id="<?php echo $i; ?>" id="stranica<?php echo $i; ?>"><a><?php echo $i; ?></a></li>
 									<?php else: ?>
-										<li><a href="/products?page=<?php echo $i?>"><?php echo $i; ?></a></li>
+										<li class="pages"><a href="/products?page=<?php echo $i?>"><?php echo $i; ?></a></li>
 									<?php endif; ?>
 								<?php endfor; ?>
 							</ul>
@@ -87,3 +87,39 @@
 			</div>
 		</div>
 	</section>
+	<script src="js/site.js"></script>
+<script>
+	$(document).ready(function(params) {
+		var url = "/productsJSON";
+		var numberOfPage = "";
+		var numberOfRows = "";
+		var search = "";
+		var moreData = True;
+		
+		loadMoreData($("#tableBody"),$("#loadMoreBtn"),$("#progress"),url,numberOfPage,numberOfRows,search);
+
+		$("").change(function (param) {  
+			numberOfRows = $("").val();
+			numberOfPage = 0;
+
+			loadMoreData($("#tableBody"),$("#loadMoreBtn"),$("#progress"),url,numberOfPage,numberOfRows,search);
+
+
+		});
+		$("").change(function (param) {  
+			search = $("").val();
+			numberOfPage = 0;
+
+			loadMoreData($("#tableBody"),$("#loadMoreBtn"),$("#progress"),url,numberOfPage,numberOfRows,search);
+
+			$("#").html("Ne postoji vise podataka!");
+						$("#").prop("disabled",true);
+		});
+
+		$(".pages").click(function (param) { 
+			loadMoreData($("#tableBody"),$("#loadMoreBtn"),$("#progress"),url,this.attr(data-id),numberOfRows,search);
+			//this.attr(data-id);
+		});
+
+	});
+</script>

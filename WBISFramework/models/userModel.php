@@ -64,7 +64,7 @@ class UserModel extends DBModel
                 from users u
                 inner join user_roles ur on u.user_id = ur.user_id
                 inner join roles r on r.role_id = ur.role_id
-                where `mail` ='$email'";
+                where `mail` ='$email' AND `u`.`is_active` = 1";
 
         $dataResult = $db->query($sqlString) or die();
 
