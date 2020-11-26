@@ -29,6 +29,7 @@ class ProductController extends Controller{
         $model['developers'] = $developers->all();
         $model['total_pages']= ceil( $rezultat[1]/ $items_per_page );
         $model['current_page'] = $current_page;
+        $model['items_per_page'] = $items_per_page;
 
         return $this->view("products","main",$model);
     }

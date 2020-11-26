@@ -48,7 +48,14 @@ if ($errors !== false)
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
+	
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/price-range.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
 </head><!--/head-->
 
 <body>
@@ -96,7 +103,7 @@ if ($errors !== false)
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+								<li><a href="/profile?user_id=<?php if(isset($_SESSION['is_ulogovan'])) { echo $_SESSION['user']->user_id; }?>"><i class="fa fa-user"></i> Account</a></li>
 								<li><a href="/shoppingCart"><i class="fa fa-shopping-cart"></i> Cart <span> (<?php echo isset($_SESSION['brojStavki']) ? $_SESSION['brojStavki']:0;?>)</span></a></li>
 								
 								<?php if (isset($_SESSION["is_ulogovan"])): ?>
@@ -155,7 +162,7 @@ if ($errors !== false)
 					<div class="col-sm-3">
 						<div class="search_box pull-right">
 							<form action="/products" method="GET">
-								<input type="search" name="search" placeholder="Search"/>
+								<input type="search" id="pretraga" name="search" placeholder="Search"/>
 							</form>
 						</div>
 					</div>
@@ -220,14 +227,5 @@ if ($errors !== false)
 		</div>
 		
 	</footer><!--/Footer-->
-	
-
-  
-    <script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.scrollUp.min.js"></script>
-	<script src="js/price-range.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
 </body>
 </html>

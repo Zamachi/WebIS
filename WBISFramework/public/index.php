@@ -19,6 +19,7 @@ $app->ruter->get("/register",[AuthController::class,'register']);
 $app->ruter->get("/shoppingCart",[ShoppingCartController::class,'cart']); 
 $app->ruter->get("/profile",[UserController::class, 'profile']); 
 $app->ruter->get("/products",[ProductController::class, 'products']); 
+$app->ruter->get("/productsJSON",[ProductController::class, 'productsJSON']); 
 $app->ruter->get("/productDetails",[ProductController::class, 'productDetails']);
 $app->ruter->get("/logout", [AuthController::class, 'logout']);
 $app->ruter->post("/loginProcess",[AuthController::class,'loginProcess']);
