@@ -10,26 +10,10 @@ class ProductController extends Controller{
 
     public function products()
     {
-        $products = new ProductModel();
         $tags = new TagsModel();
         $developers = new DevelopersModel();
-
-        $current_page = $_GET['page'] ?? 1;
-        $items_per_page = 9;
-        $start_from = ($current_page - 1) * $items_per_page;
-
-        $filter = null;
-        if(isset(array_keys($_REQUEST)[0])){
-            $filter = in_array( array_keys($_REQUEST)[0]  ,["search","developer_id","tag_id"] ) ? $_REQUEST:null;
-        }
-      
-        $rezultat = $products->gameSearch( $filter , $start_from , $items_per_page );
-        $model['products'] = $rezultat[0];
         $model['tags'] = $tags->all();
         $model['developers'] = $developers->all();
-        $model['total_pages']= ceil( $rezultat[1]/ $items_per_page );
-        $model['current_page'] = $current_page;
-        $model['items_per_page'] = $items_per_page;
 
         return $this->view("products","main",$model);
     }
@@ -44,13 +28,16 @@ class ProductController extends Controller{
         $items_per_page = 9;
         $start_from = ($current_page - 1) * $items_per_page;
 
-        $filter = null;
-        if(isset(array_keys($_REQUEST)[0])){
-            $filter = in_array( array_keys($_REQUEST)[0]  ,["search","developer_id","tag_id"] ) ? $_REQUEST:null;
-        }
+        // $filter = null;
+        // if(isset(array_keys($_REQUEST)[0])){
+        //     $filter = in_array(array_keys($_REQUEST)[0]  ,["search","tag_id", ] ) ? $_REQUEST:null;
+        // }
       
-        $rezultat = $products->gameSearch( $filter , $start_from , $items_per_page );
+        $rezultat = $products->gameSearch($_REQUEST['search'] ?? '', $_REQUEST['developer_id'] ?? '0', $_REQUEST['tag_id'] ?? '0', $start_from , $items_per_page );
         $model['products'] = $rezultat[0];
+        for ($i=0; $i < count($model['products']); $i++) { 
+            $model['products'][$i]['description'] = (strlen($model['products'][$i]['description']) > 100 ? substr_replace($model['products'][$i]['description'], "...READ MORE", 100) : $model['products'][$i]['description']);
+        }
         $model['tags'] = $tags->all();
         $model['developers'] = $developers->all();
         $model['total_pages']= ceil( $rezultat[1]/ $items_per_page );

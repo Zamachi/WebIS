@@ -1,8 +1,17 @@
 <?php
 
-use app\core\Field;
 use app\core\Form;
+use app\core\Field;
+use app\core\Application;
 //var_dump($model);
+
+$errors = Application::$app->session->getFlash('errors');
+
+if ($errors !== false)
+{
+    $model->greske = $errors;
+}
+// var_dump($errors);
 ?>
 
 <html>
@@ -17,3 +26,28 @@ use app\core\Form;
         </div>
     </main>    
 </html>
+
+<?php
+
+$error = Application::$app->session->getFlash('errorUser');
+
+if ($error  !== false) {
+    echo "
+        <script>
+            $(document).ready(function (){
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+
+
+                Toast.fire({
+                    icon: 'error',
+                    title: '$error'
+                })
+            });
+        </script>
+        ";
+}

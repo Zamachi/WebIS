@@ -39,6 +39,7 @@ if ($errors !== false)
     <link href="./css/animate.css" rel="stylesheet">
 	<link href="./css/main.css" rel="stylesheet">
 	<link href="./css/responsive.css" rel="stylesheet">
+	<link rel="stylesheet" href="js/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -51,6 +52,7 @@ if ($errors !== false)
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 	<script src="js/jquery.js"></script>
+	<script src="js/sweetalert2/sweetalert2.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.scrollUp.min.js"></script>
 	<script src="js/price-range.js"></script>
