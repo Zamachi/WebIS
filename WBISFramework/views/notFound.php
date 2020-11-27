@@ -1,1 +1,1 @@
-<h1>Not found page </h1>
+<h1 class="text-blog"> Page Not Found </h1>
