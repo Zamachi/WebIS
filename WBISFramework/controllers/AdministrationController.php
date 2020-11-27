@@ -12,6 +12,11 @@ class AdministrationController extends Controller
 
         return $this->view("adminPanel","main",$model);
     }    
+    public function reports(){
+        $model = ["nesto"];
+
+        return $this->view("reports","main",$model);
+    }    
 
     public function athorize(){
         return [
