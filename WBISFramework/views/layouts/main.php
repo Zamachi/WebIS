@@ -105,7 +105,7 @@ if ($errors !== false)
 							<ul class="nav navbar-nav">
 								
 								<li><a href="/profile?user_id=<?php if(isset($_SESSION['is_ulogovan'])) { echo $_SESSION['user']->user_id; }?>"><i class="fa fa-user"></i> Account</a></li>
-								<?php if($user->role_name === 'Admin' || $user->role_name === 'SuperAdmin'): ?>
+								<?php if($user && ($user->role_name === 'Admin' || $user->role_name === 'SuperAdmin')): ?>
 									
 									<li><a href="/adminPanel"><i class="fa cpanel"></i> Administrator panel</a></li>
 								
