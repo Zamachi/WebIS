@@ -1394,6 +1394,11 @@ h2.title {
   flex-direction: column;
 }
 
+.acc-img{
+  height: 25%;
+  width: 25%;
+}
+
 .text-box{
   position: absolute;
   top: 80%;
@@ -1414,6 +1419,13 @@ h2.title {
 .text-blog{
   color: #a0b1c5 !important;
   font-weight: bold !important;
+  text-align: center;
+}
+
+.text-account{
+  color: #a0b1c5 !important;
+  font-weight: bold !important;
+  font-size: 1.6rem !important; 
   text-align: center;
 }
 
@@ -1474,7 +1486,7 @@ h2.title {
   flex-direction: column;
 }
 
-.login-form, .register-form, .upload-form, .news-form{
+.login-form, .register-form{
   background: #152232;
   border: 0.15em solid #1f2c3d;
   color: #a0b1c5;
@@ -1499,7 +1511,7 @@ h2.title {
   margin-bottom: 0.5em;
 }
 
-.login-button, .register-button, .reset-button, .back-button, .news-button, .upload-button{
+.login-button, .register-button, .reset-button, .back-button{
   background: #0B1622;
   color: #a0b1c5;
   border: 0.1em solid #0B1622;
@@ -1515,16 +1527,51 @@ h2.title {
   width: 7em;
 }
 
-.login-button:hover, .register-button:hover, .reset-button:hover, .back-button:hover, .news-button:hover, .upload-button:hover{
+.login-button:hover, .register-button:hover, .reset-button:hover, .back-button:hover{
   background: darkgreen;
   border: 0.1em solid #0B1622;
   color: #0B1622;
   transition: 0.5s;
 }
 
-.mail:focus, .password:focus, .date:focus, .country:focus, .username:focus, .confirmPassword:focus, .description:focus{
+.mail:focus, .password:focus, .date:focus, .country:focus, .username:focus, .confirmPassword:focus{
   border: 0.1em solid darkgreen;
   transition: 0.3s;
+}
+
+.option-form{
+  color: #a0b1c5;
+}
+
+.option-mail, .option-password, .option-date, .option-country, .option-game, .option-code, .option-price{
+  background: #152232;
+  color: #a0b1c5;
+  border: 0.1em solid #152232;
+  font-size: 1.4rem;
+  padding: 0.5em;
+}
+
+.option-mail:focus, .option-password:focus, .option-date:focus, .option-country:focus, .option-game:focus, .option-code:focus, .option-price:focus{
+  border: 0.1em solid darkgreen;
+  transition: 0.3s;
+}
+
+#button-option, #button-upload{
+  background: #152232;
+  color: #a0b1c5;
+  font-size: 1.6rem;
+  padding: 0.5em;
+  width: 6em;
+  border: 0.1em solid darkgreen;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#button-option:hover, #button-upload:hover{
+  background: darkgreen;
+  border: 0.1em solid #152232;
+  color: #152232;
+  transition: 0.5s;
 }
 
 /*************************

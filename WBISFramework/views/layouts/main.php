@@ -80,7 +80,7 @@ if ($errors !== false)
 						<div>
 							<?php 
 								if (isset($_SESSION["is_ulogovan"])){
-									echo "<span style='color:#a0b1c5;'>Welcome, {$_SESSION['user']->username}! | Account balance: {$_SESSION['user']->account_balance} $ | <a href='/profile?user_id={$_SESSION['user']->user_id}'><div id=\"profile\" style=\"display: inline-block; width: 48px; height: 48px; border: 1px solid rgb(0,255,255);\"><img style=\"height: 100%; width: 100%;\" src='{$_SESSION['user']->avatar}' alt=\"?\"></div></a></span>";
+									echo "<span style='color:#a0b1c5;'>Welcome, {$_SESSION['user']->username}! | Account balance: {$_SESSION['user']->account_balance} $ | <a href='/profile?user_id={$_SESSION['user']->user_id}'><div id=\"profile\" style=\"display: inline-block; width: 48px; height: 48px; border: 1.5px solid rgb(0,255,255);\"><img style=\"height: 100%; width: 100%;\" src='{$_SESSION['user']->avatar}' alt=\"?\"></div></a></span>";
 								}
 
 							?>
@@ -107,7 +107,7 @@ if ($errors !== false)
 								<li><a href="/profile?user_id=<?php if(isset($_SESSION['is_ulogovan'])) { echo $_SESSION['user']->user_id; }?>"><i class="fa fa-user"></i> Account</a></li>
 								<?php if($user && ($user->role_name === 'Admin' || $user->role_name === 'SuperAdmin')): ?>
 									
-									<li><a href="/adminPanel"><i class="fa cpanel"></i> Administrator panel</a></li>
+									<li><a href="/adminPanel"><i class="fa fa-cog"></i> Administrator panel</a></li>
 								
 								<?php endif; ?>
 								<li><a href="/shoppingCart"><i class="fa fa-shopping-cart"></i> Cart <span> (<?php echo isset($_SESSION['brojStavki']) ? $_SESSION['brojStavki']:0;?>)</span></a></li>
