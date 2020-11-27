@@ -1485,7 +1485,7 @@ h2.title {
   flex-direction: column;
 }
 
-.mail, .password, .date, .country, .username, .confirmPassword, .title{
+.mail, .password, .date, .country, .username, .confirmPassword{
   background: #0B1622;
   color: #a0b1c5;
   border: 0.1em solid #0B1622;
@@ -1522,7 +1522,7 @@ h2.title {
   transition: 0.5s;
 }
 
-.mail:focus, .password:focus, .date:focus, .country:focus, .username:focus, .confirmPassword:focus, .title:focus, .description:focus{
+.mail:focus, .password:focus, .date:focus, .country:focus, .username:focus, .confirmPassword:focus, .description:focus{
   border: 0.1em solid darkgreen;
   transition: 0.3s;
 }
