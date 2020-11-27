@@ -144,13 +144,13 @@ class ProductModel extends DBModel
         //     }
         // }
     }
-    public function fetchCodes($game_id)
+    public function fetchCodes($game_id, $user_id)
     {
             $sql = "SELECT g.*,c.*,u.*
             FROM `games` g 
             INNER JOIN `codes` c ON c.game_id = ".$game_id." 
             INNER JOIN `users` u ON u.user_id = c.user_id
-            WHERE c.is_sold=0 AND g.game_id = $game_id AND u.is_active = 1
+            WHERE c.is_sold=0 AND g.game_id = ".$game_id." AND u.is_active = 1 AND c.user_id <> ".$user_id."
             ORDER BY price;";
 
             $dataResult = $this->dbConnection->conn()->query($sql) or die();
@@ -191,6 +191,7 @@ class ProductModel extends DBModel
         // var_dump($developers);
         // exit;
 
-        return [$tags,$developers];
+        return [
+            "tags" => $tags, "developers" => $developers];
     }
 }

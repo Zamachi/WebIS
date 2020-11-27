@@ -1,6 +1,7 @@
 <?php
 namespace app\controllers;
 
+use app\core\Application;
 use app\core\Controller;
 use app\models\DevelopersModel;
 use app\models\ProductModel;
@@ -49,8 +50,8 @@ class ProductController extends Controller{
     public function productDetails()
     {
        $products = new ProductModel();
-
-       $model['codes'] = $products->fetchCodes((int)$_REQUEST['game_id']);
+       
+       $model['codes'] = $products->fetchCodes((int)$_REQUEST['game_id'],(int)Application::$app->session->getAuth('user')->user_id);
        $model['developers_and_tags'] = $products->fetchGameDevsAndTags((int)$_REQUEST['game_id']);
         
        return $this->view("productDetails","main",$model);

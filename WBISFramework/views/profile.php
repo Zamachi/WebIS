@@ -17,7 +17,7 @@
 						</div>
 						<div class="tab-content">
 							<div class="tab-pane active " id="acc-info">
-                                <div class="col-sm-8"><?php echo "<img class=\"acc-img\" src='{$_SESSION['user']->avatar}' alt=\"?\">"; ?></div>
+                                <div class="col-sm-8"><?php echo "<img style='border: 1.5px solid rgb(0,255,255);' class=\"acc-img\" src='{$_SESSION['user']->avatar}' alt=\"?\">"; ?></div>
                                 <div class="col-sm-4">
                                     <p class="text-account">User id: <?php echo $_SESSION['user']->user_id?></p>
                                     <p class="text-account">Username: <?php echo $_SESSION['user']->username?></p>

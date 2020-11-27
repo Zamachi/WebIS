@@ -15,9 +15,8 @@ function loadMoreData(jQueryObjectLoadMore, jQueryObjectPagination, numberPage, 
 					"<div class='single-products'>"+
 					"<div class='productinfo text-center'>"+
 					"<a href='/productDetails?game_id=" + obj.game_id + "'><img src='" + obj.image + "' alt='slika ne radi'></a>"+
-					"<h2>" + obj.current_price + " $</h2>"+
 					"<p>" + obj.title + "</p>"+
-					"<a href='/products?addToCart=1&game_id="+ obj.game_id +"' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a>"+
+					// "<a href='/products?addToCart=1&game_id="+ obj.game_id +"' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a>"+
 					"</div>"+
 					"</div>"+
 					"<div class='choose'>"+

@@ -1,11 +1,12 @@
 <?php
 
+use app\core\Application;
 use app\controllers\AuthController;
 use app\controllers\HomeController;
+use app\controllers\UserController;
 use app\controllers\ProductController;
 use app\controllers\ShoppingCartController;
-use app\controllers\UserController;
-use app\core\Application;
+use app\controllers\AdministrationController;
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
@@ -19,6 +20,7 @@ $app->ruter->get("/register",[AuthController::class,'register']);
 $app->ruter->get("/shoppingCart",[ShoppingCartController::class,'cart']); 
 $app->ruter->get("/profile",[UserController::class, 'profile']); 
 $app->ruter->get("/products",[ProductController::class, 'products']); 
+$app->ruter->get("/adminPanel",[AdministrationController::class, 'adminPanel']); 
 $app->ruter->get("/productsJSON",[ProductController::class, 'productsJSON']); 
 $app->ruter->get("/productDetails",[ProductController::class, 'productDetails']);
 $app->ruter->get("/logout", [AuthController::class, 'logout']);

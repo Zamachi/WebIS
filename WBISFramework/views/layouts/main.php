@@ -96,13 +96,13 @@ if ($errors !== false)
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-4">
+					<div class="col-sm-2">
 						<div class="logo pull-left">
 							<a href="/index"><img src="images/home/logo.png" alt="" /></a>
 						</div>
 						
 					</div>
-					<div class="col-sm-8">
+					<div class="col-sm-10">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								
@@ -110,6 +110,11 @@ if ($errors !== false)
 								<?php if($user && ($user->role_name === 'Admin' || $user->role_name === 'SuperAdmin')): ?>
 									
 									<li><a href="/adminPanel"><i class="fa fa-cog"></i> Administrator panel</a></li>
+								
+								<?php endif; ?>
+								<?php if($user && ($user->role_name === 'Admin' || $user->role_name === 'SuperAdmin')): ?>
+									
+									<li><a href="/reports"><i class="fa fa-signal" aria-hidden="true"></i> Analytics</a></li>
 								
 								<?php endif; ?>
 								<li><a href="/shoppingCart"><i class="fa fa-shopping-cart"></i> Cart <span> (<?php echo isset($_SESSION['brojStavki']) ? $_SESSION['brojStavki']:0;?>)</span></a></li>
@@ -147,17 +152,7 @@ if ($errors !== false)
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="/home" class="active">Home</a></li>
-								<li class="dropdown"><a>Store<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-										<li><a href="/products">All Games</a></li>
-										<li><a href="#">MMO</a></li>
-										<li><a href="#">RPG</a></li> 
-										<li><a href="#">RTS</a></li> 
-										<li><a href="#">FPS</a></li>
-										<li><a href="#">2D</a></li>
-										
-                                    </ul>
-                                </li> 
+								<li><a href="/products">All Games</a></li>
 								<li class="dropdown"><a>About<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="#">Company Info</a></li>
@@ -191,17 +186,7 @@ if ($errors !== false)
 		<div class="footer-widget">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-3">
-						<div class="single-widget">
-							<h2>Quick Store</h2>
-							<ul class="nav nav-pills nav-stacked" id="nav-footer">
-								<li><a href="#">MMO</a></li>
-								<li><a href="#">RPG</a></li>
-								<li><a href="#">FPS</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-3">
+					<div class="col-sm-6">
 						<div class="single-widget">
 							<h2>Policies</h2>
 							<ul class="nav nav-pills nav-stacked" id="nav-footer">
@@ -211,7 +196,7 @@ if ($errors !== false)
 							</ul>
 						</div>
 					</div>
-					<div class="col-sm-3">
+					<div class="col-sm-6">
 						<div class="single-widget">
 							<h2>About</h2>
 							<ul class="nav nav-pills nav-stacked" id="nav-footer">
