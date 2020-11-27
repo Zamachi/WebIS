@@ -14,13 +14,14 @@ class RegisterModel extends DBModel
     public string $country = '';
     public string $datumRodjenja = '';
     public string $confirmPassword = '';
+    public $account_balance = 0.0;
     public string $username = '';
 
     function rules():array{
         return [
-            'mail' => [self::RULE_EMAIL,self::RULE_REQUIRED],
+            'mail' => [self::RULE_EMAIL,self::RULE_REQUIRED,self::RULE_EMAIL_UNIQUE],
             'password' => [self::RULE_PASSWORD,self::RULE_REQUIRED],
-            'username' => [self::RULE_USERNAME,self::RULE_REQUIRED],
+            'username' => [self::RULE_USERNAME,self::RULE_REQUIRED, self::RULE_USERNAME_UNIQUE],
             "confirmPassword" => [self::RULE_REQUIRED, [self::RULE_MATCH, 'match' => 'password']]
         ];
     }
@@ -46,6 +47,7 @@ class RegisterModel extends DBModel
             'mail',
             'password',
             'country',
+            'account_balance',
             'datumRodjenja',        
             'username'
         ];
@@ -53,7 +55,7 @@ class RegisterModel extends DBModel
     public function register(RegisterModel $model)
     {
         $model->password = password_hash($model->password, PASSWORD_DEFAULT);
-
+        $model->account_balance = (double)rand(0,1000);
         $model->create();
         $userModel = new UserModel();
 

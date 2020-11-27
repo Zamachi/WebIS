@@ -11,6 +11,7 @@ class LoginModel extends DBModel
     public string $mail = '';
     public string $password = '';
 
+
     public function tableName()
     {
         return "users";
@@ -27,8 +28,8 @@ class LoginModel extends DBModel
     public function rules(): array
     {
         return [
-            'mail' => [self::RULE_EMAIL, self::RULE_REQUIRED],
-            'password' => [self::RULE_REQUIRED]
+            'mail' => [self::RULE_EMAIL, self::RULE_REQUIRED, self::IS_ACTIVE],
+            'password' => [self::RULE_REQUIRED, self::RULE_PASSWORD]
         ];
     }
 

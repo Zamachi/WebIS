@@ -11,6 +11,7 @@ abstract class BaseModel
     public const RULE_MATCH = "match";
     public const RULE_EMAIL_UNIQUE = 'emailUnique';
     public const RULE_USERNAME_UNIQUE = 'usernameUnique';
+    public const IS_ACTIVE = 'userInactive';
 
     public $greske;
     public $success;
@@ -94,6 +95,9 @@ abstract class BaseModel
                 if ($ruleName === self::RULE_USERNAME_UNIQUE && $this->uniqueUsername($value)) {
                     $this->addErrors($attribute, $ruleName);
                 }
+                if ($ruleName === self::IS_ACTIVE && !$this->isUserActive($value)) {
+                    $this->addErrors($attribute, $ruleName);
+                }
 
             }
         }
@@ -126,6 +130,7 @@ abstract class BaseModel
             self::RULE_MATCH => "This field must be the same as {match}",
             self::RULE_EMAIL_UNIQUE => "Email already exists",
             self::RULE_USERNAME_UNIQUE => "Username already exists",
+            self::IS_ACTIVE => "The user does not exist."
 
         ];
     }
@@ -140,11 +145,27 @@ abstract class BaseModel
         return $this->greske[$attribute][0] ?? false;
     }
 
+    public function isUserActive($email)
+    {
+        $db = $this->dbConnection->conn();
+
+        $sqlString = "SELECT * FROM users WHERE `mail` = '$email' AND `is_active`=1;";
+
+        $dataResult = $db->query($sqlString) or die();
+
+        $result = $dataResult->fetch_assoc();
+
+        if ($result !== null)
+            return true;
+
+        return false;
+    }
+
     public function uniqueEmail($email)
     {
         $db = $this->dbConnection->conn();
 
-        $sqlString = "SELECT * FROM users WHERE email = '$email';";
+        $sqlString = "SELECT * FROM users WHERE `mail` = '$email';";
 
         $dataResult = $db->query($sqlString) or die();
 

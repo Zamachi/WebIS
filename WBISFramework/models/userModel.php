@@ -14,6 +14,7 @@ class UserModel extends DBModel
     public string $username = '';
     public string $role_name = '';
     public $account_balance = 0;
+    public $is_active;
     public $user_id = '';
     public $avatar = '';
 
@@ -31,6 +32,7 @@ class UserModel extends DBModel
             'username',
             'role_name',
             'user_id',
+            'is_active',
             'avatar',
             'account_balance'
         ];
@@ -60,11 +62,12 @@ class UserModel extends DBModel
                         r.role_name, 
                         u.user_id,
                         u.avatar,
-                        u.account_balance
+                        u.account_balance,
+                        u.is_active
                 from users u
                 inner join user_roles ur on u.user_id = ur.user_id
                 inner join roles r on r.role_id = ur.role_id
-                where `mail` ='$email' AND `u`.`is_active` = 1";
+                where `mail` ='$email'";
 
         $dataResult = $db->query($sqlString) or die();
 

@@ -27,7 +27,6 @@ class AuthController extends Controller
 
         $model->validate();
 
-
         if ($model->greske === null)
         {
             if ($model->login($model))
