@@ -10,13 +10,13 @@
 					<div class="category-tab shop-details-tab">
 						<div class="col-sm-12">
 							<ul class="nav nav-tabs">
-								<li><a href="#acc-info" data-toggle="tab">Account Info</a></li>
+								<li class="active"><a href="#acc-info" data-toggle="tab">Account Info</a></li>
 								<li><a href="#options" data-toggle="tab">Options</a></li>
 								<li><a href="#upload" data-toggle="tab">Upload</a></li>
 							</ul>
 						</div>
 						<div class="tab-content">
-							<div class="tab-pane fade" id="acc-info">
+							<div class="tab-pane active " id="acc-info">
                                 <div class="col-sm-8"><?php echo "<img class=\"acc-img\" src='{$_SESSION['user']->avatar}' alt=\"?\">"; ?></div>
                                 <div class="col-sm-4">
                                     <p class="text-account">User id: <?php echo $_SESSION['user']->user_id?></p>
