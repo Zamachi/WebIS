@@ -17,13 +17,11 @@ if ($errors !== false)
 }
 
 ?>
-
-
 <main class="wrapper">
     <div class="middle">
         <!-- <form> -->
         <?php echo Form::beginForm("uploadProcess", "post", "upload-form") ?>
-        <?php echo Field::inputGame("", "") ?> <!-- ne znam koje da upisem -->
+            <?php echo Field::inputGame("", "") ?> <!-- ne znam koje da upisem -->
             <?php echo Form::field($model, 'code', 'text'); ?>
             <?php echo Form::field($model, 'price', 'text') ?>
             <?php echo "<button type='submit' class='upload-button'>Upload</button>" ?>

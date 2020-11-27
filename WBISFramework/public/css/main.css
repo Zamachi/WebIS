@@ -2541,6 +2541,14 @@ h2.title {
 /******************************/
 .invalid-feedback{color:red;}
 .is-invalid{border: 0.1em solid red;}
+
+.activeTag > a, .activeDev > a{
+  background-color: darkgreen !important;
+    border-color: darkgreen !important;
+    color: #a0b1c5 !important; 
+    cursor: default !important; 
+    z-index: 2 !important;
+}
 /******************************/
 /********Stefan****************/
 /******************************/

@@ -40,7 +40,7 @@ class ProductModel extends DBModel
         ];
     }
 
-    public function createGame(ProductModel $model)
+    public function createGame(ProductModel $model) //NOTE: ne znam da li radi, moracemo da proverimo
     {
         $model->create();
         $developersModel = new DevelopersModel();
@@ -63,7 +63,7 @@ class ProductModel extends DBModel
         return true;
     }
 
-    public function gameSearch($parametri)
+    public function gameSearch($parametri,$start,$how_much)
     {
 
         if (!empty($parametri)) {
@@ -74,7 +74,7 @@ class ProductModel extends DBModel
                     $sql = "SELECT *
                 FROM 
                     `games`
-                WHERE UPPER(`title`) LIKE '%" . $queryString . "%'";
+                WHERE UPPER(`title`) LIKE '%" . $queryString . "%' LIMIT $start,$how_much";
                     break;
                 case 'tag_id':
                     $queryString = (int)$parametri['tag_id'];
@@ -100,24 +100,48 @@ class ProductModel extends DBModel
             while ($result = $dataResult->fetch_assoc()) {
                 array_push($resultArray, $result);
             }
-
-            return $resultArray;
         } else {
-            return $this->all();
+            $resultArray = $this->all();
         }
+        return [array_slice($resultArray,$start,$how_much),count($resultArray)];
     }
     public function fetchCodes($game_id)
     {
             $sql = "SELECT g.*,c.*
-            FROM `games` g INNER JOIN codes c ON c.game_id = ".$game_id.";";
+            FROM `games` g 
+            INNER JOIN `codes` c ON c.game_id = ".$game_id." 
+            INNER JOIN `users` u ON u.user_id = c.user_id
+            WHERE c.is_sold=0 AND g.game_id = 1 AND u.is_active = 1
+            ORDER BY price;";
 
             $dataResult = $this->dbConnection->conn()->query($sql) or die();
             $resultArray = [];
-
             while ($result = $dataResult->fetch_assoc()) {
                 array_push($resultArray, $result);
             }
 
             return $resultArray;
+    }
+
+    public function fetchGameDevsAndTags($game_id)
+    {
+
+       $sql= "SELECT t.tag_name, d.developer_name
+        FROM codes c 
+        INNER JOIN games_tags gt ON c.game_id = gt.game_id
+        INNER JOIN tags t ON gt.tag_id = t.tag_id
+        INNER JOIN developed_by db ON  db.game_id = c.game_id
+        INNER JOIN developers d ON d.developer_id = db.developer_id
+        WHERE c.game_id = ".$game_id."
+        GROUP BY tag_name, developer_name;";
+
+        $dataResult = $this->dbConnection->conn()->query($sql) or die();
+        $resultArray = [];
+        while ($result = $dataResult->fetch_assoc()) {
+            $resultArray['developers']=$result['developer_name'];
+            $resultArray['tags']=$result['tag_name'];
+        }
+
+        return $resultArray;
     }
 }

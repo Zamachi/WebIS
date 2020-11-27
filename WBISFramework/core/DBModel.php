@@ -57,6 +57,24 @@ abstract class DBModel extends BaseModel
         return $resultArray;
     }
 
+    public function allWithLimit($start_from,$how_many)
+    {
+        $tableName = $this->tableName();
+
+        $db = $this->dbConnection->conn();
+
+        $sqlString = "SELECT * FROM $tableName LIMIT $start_from,$how_many;";
+
+        $dataResult = $db->query($sqlString) or die();
+        $resultArray = [];
+
+        while ($result = $dataResult->fetch_assoc()) {
+            array_push($resultArray, $result);
+        }
+
+        return $resultArray;
+    }
+
     public function one($where)
     {
         $tableName = $this->tableName();
