@@ -22,18 +22,18 @@ $success = Application::$app->session->getAuth('user');
 						<div class="carousel-inner">
 							<div class="item active">
 									<div class="img">
-									<a href="/productDetails?game_id=<?php echo $model[0]['game_id'];?>"><img src="<?php echo $model[0]['image']; ?>" class="girl img-responsive" alt="image not found" /><div class="text-box"><p></p></div></a>
+									<a href="/productDetails?game_id=<?php echo $model[0]['game_id'];?>"><img src="<?php echo $model[0]['image']; ?>" class="girl img-responsive" alt="image not found" /><div class="text-box"><p><?php echo (strlen($model[0]['description']) > 200 ? substr_replace($model[0]['description'], "...", 200) : $model[0]['description']); ?></p></div></a>
 									</div>
 							</div>
 							<div class="item img">
 									<div class="img">
-									<a href="/productDetails?game_id=<?php echo $model[1]['game_id'];?>"><img src="<?php echo $model[1]['image']; ?>" class="girl img-responsive" alt="image not found" /><div class="text-box"><p></p></div></a>
+									<a href="/productDetails?game_id=<?php echo $model[1]['game_id'];?>"><img src="<?php echo $model[1]['image']; ?>" class="girl img-responsive" alt="image not found" /><div class="text-box"><p><?php echo (strlen($model[1]['description']) > 200 ? substr_replace($model[1]['description'], "...", 200) : $model[1]['description']); ?></p></div></a>
 									</div>
 							</div>
 							
 							<div class="item img">
 									<div class="img">
-									<a href="/productDetails?game_id=<?php echo $model[2]['game_id'];?>"><img src="<?php echo $model[2]['image']; ?>" class="girl img-responsive" alt="image not found" /><div class="text-box"><p></p></div></a>
+									<a href="/productDetails?game_id=<?php echo $model[2]['game_id'];?>"><img src="<?php echo $model[2]['image']; ?>" class="girl img-responsive" alt="image not found" /><div class="text-box"><p><?php echo (strlen($model[2]['description']) > 200 ? substr_replace($model[2]['description'], "...", 200) : $model[2]['description']); ?></p></div></a>
 									</div>
 							</div>
 							
