@@ -8,7 +8,7 @@ function loadMoreData(jQueryObjectLoadMore,jQueryObjectLoadMoreBtn,numberOfPage,
 		data: data,
 		dataType: "json",
 		success: function(result) {
-			alert(result);
+			
 		},
 		error: function() {
 			alert("Greska!");

@@ -13,7 +13,6 @@ if(isset($_GET)){
 
 $errors = Application::$app->session->getFlash('errors');
 $user = Application::$app->session->getAuth('user');
-
 if ($user !== false) {
     $params = $user;
 }
@@ -49,7 +48,8 @@ if ($errors !== false)
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
 	<link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
-	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.scrollUp.min.js"></script>
@@ -103,7 +103,13 @@ if ($errors !== false)
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
+								
 								<li><a href="/profile?user_id=<?php if(isset($_SESSION['is_ulogovan'])) { echo $_SESSION['user']->user_id; }?>"><i class="fa fa-user"></i> Account</a></li>
+								<?php if($user->role_name === 'Admin' || $user->role_name === 'SuperAdmin'): ?>
+									
+									<li><a href="/adminPanel"><i class="fa cpanel"></i> Administrator panel</a></li>
+								
+								<?php endif; ?>
 								<li><a href="/shoppingCart"><i class="fa fa-shopping-cart"></i> Cart <span> (<?php echo isset($_SESSION['brojStavki']) ? $_SESSION['brojStavki']:0;?>)</span></a></li>
 								
 								<?php if (isset($_SESSION["is_ulogovan"])): ?>
