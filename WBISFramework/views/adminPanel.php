@@ -3,6 +3,14 @@
 use app\core\Field;
 ?>
 
+<?php
+
+/*
+echo "<pre>";
+var_dump($model);
+echo "</pre>";
+*/
+?>
 
 <h1 class="h1-view">Admin Panel</h1>
 <section>
@@ -53,30 +61,20 @@ use app\core\Field;
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>qweqwe</td>
-                                    <td>qweqwe@gmauil.com</td>
-                                    <td>qweqwe</td>
-                                    <td>31/01/2005</td>
-                                    <td>25/25/2005</td>
-                                    <td>250</td>
-                                    <td>0</td>
-                                    <td><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                                    <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>rtyrty</td>
-                                    <td>rtyrty@gmauil.com</td>
-                                    <td>rtyrty</td>
-                                    <td>31/01/2000</td>
-                                    <td>25/25/2000</td>
-                                    <td>500</td>
-                                    <td>0</td>
-                                    <td><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                                    <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                                </tr>
+                                <?php foreach ($model as $item){ ?>
+                                    <tr>
+                                        <td><?php echo $item['user_id'] ?></td>
+                                        <td><?php echo $item['username'] ?></td>
+                                        <td><?php echo $item['mail'] ?></td>
+                                        <td><?php echo $item['country'] ?></td>
+                                        <td><?php echo $item['datumRodjenja'] ?></td>
+                                        <td><?php echo $item['created_at'] ?></td>
+                                        <td><?php echo $item['account_balance'] ?></td>
+                                        <td><?php echo $item['is_active'] ?></td>
+                                        <td><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                                        <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                    </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>    

@@ -3,15 +3,19 @@
 namespace app\controllers;
 
 use app\core\Controller;
+use app\models\UserModel;
 
 class AdministrationController extends Controller
 {
 
     public function adminPanel(){
-        $model = ["nesto"];
 
-        return $this->view("adminPanel","main",$model);
-    }    
+        $model = new UserModel();
+        $dbData = $model->all();
+
+        return $this->view("adminPanel","main",$dbData);
+    }  
+
     public function reports(){
         $model = ["nesto"];
 
