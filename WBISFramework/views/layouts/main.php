@@ -152,7 +152,7 @@ if ($errors !== false)
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="/home" class="active">Home</a></li>
-								<li><a href="/products">All Games</a></li>
+								<li><a href="/products">Store</a></li>
 								<li class="dropdown"><a>About<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="#">Company Info</a></li>

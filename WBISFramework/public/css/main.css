@@ -1198,11 +1198,11 @@ h2.title {
   transition: 0.3s;
 }
 
-.option-form{
+.option-form, .news-form{
   color: #a0b1c5;
 }
 
-.option-mail, .option-password, .option-date, .option-country, .option-game, .option-code, .option-price{
+.option-mail, .option-password, .option-date, .option-country, .option-game, .option-code, .option-price, .news-description, .news-title{
   background: #152232;
   color: #a0b1c5;
   border: 0.1em solid #152232;
@@ -1210,12 +1210,12 @@ h2.title {
   padding: 0.5em;
 }
 
-.option-mail:focus, .option-password:focus, .option-date:focus, .option-country:focus, .option-game:focus, .option-code:focus, .option-price:focus{
+.option-mail:focus, .option-password:focus, .option-date:focus, .option-country:focus, .option-game:focus, .option-code:focus, .option-price:focus, .news-description:focus, .news-title:focus{
   border: 0.1em solid darkgreen;
   transition: 0.3s;
 }
 
-#button-option, #button-upload{
+#button-option, #button-upload, #button-news{
   background: #152232;
   color: #a0b1c5;
   font-size: 1.6rem;
@@ -1226,11 +1226,43 @@ h2.title {
   margin-bottom: 1em;
 }
 
-#button-option:hover, #button-upload:hover{
+#button-option:hover, #button-upload:hover, #button-news:hover{
   background: darkgreen;
   border: 0.1em solid #152232;
   color: #152232;
   transition: 0.5s;
+}
+
+input[type="file"]{
+  font-size: 1.6rem;
+  padding: 0.5em;
+  border: 0.1em solid darkgreen;
+  width: 50%;
+}
+
+.table-wrapper{
+  overflow: auto;
+}
+
+.admin-table{
+  margin-left: 1em !important;
+  margin-bottom: 1em !important;
+  margin-right: 1em !important;
+}
+
+.admin-table th, .admin-table td, .admin-table tr{
+  border: 0.1em solid darkgreen;
+  color: #a0b1c5;
+  padding: 0.5em 1em;
+}
+
+.admin-table td a{
+  color:#a0b1c5;
+}
+
+.admin-table td a:hover{
+  color:green;
+  transition: 0.4s;
 }
 
 /*************************
@@ -1409,6 +1441,10 @@ h2.title {
 *******Blog CSS******
 **************************/
 
+.blog-post-area{
+  margin-bottom: 4em !important;
+}
+
 .blog-post-area 
 .single-blog-post h3 {
   color: #696763;
@@ -1449,32 +1485,6 @@ h2.title {
   margin-top:45px
 }
 
-/*************************
-*******Blog Single CSS******
-**************************/
-
-.pager-area {
-  overflow: hidden;
-}
-
-.pager-area .pager li a {
-  background:#152232;
-  border: 0 none;
-  border-radius: 0;
-  color: #a0b1c5;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 4px;
-  text-transform: uppercase;
-  width: 57px;
-}
-
-.pager-area 
-.pager li a:hover {
-  background: green;
-  color: #a0b1c5;
-  transition: 0.4s;
-}
 
 /******************************/
 /********Stefan****************/

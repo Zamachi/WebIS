@@ -1,1 +1,1 @@
-<h1>Ovde idu izvestaji</h1>
+<h1 class="h1-view">Analytics</h1>
