@@ -101,4 +101,17 @@ abstract class DBModel extends BaseModel
         return true;
     }
 
+    public function updateOne($sta_apdejtujem,$vrednost,$uslov, $vrednost_uslova)
+    {
+        $tableName = $this->tableName();
+
+        $db = $this->dbConnection->conn();
+
+        $sql= "UPDATE $tableName SET $sta_apdejtujem = $vrednost WHERE $uslov = $vrednost_uslova";
+
+        $dbData = $db->query($sql) or die($db->error);
+
+        return true;
+    }
+
 }

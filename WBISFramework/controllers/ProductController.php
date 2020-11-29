@@ -31,11 +31,6 @@ class ProductController extends Controller
         $items_per_page = 9;
         $start_from = ($current_page - 1) * $items_per_page;
 
-        // $filter = null;
-        // if(isset(array_keys($_REQUEST)[0])){
-        //     $filter = in_array(array_keys($_REQUEST)[0]  ,["search","tag_id", ] ) ? $_REQUEST:null;
-        // }
-
         $rezultat = $products->gameSearch($_REQUEST['search'] ?? '', $_REQUEST['developer_id'] ?? '0', $_REQUEST['tag_id'] ?? '0', $start_from, $items_per_page);
         $model['products'] = $rezultat[0];
         for ($i = 0; $i < count($model['products']); $i++) {

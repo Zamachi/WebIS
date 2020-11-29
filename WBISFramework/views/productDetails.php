@@ -99,7 +99,7 @@ use app\core\Application;
 		loadMoreDataProductDetails($("#kodoviContent"), $("#pagination"), numberPage, url, game_id);
 	});
 
-	$(document).on("click", ".korpaDodaj", function(event) {
+	$(document).on("click", ".korpaDodaj", function() {
 		var red = $(this).parent().parent();
 		var data = { 
 			"image": $("#slikaIgre").css("background-image").replace('url(','').replace(')','').replace(/\"/gi, ""),

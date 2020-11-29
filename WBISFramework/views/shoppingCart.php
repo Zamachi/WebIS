@@ -1,7 +1,7 @@
 <?php
 
 use app\core\Application;
-var_dump($_SESSION['cart']);
+// var_dump($_SESSION['cart']);
 $suma = 0;
 $tax = 0.2;
 ?>
@@ -55,7 +55,7 @@ $tax = 0.2;
 							<li>Tax <span><?php echo $tax*100 . " %"; ?></span></li>
 							<li>Total <span><?php echo $suma*$tax + $suma . " $"; ?></span></li>
 						</ul>
-							<a class="btn btn-default update" href="">Buy Now</a>
+							<a class="btn btn-default update" href="/checkout">Buy Now</a>
 					</div>
 				</div>
 			</div>
