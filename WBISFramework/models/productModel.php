@@ -144,11 +144,11 @@ class ProductModel extends DBModel
         //     }
         // }
     }
-    public function fetchCodes($game_id, $user_id)
+    public function fetchCodes($game_id, $user_id, $start_from, $items_per_page)
     {
             $sql = "SELECT g.*,c.*,u.*
             FROM `games` g 
-            INNER JOIN `codes` c ON c.game_id = ".$game_id." 
+            INNER JOIN `codes` c ON c.game_id = g.game_id 
             INNER JOIN `users` u ON u.user_id = c.user_id
             WHERE c.is_sold=0 AND g.game_id = ".$game_id." AND u.is_active = 1 AND c.user_id <> ".$user_id."
             ORDER BY price;";
@@ -159,7 +159,7 @@ class ProductModel extends DBModel
                 array_push($resultArray, $result);
             }
 
-            return $resultArray;
+            return [array_slice($resultArray,$start_from,$items_per_page),count($resultArray)];
     }
 
     public function fetchGameDevsAndTags($game_id)

@@ -57,7 +57,7 @@ class Router
 
     public function renderOnlyView($view,$model=null)
     {
-        if($model!=null){ #TODO: moguce da treba promeniti logiku ovde ako prosledjujemo objekat modela
+        if($model!=null){ 
 
             foreach ($model as $key => $value) {
                 $$key = $value;

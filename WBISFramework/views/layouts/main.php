@@ -35,7 +35,7 @@ if ($errors !== false)
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/font-awesome.min.css" rel="stylesheet">
     <link href="./css/prettyPhoto.css" rel="stylesheet">
-    <link href="./css/price-range.css" rel="stylesheet">
+    <!-- <link href="./css/price-range.css" rel="stylesheet"> -->
     <link href="./css/animate.css" rel="stylesheet">
 	<link href="./css/main.css" rel="stylesheet">
 	<link href="./css/responsive.css" rel="stylesheet">
@@ -55,7 +55,7 @@ if ($errors !== false)
 	<script src="js/sweetalert2/sweetalert2.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.scrollUp.min.js"></script>
-	<script src="js/price-range.js"></script>
+	<!-- <script src="js/price-range.js"></script> -->
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
 </head><!--/head-->
@@ -117,7 +117,7 @@ if ($errors !== false)
 									<li><a href="/reports"><i class="fa fa-signal" aria-hidden="true"></i> Analytics</a></li>
 								
 								<?php endif; ?>
-								<li><a href="/shoppingCart"><i class="fa fa-shopping-cart"></i> Cart <span> (<?php echo isset($_SESSION['brojStavki']) ? $_SESSION['brojStavki']:0;?>)</span></a></li>
+								<li><a href="/shoppingCart"><i class="fa fa-shopping-cart"></i> Cart </a></li>
 								
 								<?php if (isset($_SESSION["is_ulogovan"])): ?>
 

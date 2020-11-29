@@ -47,3 +47,73 @@ function loadMoreData(jQueryObjectLoadMore, jQueryObjectPagination, numberPage, 
 		}
 	});
 }
+
+function loadMoreDataProductDetails(jQueryObjectLoadMore, jQueryObjectPagination, numberPage, url, game_id) {
+   
+	var data = { "page": numberPage, "game_id":game_id};
+	
+	$.ajax({
+		method: "GET",
+		url: url,
+		data: data,
+		dataType: "json",
+		success: function(result) {
+			// alert(result);
+			$.each(result.codes, function(idx, obj) {
+				jQueryObjectLoadMore.append(
+					"<tr>"+
+					"<td class='code_id' value="+obj.code_id+"> "+ obj.code_id +" </td>"+
+					"<td> " + obj.username + " </td>"+
+					"<td> " + obj.mail + "</td>"+
+					"<td class='price' value='"+obj.price+"'> " + obj.price + " </td>"+
+					"<td> " + 100 * (1 - obj.price / obj.base_price ) + " %</td>"+
+					"<td><a class='btn btn-default add-to-cart korpaDodaj'><i class='fa fa-shopping-cart'></i>Add to cart</a></td>"+
+					"</tr>"
+				);
+			});
+
+			var start = startFrom(result.current_page);
+			var end = goTo(result.current_page, result.total_pages);
+
+			jQueryObjectPagination.append(
+				"<li class=' pages' data-id=" + 1 + "><a href='javascript:;'> << FIRST PAGE </a></li>"
+			);
+			for (let index = start; index <= end; index++) {
+				if(index == result.current_page){
+					jQueryObjectPagination.append(
+						"<li class='active pages' data-id=" + index + "><a href='javascript:;'>"+ index +"</a></li>"
+					);
+				}else{
+					jQueryObjectPagination.append(
+						"<li class='pages' data-id=" + index + "><a href='javascript:;'>"+ index +"</a></li>"					
+					);
+				}			
+			}
+			jQueryObjectPagination.append(
+				"<li class=' pages' data-id=" + result.total_pages + "><a href='javascript:;'> >> LAST PAGE </a></li>"
+			);
+		},
+		error: function(e){
+			
+			console.log(e);
+		}
+	});
+}
+
+function dodajUKorpu(data){
+	$.ajax({
+		method: "POST",
+		url: "addToCart",
+		data: data,
+		dataType: "json"
+	});
+}
+
+
+function startFrom(currentPage){
+	return (currentPage - 3) >= 1 ? (currentPage - 3) : 1;
+}
+
+function goTo(currentPage, totalPage){
+	return (+currentPage + 3) <= totalPage ? (+currentPage + 3) : totalPage;
+}

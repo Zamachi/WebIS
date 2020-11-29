@@ -24,9 +24,13 @@ $app->ruter->get("/adminPanel",[AdministrationController::class, 'adminPanel']);
 $app->ruter->get("/reports",[AdministrationController::class, 'reports']); 
 $app->ruter->get("/productsJSON",[ProductController::class, 'productsJSON']); 
 $app->ruter->get("/productDetails",[ProductController::class, 'productDetails']);
+$app->ruter->get("/deleteCart",[ShoppingCartController::class,'deleteCart']);
+$app->ruter->get("/productDetailsJSON",[ProductController::class, 'productDetailsJSON']);
 $app->ruter->get("/logout", [AuthController::class, 'logout']);
 $app->ruter->post("/loginProcess",[AuthController::class,'loginProcess']);
 $app->ruter->post("/registerProcess",[AuthController::class,'registerProcess']);
+$app->ruter->post("/addToCart",[ShoppingCartController::class,'addToCart']);
+
 
 $app->run();
 
