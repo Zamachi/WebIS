@@ -39,21 +39,21 @@ if ($errors !== false) {
 
             <div class="tab-pane fade" id="options">
                 <form action="profileProcess" class="option-form">
-                    <div class="col-sm-12">
+                    <div class="col-sm-5">
                         <label for=" option-mail" class="form-label">Change email:</label></br>
                         <input type="text" class="option-mail" placeholder="email@gmail.com" size="30"></br>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-5">
                         <label for="option-password" class="form-label">Change Password:</label></br>
                         <input type="password" class="option-password" placeholder="password" size="30"></br>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-5">
                         <?php echo Field::dateOfBirth() ?></br>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-5">
                         <?php echo Field::inputCountry("country", "country") ?></br>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-8">
                         <label for="news-title" class="form-label" style="color:#a0b1c5;">Upload cover image:</label></br>
                         <input type="file" class="news-upload" name="news-upload"></br>
                     </div>

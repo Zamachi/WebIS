@@ -749,8 +749,6 @@ h2.title {
 }
 
 .category-tab ul {
-  background:  rgb(0, 73, 0);
-  border-bottom: 1px solid #a0b1c5;
   list-style: none outside none;
   margin: 0 0 30px;
   padding: 0;
@@ -768,7 +766,7 @@ h2.title {
 }
 
 .category-tab ul  li  a:hover{
-	background:green;
+	background:darkgreen;
 	color:#a0b1c5;
 }
 
@@ -1216,7 +1214,7 @@ h2.title {
 }
 
 #button-option, #button-upload, #button-news{
-  background: #152232;
+  background:  #0B1622;
   color: #a0b1c5;
   font-size: 1.6rem;
   padding: 0.5em;
@@ -1228,8 +1226,8 @@ h2.title {
 
 #button-option:hover, #button-upload:hover, #button-news:hover{
   background: darkgreen;
-  border: 0.1em solid #152232;
-  color: #152232;
+  border: 0.1em solid  #0B1622;
+  color:  #0B1622;
   transition: 0.5s;
 }
 
@@ -1245,9 +1243,8 @@ input[type="file"]{
 }
 
 .admin-table{
-  margin-left: 1em !important;
   margin-bottom: 1em !important;
-  margin-right: 1em !important;
+  width: 100%;
 }
 
 .admin-table th, .admin-table td, .admin-table tr{
@@ -1263,6 +1260,28 @@ input[type="file"]{
 .admin-table td a:hover{
   color:green;
   transition: 0.4s;
+}
+
+.table-products{
+  margin-left: 0em !important;
+  vertical-align: center !important;
+}
+
+.table-products td:last-child{
+  border: none !important;
+}
+
+.product-text-box{
+  background-color: #0B1622;
+  border: 1px solid black;
+  opacity: 0.8;
+  padding: 1em;
+}
+
+.cart_product img{
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
 }
 
 /*************************

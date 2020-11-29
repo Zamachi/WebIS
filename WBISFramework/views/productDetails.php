@@ -15,19 +15,21 @@ use app\core\Application;
 					<div class="col-sm-12">
 						<div class="product-information" id="slikaIgre" style="background-image: url('<?php echo $model['codes'][0]['image'] ?>'); background-repeat: no-repeat; background-position: center; background-size: cover;">
 							<!--/product-information-->
-							<h2 id="naslovIgre"><?php echo $model['codes'][0]['title'] ?></h2>
-							<p id="game_id" game-id='<?php echo $model['codes'][0]['game_id'] ?>' >Game ID: <?php echo $model['codes'][0]['game_id'] ?></p>
-							<span>
+							<div class="product-text-box col-sm-4">	
+								<h2 id="naslovIgre"><?php echo $model['codes'][0]['title'] ?></h2>
+								<p id="game_id" game-id='<?php echo $model['codes'][0]['game_id'] ?>' >Game ID: <?php echo $model['codes'][0]['game_id'] ?></p>
+								<span>
 
-							</span>
-							<p><b>Availability:</b> <?php echo count($model['codes']) > 0 ? "In stock" : "Out of stock" ?></p>
-							<p><b>Publish_date:</b> <?php echo $model['codes'][0]['publish_date'] ?></p>
-							<p><b>Developer:</b> <?php foreach ($developers_and_tags['developers'] as $key => $value) {
-														echo "&nbsp; " . $value[0] . " &nbsp;";
-													} ?></p>
-							<p><b>Tags:</b> <?php foreach ($developers_and_tags['tags'] as $key => $value) {
-												echo "&nbsp; " . $value[0] . " &nbsp;";
-											} ?></p>
+								</span>
+								<p><b>Availability:</b> <?php echo count($model['codes']) > 0 ? "In stock" : "Out of stock" ?></p>
+								<p><b>Publish_date:</b> <?php echo $model['codes'][0]['publish_date'] ?></p>
+								<p><b>Developer:</b> <?php foreach ($developers_and_tags['developers'] as $key => $value) {
+															echo "&nbsp; " . $value[0] . " &nbsp;";
+														} ?></p>
+								<p><b>Tags:</b> <?php foreach ($developers_and_tags['tags'] as $key => $value) {
+													echo "&nbsp; " . $value[0] . " &nbsp;";
+												} ?></p>
+							</div>					
 						</div>
 						<!--/product-information-->
 					</div>
@@ -42,7 +44,7 @@ use app\core\Application;
 						</ul>
 					</div>
 					<div class="tab-content">
-						<table class="table table-striped">
+						<table class="table-products admin-table">
 							<thead>
 								<tr>
 									<?php

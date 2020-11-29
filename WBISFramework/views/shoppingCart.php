@@ -27,7 +27,7 @@ $tax = 0.2;
 								<img src="<?php echo $item[0];?>">
 							</td>
 							<td class="cart_description">
-								<h4><?php echo $item[1];?></h4>
+								<h4 style="color: #a0b1c5;"><?php echo $item[1];?></h4>
 								<p>Code ID: <?php echo $item[2];?></p>
 							</td>
 							<td class="cart_price">
