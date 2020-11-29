@@ -113,36 +113,7 @@ class ProductModel extends DBModel
         }
 
         return [array_slice($resultArray,$start,$how_much),count($resultArray)];
-
-
-        // if (!empty($parametri)) {
-        
-        //     switch ((array_keys($parametri)[0])) {
-        //         case 'search':
-        //             $queryString = $parametri['search'];
-        //             $sql = "SELECT *
-        //         FROM 
-        //             `games`
-        //         WHERE UPPER(`title`) LIKE '%" . $queryString . "%'";
-        //             break;
-        //         case 'tag_id':
-        //             $queryString = (int)$parametri['tag_id'];
-        //             $sql = "SELECT g.*
-        //             FROM `games` g INNER JOIN `games_tags` gt ON g.game_id = gt.game_id INNER JOIN `tags` t ON gt.tag_id = t.tag_id
-        //             WHERE `gt`.`tag_id` = " . $queryString . "";
-        //             break;
-        //         case 'developer_id':
-        //             $queryString = (int)$parametri['developer_id'];
-        //             $sql = "SELECT g.*
-        //             FROM `games` g INNER JOIN `developed_by` dbt ON g.game_id = dbt.game_id INNER JOIN `developers` t ON dbt.developer_id = t.developer_id
-        //             WHERE `dbt`.`developer_id` = " . $queryString . "";
-        //             break;
-
-        //         default:
-        //             return "Greska";
-        //             exit;
-        //     }
-        // }
+      
     }
     public function fetchCodes($game_id, $user_id, $start_from, $items_per_page)
     {

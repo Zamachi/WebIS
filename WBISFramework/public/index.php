@@ -30,6 +30,7 @@ $app->ruter->get("/logout", [AuthController::class, 'logout']);
 $app->ruter->post("/loginProcess",[AuthController::class,'loginProcess']);
 $app->ruter->post("/registerProcess",[AuthController::class,'registerProcess']);
 $app->ruter->post("/addToCart",[ShoppingCartController::class,'addToCart']);
+$app->ruter->post("/uploadCodeProcess",[UserController::class,'uploadCodeProcess']);
 
 
 $app->run();

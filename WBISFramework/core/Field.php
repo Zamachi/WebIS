@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+use app\models\ProductModel;
+
 class Field
 
 {
@@ -99,24 +101,22 @@ class Field
           
     }
 
-    /*
-    public static function inputGame($name,$class)
+    public static function inputGame()
     {  
-        $label= "<label for='$name' class='upload-label'>Choose the Game:</label><br>";
-            $opening = "<select name='$name' class='$class'>";
-            $closing = "</select>";
-            $niz=[];
-            foreach (self::games as $game) {
-                    
-                    array_push($niz,"<option value='$game'>$game</option>");
-            }
-
-            return $label . $opening . implode("<br>",$niz) . $closing;
+        $inputGame = "<label for='option-game' class='form-label' style='color:#a0b1c5;'>Choose a game:</label></br>
+        <select name='game_id' class='option-game' style='width:80%;'>";
+        $opcije = "";
+        $igrice = new ProductModel();
+        $rezultat = $igrice->all();
+        foreach ($rezultat as $key => $value) {
+           $opcije = $opcije . "<option value='".$value['game_id']."'> " . $value['title'] . " </option>";
+        }
+        $closing = "</select><br>";
+        $rezultat =$inputGame . $opcije .  $closing ; 
+        return $rezultat ;
     }
 
-    Proveri i ovo, pretpostavljam da treba da se izmeni foreach jer treba da dohvatimo igrice iz baze
-
-    */
+    
 
 }  
 

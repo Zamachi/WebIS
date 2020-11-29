@@ -12,6 +12,8 @@ abstract class BaseModel
     public const RULE_EMAIL_UNIQUE = 'emailUnique';
     public const RULE_USERNAME_UNIQUE = 'usernameUnique';
     public const IS_ACTIVE = 'userInactive';
+    public const RULE_CODE = 'code';
+    public const RULE_CODE_UNIQUE = 'codeUnique';
 
     public $greske;
     public $success;
@@ -98,6 +100,15 @@ abstract class BaseModel
                 if ($ruleName === self::IS_ACTIVE && !$this->isUserActive($value)) {
                     $this->addErrors($attribute, $ruleName);
                 }
+                if ($ruleName === self::RULE_CODE) {
+                    $res = array("options"=>array("regexp"=>"/^[A-Z0-9]{4}\-[A-Z0-9]{4}\-[A-Z0-9]{4}\-[A-Z0-9]{4}$/"));
+                    if(!filter_var($value,FILTER_VALIDATE_REGEXP,$res)){
+                        $this->addErrors($attribute,$ruleName);
+                    }
+                }
+                if ($ruleName === self::RULE_CODE_UNIQUE && $this->uniqueCode($value)) {
+                    $this->addErrors($attribute, $ruleName);
+                }
 
             }
         }
@@ -130,7 +141,9 @@ abstract class BaseModel
             self::RULE_MATCH => "This field must be the same as {match}",
             self::RULE_EMAIL_UNIQUE => "Email already exists",
             self::RULE_USERNAME_UNIQUE => "Username already exists",
-            self::IS_ACTIVE => "The user does not exist."
+            self::IS_ACTIVE => "The user does not exist.",
+            self::RULE_CODE => "Code is in invalid format<br>It should be: XXXX-XXXX-XXXX-XXXX",
+            self::RULE_CODE_UNIQUE => "This code already exists in our database."
 
         ];
     }
@@ -182,6 +195,21 @@ abstract class BaseModel
         $db = $this->dbConnection->conn();
 
         $sqlString = "SELECT * FROM users WHERE `username` = '$username';";
+
+        $dataResult = $db->query($sqlString) or die();
+
+        $result = $dataResult->fetch_assoc();
+
+        if ($result !== null)
+            return true;
+
+        return false;
+    }
+    public function uniqueCode($code)
+    {
+        $db = $this->dbConnection->conn();
+
+        $sqlString = "SELECT * FROM `codes` WHERE `code` LIKE '$code';";
 
         $dataResult = $db->query($sqlString) or die();
 
