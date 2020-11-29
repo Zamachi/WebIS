@@ -20,7 +20,7 @@ $tax = 0.2;
 					</thead>
 					<tbody>
 						<?php
-						foreach ($_SESSION['cart'] as $item) {	$suma+=(double)$item[3];
+							if(isset($_SESSION['cart'])) { foreach ($_SESSION['cart'] as $item) {	$suma+=(double)$item[3];
 						?>
 						<tr>
 							<td class="cart_product">
@@ -38,7 +38,7 @@ $tax = 0.2;
 							</td>
 						</tr>
 
-						<?php }?>
+						<?php }}?>
 					</tbody>
 				</table>
 			</div>
