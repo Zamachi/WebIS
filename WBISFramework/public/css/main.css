@@ -1284,6 +1284,26 @@ input[type="file"]{
   overflow: hidden;
 }
 
+.col-sm-5 input, .col-sm-5 select{
+  background: #152232;
+  color: #a0b1c5;
+  border: 0.1em solid #152232;
+  font-size: 1.4rem;
+  padding: 0.5em;
+}
+
+.col-sm-5 input:focus, .col-sm-5 select:focus{
+  border: 0.1em solid darkgreen;
+  transition: 0.3s;
+}
+
+/* FIX ZA LOGIN I REGISTER LABELE SAMO ZA FIREFOX!!!
+.login-form label, .register-form label{
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+*/
+
 /*************************
 *******Cart CSS******
 **************************/

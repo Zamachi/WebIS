@@ -22,6 +22,7 @@ if ($errors !== false) {
                 <li class="active"><a href="#acc-info" data-toggle="tab">Account Info</a></li>
                 <li><a href="#options" data-toggle="tab">Options</a></li>
                 <li><a href="#upload" data-toggle="tab">Upload</a></li>
+                <li><a href="#purchase-history" data-toggle="tab">Purchase History</a></li>
             </ul>
         </div>
         <div class="tab-content">
@@ -75,6 +76,29 @@ if ($errors !== false) {
                         <input type="number" name="price" class="option-price" placeholder="price" style="width:80%;"></br>
                         <button type="submit" id="button-upload">Submit</button>
                     </form>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="purchase-history">
+                <div class="col-sm-12">
+                    <div class="table-wrapper">
+                        <table class="admin-table">
+                            <thead>
+                                <tr> 
+                                    <th>Checkout id</th>
+                                    <th>Code id</th>
+                                    <th>Date sold</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr>
+                                        <td>a</td>
+                                        <td>a</td>
+                                        <td>a</td>
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>    
                 </div>
             </div>
         </div>
