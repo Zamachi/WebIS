@@ -13,10 +13,10 @@ use app\core\Application;
 				<div class="product-details">
 					<!--product-details-->
 					<div class="col-sm-12">
-						<div class="product-information" style="background: url('<?php echo $model['codes'][0]['image'] ?>'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+						<div class="product-information" id="slikaIgre" style="background-image: url('<?php echo $model['codes'][0]['image'] ?>'); background-repeat: no-repeat; background-position: center; background-size: cover;">
 							<!--/product-information-->
-							<h2><?php echo $model['codes'][0]['title'] ?></h2>
-							<p>Game ID: <?php echo $model['codes'][0]['game_id'] ?></p>
+							<h2 id="naslovIgre"><?php echo $model['codes'][0]['title'] ?></h2>
+							<p id="game_id" game-id='<?php echo $model['codes'][0]['game_id'] ?>' >Game ID: <?php echo $model['codes'][0]['game_id'] ?></p>
 							<span>
 
 							</span>
@@ -46,28 +46,25 @@ use app\core\Application;
 							<thead>
 								<tr>
 									<?php
-									echo "<td>Code id:</td>";
-									echo "<td>Username: </td>";
-									echo "<td>E-mail:</td>";
-									echo "<td>Code price:</td>";
-									echo "<td>Discount</td>";
+									echo "<th>Code id:</td>";
+									echo "<th>Username: </td>";
+									echo "<th>E-mail:</td>";
+									echo "<th>Code price:</td>";
+									echo "<th>Discount</td>";
 									?>
 								</tr>
 							</thead>
-							<tbody>
-								<?php
-								foreach ($codes as $key => $value) {
-									echo "<tr>";
-										echo "<td> {$value['code_id']} </td>";
-										echo "<td> {$value['username']} </td>";
-										echo "<td> {$value['mail']} </td>";
-										echo "<td> {$value['price']} </td>";
-										echo "<td> ". 100* (1 - $value['price']/$value['base_price'] ). " %</td>";
-										echo "<td><a href='#' class='btn btn-default add-to-cart'><i class='fa fa-shopping-cart'></i>Add to cart</a></td>";
-									echo "</tr>";
-								}
-								?>
+							<tbody id="kodoviContent">
+								
 							</tbody>
+
+							<tr>
+								<td colspan="5">
+									<ul class="pagination" id="pagination">
+
+									</ul>
+								</td>
+							</tr>
 						</table>
 					</div>
 				</div>
@@ -76,3 +73,41 @@ use app\core\Application;
 		</div>
 	</div>
 </section>
+
+<script src="js/site.js"></script>
+<script>
+	var numberPage = 1;
+	var url = "/productDetailsJSON";
+	var game_id = $("#game_id").attr("game-id");
+
+	$(document).ready(function() {
+		loadMoreDataProductDetails($("#kodoviContent"), $("#pagination"), numberPage, url, game_id);
+
+	});
+
+	$(document).on("click", ".pages", function() {
+		numberPage = $(this).attr('data-id');
+		$(".pages").removeClass("active");
+		$("#pretraga").val('');
+		search = '';
+
+		$(this).addClass("active");
+		$("#kodoviContent").empty();
+		$("#pagination").empty();
+		loadMoreDataProductDetails($("#kodoviContent"), $("#pagination"), numberPage, url, game_id);
+	});
+
+	$(document).on("click", ".korpaDodaj", function(event) {
+		var red = $(this).parent().parent();
+		var data = { 
+			"image": $("#slikaIgre").css("background-image").replace('url(','').replace(')','').replace(/\"/gi, ""),
+			"title": $("#naslovIgre").text(),
+			"code_id": red.find('td.code_id').attr('value'),
+			"price": red.find('td.price').attr('value')
+		
+		};
+		console.log(data);
+		dodajUKorpu(data);
+	});
+
+</script>

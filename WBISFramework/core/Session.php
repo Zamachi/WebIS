@@ -36,6 +36,21 @@ class Session
         return $_SESSION[self::FLASH_KEY][$key]['value'] ?? false;
     }
 
+    public function setCart($key, $message)
+    {
+        $_SESSION['cart'][$key][] = $message; 
+    }
+
+    public function getCart($key)
+    {
+        return $_SESSION['cart'][$key] ?? false;
+    }
+
+    public function deleteCart($key)
+    {
+         unset($_SESSION['cart'][$key]);
+    }
+
     public function setAuth($key, $user)
     {
         $_SESSION[$key] = $user;

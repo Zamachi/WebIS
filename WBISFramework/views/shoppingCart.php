@@ -1,94 +1,44 @@
+<?php
+
+use app\core\Application;
+var_dump($_SESSION['cart']);
+$suma = 0;
+$tax = 0.2;
+?>
+
 <section id="cart_items">
 		<div class="container">
 			<div class="table-responsive cart_info">
 				<table class="table table-condensed">
 					<thead>
 						<tr class="cart_menu">
-							<td class="image">Item</td>
-							<td class="description"></td>
-							<td class="price">Price</td>
-							<td class="quantity">Quantity</td>
-							<td class="total">Total</td>
-							<td></td>
+							<th class="image">Item:</th>
+							<th class="description">Description:</th>
+							<th class="price">Price:</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
+						<?php
+						foreach ($_SESSION['cart'] as $item) {	$suma+=(double)$item[3];
+						?>
 						<tr>
 							<td class="cart_product">
-								<a href=""><img src="images/cart/one.png" alt=""></a>
+								<img src="<?php echo $item[0];?>">
 							</td>
 							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
+								<h4><?php echo $item[1];?></h4>
+								<p>Code ID: <?php echo $item[2];?></p>
 							</td>
 							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
+								<p><?php echo $item[3] . " $";?></p>
 							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+								<a class="cart_quantity_delete" href="/deleteCart?code_id=<?php echo $item[2] ?>"><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
 
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/two.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/three.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
+						<?php }?>
 					</tbody>
 				</table>
 			</div>
@@ -101,9 +51,9 @@
 				<div class="col-sm-6" id="cart-checkout">
 					<div class="total_area" style="width: 100%;">
 						<ul>
-							<li>Cart Sub Total <span>$59</span></li>
-							<li>Tax <span>$2</span></li>
-							<li>Total <span>$61</span></li>
+							<li>Cart Sub Total <span><?php echo $suma . " $"; ?></span></li>
+							<li>Tax <span><?php echo $tax*100 . " %"; ?></span></li>
+							<li>Total <span><?php echo $suma*$tax + $suma . " $"; ?></span></li>
 						</ul>
 							<a class="btn btn-default update" href="">Buy Now</a>
 					</div>
