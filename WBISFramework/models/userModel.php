@@ -89,4 +89,23 @@ class UserModel extends DBModel
         return true;
     }
 
+    public function getCheckoutHistory($user_id)
+    {
+        $dbConnection = $this->dbConnection->conn();
+
+        $sql = "SELECT ch.checkout_id, ch.code_id, date_sold, c.`code`, price
+        FROM users u 
+        INNER JOIN checkouts ch ON ch.user_id = u.user_id
+        INNER JOIN codes c ON ch.code_id = c.code_id
+        WHERE is_sold=1 AND u.`user_id`='$user_id'
+        ORDER BY date_sold;";
+
+        $resultArray = [];
+        $rezultat = $dbConnection->query($sql);
+        while ($red = $rezultat->fetch_assoc()) {
+            array_push($resultArray,$red);
+        }
+        return $resultArray;
+    }
+
 }

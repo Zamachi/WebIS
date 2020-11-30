@@ -6,9 +6,9 @@ use app\core\DBModel;
 
 class NewsModel extends DBModel
 {
-   public $news_title;
-   public $news_image;
-   public $news_content;
+   public $news_title='';
+   public $news_image='';
+   public $news_content='';
    
 
     public function tableName()
@@ -27,7 +27,9 @@ class NewsModel extends DBModel
     public function rules():array
     {
         return [
-            
+            'news_title' => [self::RULE_REQUIRED],
+            'news_image' => [self::RULE_REQUIRED],
+            'news_content' => [self::RULE_REQUIRED]
         ];
     }
 

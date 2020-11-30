@@ -14,14 +14,16 @@ class UserController extends Controller
     public function profile()
     {
 
-        $model = new UserModel();
+        $model = [];
+        $userModel = new UserModel();
+        //  $model = new UserModel();
 
-        $user = Application::$app->session->getAuth('user');
+        // $user = Application::$app->session->getAuth('user');
 
-        $dbData = $model->readAllUserData($user->{'mail'});
+        // $dbData = $model->readAllUserData($user->{'mail'});
 
-        $model->loadData($dbData);
-
+        $model['checkouts'] = $userModel->getCheckoutHistory((int)Application::$app->session->getAuth('user')->user_id);
+        
         return $this->view("profile", "main", $model);
     }
 
@@ -37,17 +39,17 @@ class UserController extends Controller
         if ($model->greske === null) {
             if ($model->create()) {
                 Application::$app->session->setFlash('success', "Uspesno dodat kod!");
-                return $this->view("profile", "main", $model);
+                Application::$app->response->redirect("/profile");
             }
         }
 
         Application::$app->session->setFlash('profileErrors', $model->greske);
-        return $this->view("profile", "main", $model);
+        Application::$app->response->redirect("/profile");
     }
 
     public function profileUpdateProcess()
     {
-        if (empty($_POST['mail']) && empty($_POST['password'] ) && !is_uploaded_file($_FILES['fileToUpload']['tmp_name'])) {
+        if (empty($_POST['mail']) && empty($_POST['password']) && !is_uploaded_file($_FILES['fileToUpload']['tmp_name'])) {
             Application::$app->session->setFlash('errorsUpdate', 'You have to change at least one field!');
             Application::$app->response->redirect("/profile");
             exit;

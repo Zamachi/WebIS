@@ -1,5 +1,6 @@
-
 <?php
+
+use app\core\Application;
 use app\core\Field;
 ?>
 
@@ -25,21 +26,43 @@ echo "</pre>";
         <div class="tab-content">
             <div class="tab-pane active " id="news-cms">
                 <div class="col-sm-8">
-                    <form action="makeNews" enctype="multipart/form-data" method="POST" class="news-form">
-                        <label for="news-title" class="form-label" style="color:#a0b1c5;">Enter your title:</label></br>
-                        <input type="text" name="news_title" class="news-title" style="width:80%;" required placeholder="title"></br>
-                        <label for="news-description" class="form-label" style="color:#a0b1c5;">Enter description:</label></br>
-                        <textarea class="news-description" required name="news_content" rows="10" style="width:80%; resize: none;" placeholder="description"></textarea></br>
-                        <label for="news-title" class="form-label" style="color:#a0b1c5;">Upload cover image:</label></br>
-                        <input type="file" required class="news-upload" name="news_image"></br>
-                        <button type="submit" id="button-news">Submit</button>
-                    </form>
+                    <div class="col-sm-12" >
+                        <form action="makeNews" enctype="multipart/form-data" method="POST" class="news-form">
+                            <label for="news-title" class="form-label" style="color:#a0b1c5;">Enter your title:</label></br>
+                            <input type="text" name="news_title" class="news-title" style="width:80%;" required placeholder="title"></br>
+                            <label for="news-description" class="form-label" style="color:#a0b1c5;">Enter description:</label></br>
+                            <textarea class="news-description" required name="news_content" rows="10" style="width:80%; resize: none;" placeholder="description"></textarea></br>
+                            <label for="news-title" class="form-label" style="color:#a0b1c5;">Upload cover image:</label></br>
+                            <input type="file" required class="news-upload" name="news_image"></br>
+                            <button type="submit" id="button-news">Submit</button>
+                        </form>
+                    </div>
+                    <hr style="border: 0.5px solid white;">
+                    <div class="col-sm-12" >
+                        <form action="makeNewsMassive" enctype="multipart/form-data" method="POST" class="news-form">
+                            <label for="news-title" class="form-label" style="color:#a0b1c5;">Massively upload News via JSON file:</label></br>
+                            <input type="file" required class="news-upload" name="newsJSON"></br>
+                            <button type="submit" id="button-news">Submit</button>
+                        </form>
+                        <div class="invalid-fedback">
+                            <?php
+                            $greske = Application::$app->session->getFlash('jsonErrors') ?? false;
+                            if ($greske) {
+                                foreach ($greske as $key => $value) {
+                                    foreach ($value as $key2 => $polje) {
+                                        echo "Problem with news No. " . $key . "! This news is missing the: " . $key2 . ".\n";
+                                    }
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="tab-pane fade" id="game-cms">
                 <div class="col-sm-8">
-                    
+
                 </div>
             </div>
 
@@ -48,7 +71,7 @@ echo "</pre>";
                     <div class="table-wrapper">
                         <table class="admin-table">
                             <thead>
-                                <tr> 
+                                <tr>
                                     <th>User id</th>
                                     <th>Username</th>
                                     <th>Email</th>
@@ -63,7 +86,7 @@ echo "</pre>";
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($model as $item){ ?>
+                                <?php foreach ($model as $item) { ?>
                                     <tr>
                                         <td><?php echo $item['user_id'] ?></td>
                                         <td><?php echo $item['username'] ?></td>
@@ -80,7 +103,7 @@ echo "</pre>";
                                 <?php } ?>
                             </tbody>
                         </table>
-                    </div>    
+                    </div>
                 </div>
             </div>
 

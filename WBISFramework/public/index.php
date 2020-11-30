@@ -36,6 +36,7 @@ $app->ruter->post("/addToCart",[ShoppingCartController::class,'addToCart']);
 $app->ruter->post("/uploadCodeProcess",[UserController::class,'uploadCodeProcess']);
 $app->ruter->post("/profileUpdateProcess",[UserController::class,'profileUpdateProcess']);
 $app->ruter->post("/makeNews",[AdministrationController::class,'makeNews']);
+$app->ruter->post("/makeNewsMassive",[AdministrationController::class,'makeNewsMassive']);
 
 
 $app->run();

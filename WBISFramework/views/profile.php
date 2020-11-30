@@ -47,11 +47,11 @@ if ($errors !== false) {
                     <div class="col-sm-5">
                         <label for="option-password" class="form-label">Change Password:</label></br>
                         <input type="password" name='password' class="option-password" placeholder="password" size="30"></br>
-                        
+
                     </div>
                     <div class="col-sm-8">
                         <label for="news-title" class="form-label" style="color:#a0b1c5;">Upload cover image:</label></br>
-                        <input type="file" name="fileToUpload" class="news-upload" ></br>
+                        <input type="file" name="fileToUpload" class="news-upload"></br>
                     </div>
                     <div class="col-sm-8">
                         <button type="submit" id="button-option">Submit</button>
@@ -65,7 +65,7 @@ if ($errors !== false) {
                         <?php echo Field::inputGame(); ?>
                         <label for="option-code" class="form-label" style="color:#a0b1c5;">Enter your code:</label></br>
                         <input type="text" name="code" class="option-code" placeholder="code" style="width:80%;">
-                        <div class="invalid-feedback"><?php echo $model->greske['code'][0] ?? ''; ?></div>
+                        <div class="invalid-feedback"><?php echo Application::$app->session->getFlash('profileErrors')['code'][0] ?? ''; ?></div>
                         </br>
                         <label for="option-price" class="form-label" style="color:#a0b1c5;">Set price:</label></br>
                         <input type="number" name="price" class="option-price" placeholder="price" style="width:80%;"></br>
@@ -79,21 +79,27 @@ if ($errors !== false) {
                     <div class="table-wrapper">
                         <table class="admin-table">
                             <thead>
-                                <tr> 
-                                    <th>Checkout id</th>
-                                    <th>Code id</th>
-                                    <th>Date sold</th>
+                                <tr>
+                                    <th>Checkout id:</th>
+                                    <th>Code id:</th>
+                                    <th>Date sold:</th>
+                                    <th>Code:</th>
+                                    <th>Price:</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php  foreach ($checkouts as $key => $value) { ?>
                                     <tr>
-                                        <td>a</td>
-                                        <td>a</td>
-                                        <td>a</td>
+                                        <td><?php echo $value['checkout_id'];?></td>
+                                        <td><?php echo $value['code_id'];?></td>
+                                        <td><?php echo $value['date_sold'];?></td>
+                                        <td><?php echo $value['code'];?></td>
+                                        <td><?php echo $value['price'];?></td>
                                     </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
-                    </div>    
+                    </div>
                 </div>
             </div>
         </div>

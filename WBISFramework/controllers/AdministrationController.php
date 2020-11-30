@@ -67,6 +67,42 @@ class AdministrationController extends Controller
 
     }
 
+    public function makeNewsMassive()
+    {
+        $model = new NewsModel();
+
+        if ($_FILES['newsJSON']['name'] !== "" and $_FILES['newsJSON'] !== null) {
+            $data = file_get_contents($_FILES['newsJSON']['tmp_name']);
+            $dateDecoded = json_decode($data);
+            $br = 0;
+
+            foreach ($dateDecoded as $row) {
+                $model = new NewsModel();
+
+                $model->loadData($row);
+
+                $model->validate();
+
+                if ($model->greske === null) {
+                    $model->create($model);
+                }else {
+                    foreach ($model->greske as $attribute => $value) {
+                        $errors[$br][$attribute] = $value;
+                    }
+                }
+                $br++;
+            }
+        }
+
+        if ($model->greske !== null) {
+            Application::$app->session->setFlash('success', "Uspesno dodato!");
+        }else{
+            Application::$app->session->setFlash('jsonErrors', $errors);
+        }
+
+        Application::$app->response->redirect("/adminPanel");
+    }
+
     public function athorize()
     {
         return [
