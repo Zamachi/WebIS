@@ -40,6 +40,11 @@ class ShoppingCartController extends Controller
 
     public function checkout()
     {
+
+        $roles = ['User','Admin','SuperAdmin'];
+        $user = Application::$app->session->getAuth('user');
+        $this->checkRole($roles, $user);
+
         if($_SESSION['totalSumCart'] > $_SESSION['user']->account_balance){
             Application::$app->session->setFlash('checkoutError', "You do not have enough resources on your account to perform this transaction. Please, remove the items from your cart, or add funds to your account.");
             Application::$app->response->redirect("/shoppingCart");
@@ -72,6 +77,7 @@ class ShoppingCartController extends Controller
     public function athorize()
     {
         return [
+            'Guest',
             'User',
             'Admin',
             'SuperAdmin'

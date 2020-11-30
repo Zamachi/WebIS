@@ -19,6 +19,7 @@ $app->ruter->get("/login",[AuthController::class,'login']);
 $app->ruter->get("/register",[AuthController::class,'register']);
 $app->ruter->get("/shoppingCart",[ShoppingCartController::class,'cart']); 
 $app->ruter->get("/profile",[UserController::class, 'profile']); 
+$app->ruter->get("/getNumberOfActives",[UserController::class, 'getNumberOfActives']); 
 $app->ruter->get("/products",[ProductController::class, 'products']); 
 $app->ruter->get("/adminPanel",[AdministrationController::class, 'adminPanel']); 
 $app->ruter->get("/reports",[AdministrationController::class, 'reports']); 

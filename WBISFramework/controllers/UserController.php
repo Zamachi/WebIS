@@ -85,6 +85,17 @@ class UserController extends Controller
         Application::$app->response->redirect("/profile");
     }
 
+    public function getNumberOfActives()
+    {
+        $roles = ['SuperAdmin'];
+        $user = Application::$app->session->getAuth('user');
+        $this->checkRole($roles, $user);
+
+        $users = new UserModel();
+
+        return json_encode($users->getNumberOfActives());
+    }
+
     public function athorize()
     {
         return [

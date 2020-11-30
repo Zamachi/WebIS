@@ -49,7 +49,7 @@ class UserModel extends DBModel
 
     public function labels(): array
     {
-       return [];
+        return [];
     }
 
     public function readAllUserData($email)
@@ -103,9 +103,29 @@ class UserModel extends DBModel
         $resultArray = [];
         $rezultat = $dbConnection->query($sql);
         while ($red = $rezultat->fetch_assoc()) {
-            array_push($resultArray,$red);
+            array_push($resultArray, $red);
         }
         return $resultArray;
     }
 
+    public function getNumberOfActives()
+    {
+        $dbConnection = $this->dbConnection->conn();
+
+        $sql = "
+        select 
+        case 
+        when `is_active` = 1 then 'Aktivan' 
+        else 'Neaktivan' 
+        end as 'active', count(user_id) as 'numberOfCustomers' 
+        from users u group by `is_active`
+        ";
+
+        $resultArray = [];
+        $rezultat = $dbConnection->query($sql);
+        while ($red = $rezultat->fetch_assoc()) {
+            array_push($resultArray, $red);
+        }
+        return $resultArray;
+    }
 }
