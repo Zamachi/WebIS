@@ -26,7 +26,7 @@ class HomeController extends Controller
         $topIgre = new ProductModel();
 
         $model['igre'] = $params;
-        $model['novosti'] = $novosti->getFirstThreeNews();
+        $model['novosti'] = $novosti->getFirstFiveNews();
         $model['top4'] = $topIgre->getTop4Games();
         return $this->view("home","main",$model);
     }

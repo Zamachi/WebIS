@@ -37,13 +37,13 @@ class NewsModel extends DBModel
            
        ];
     }
-    public function getFirstThreeNews()
+    public function getFirstFiveNews()
     {
         $tableName = $this->tableName();
 
         $db = $this->dbConnection->conn();
 
-        $sqlString = "SELECT * FROM $tableName ORDER BY `date_created` DESC LIMIT 3;";
+        $sqlString = "SELECT * FROM $tableName ORDER BY `date_created` DESC LIMIT 5;";
 
         $dataResult = $db->query($sqlString) or die();
         $resultArray = [];

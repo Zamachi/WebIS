@@ -74,17 +74,18 @@ $success = Application::$app->session->getAuth('user');
 				<div class="col-sm-12">
 					<div class="blog-post-area">
 						<h2 class="title text-center">News</h2>
-						<div class="single-blog-post">
-							<a>
-								<img src="<?php echo $novosti[0]['news_image'] ?>" alt="">
-							</a>
-							<h2 class="text-blog"><?php echo $novosti[0]['news_title'] ?></h2>
-							<p class="text-blog"><?php echo $novosti[0]['news_content'] ?></p>
+						<div class="single-blog-post" style="overflow: scroll; height: 850px;">
+							<?php foreach ($novosti as $key => $value) { ?>
+								<a>
+									<img src="<?php echo $value['news_image'] ?>" alt="">
+								</a>
+								<h2 class="text-blog"><?php echo $value['news_title'] ?></h2>
+								<p class="text-blog"><?php echo $value['news_content'] ?></p>
+							<?php } ?>
 						</div>
-
 					</div>
 				</div>
-
+				<br>
 				<div class="col-sm-12 padding-right">
 					<div class="category-tab">
 						<!--category-tab-->
