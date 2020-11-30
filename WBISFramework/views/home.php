@@ -80,7 +80,7 @@ $success = Application::$app->session->getAuth('user');
 									<img src="<?php echo $value['news_image'] ?>" alt="">
 								</a>
 								<h2 class="text-blog"><?php echo $value['news_title'] ?></h2>
-								<p class="text-blog"><?php echo $value['news_content'] ?></p>
+								<p class="text-blog"><?php echo $value['news_content'] ?></p></br></br><hr style="color= #a0b1c5; width: 90%"></br></br>
 							<?php } ?>
 						</div>
 					</div>
