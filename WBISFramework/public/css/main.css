@@ -209,8 +209,8 @@ a#scrollUp i{
 }
 
 .search_box input {
+  border: 0.1em solid #152232;
   background: #152232;
-  border: medium none;
   color: #a0b1c5;
   font-family: 'roboto';
   font-size: 12px;
@@ -222,7 +222,7 @@ a#scrollUp i{
   width: 250px;
   background-image: url(../images/home/searchicon.png);
   background-repeat: no-repeat;
-  background-position: 230px;
+  background-position: 228px;
 }
 
 /*  Dropdown menu*/
@@ -766,7 +766,7 @@ h2.title {
 }
 
 .category-tab ul  li  a:hover{
-  color:#a0b1c5;
+  color:#a0b1c5 !important;
   background-color: darkgreen !important;
 }
 
@@ -1250,7 +1250,7 @@ input[type="file"]{
 .admin-table th, .admin-table td, .admin-table tr{
   border: 0.1em solid darkgreen;
   color: #a0b1c5;
-  padding: 0.5em 1em;
+  padding: 0.3em 0.5em;
 }
 
 .admin-table td a{
@@ -1293,6 +1293,11 @@ input[type="file"]{
 }
 
 .col-sm-5 input:focus, .col-sm-5 select:focus{
+  border: 0.1em solid darkgreen;
+  transition: 0.3s;
+}
+
+#pretraga:focus{
   border: 0.1em solid darkgreen;
   transition: 0.3s;
 }
