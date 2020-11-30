@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use app\core\Router;
 use app\core\Controller;
+use app\models\NewsModel;
+use app\models\ProductModel;
 
 class HomeController extends Controller
 {
@@ -20,9 +22,15 @@ class HomeController extends Controller
             array_push($params,$red);
         }
 
-        return $this->view("home","main",$params);
+        $novosti = new NewsModel();
+        $topIgre = new ProductModel();
+
+        $model['igre'] = $params;
+        $model['novosti'] = $novosti->getFirstThreeNews();
+        $model['top4'] = $topIgre->getTop4Games();
+        return $this->view("home","main",$model);
     }
-    
+
     public function athorize()
     {
         return [

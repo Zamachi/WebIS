@@ -14,6 +14,7 @@ abstract class BaseModel
     public const IS_ACTIVE = 'userInactive';
     public const RULE_CODE = 'code';
     public const RULE_CODE_UNIQUE = 'codeUnique';
+    public const RULE_AVATAR_EXTENSION = 'avatarExtension';
 
     public $greske;
     public $success;
@@ -69,8 +70,10 @@ abstract class BaseModel
                    $this->addErrors($attribute,$ruleName);
                 }
 
-                if($ruleName === self::RULE_EMAIL && !filter_var($value,FILTER_VALIDATE_EMAIL)){
-                    $this->addErrors($attribute,$ruleName);
+                if($ruleName === self::RULE_EMAIL){
+                    if(!(filter_var($value,FILTER_VALIDATE_EMAIL) || $value === '')){
+                        $this->addErrors($attribute,$ruleName);
+                    }
                 }   
 
                 if ($ruleName === self::RULE_MATCH && $value !== $this->{$rule['match']} ) {
@@ -79,7 +82,7 @@ abstract class BaseModel
 
                 if($ruleName === self::RULE_PASSWORD){
                     $res = array("options"=>array("regexp"=>"/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])\w{8,}$/"));
-                    if(!filter_var($value,FILTER_VALIDATE_REGEXP,$res)){
+                    if(!(filter_var($value,FILTER_VALIDATE_REGEXP,$res) || $value === '')){
                         $this->addErrors($attribute,$ruleName);
                     }
                 }
@@ -91,8 +94,10 @@ abstract class BaseModel
                     }
                 }
 
-                if ($ruleName === self::RULE_EMAIL_UNIQUE && $this->uniqueEmail($value)) {
-                    $this->addErrors($attribute, $ruleName);
+                if ($ruleName === self::RULE_EMAIL_UNIQUE) {
+                    if($this->uniqueEmail($value) || !$value === ''){
+                        $this->addErrors($attribute,$ruleName);
+                    }
                 }
                 if ($ruleName === self::RULE_USERNAME_UNIQUE && $this->uniqueUsername($value)) {
                     $this->addErrors($attribute, $ruleName);
@@ -107,6 +112,9 @@ abstract class BaseModel
                     }
                 }
                 if ($ruleName === self::RULE_CODE_UNIQUE && $this->uniqueCode($value)) {
+                    $this->addErrors($attribute, $ruleName);
+                }
+                if ($ruleName === self::RULE_AVATAR_EXTENSION && !$this->checkImageExtension($value)) {
                     $this->addErrors($attribute, $ruleName);
                 }
 
@@ -143,6 +151,7 @@ abstract class BaseModel
             self::RULE_USERNAME_UNIQUE => "Username already exists",
             self::IS_ACTIVE => "The user does not exist.",
             self::RULE_CODE => "Code is in invalid format<br>It should be: XXXX-XXXX-XXXX-XXXX",
+            self::RULE_AVATAR_EXTENSION => "Wrong image format!<br>Accepted image formats: .jpg/.jpeg/.png",
             self::RULE_CODE_UNIQUE => "This code already exists in our database."
 
         ];
@@ -219,5 +228,11 @@ abstract class BaseModel
             return true;
 
         return false;
+    }
+
+    public function checkImageExtension($ekstenzija)
+    {
+        $ekstenzije = ['.jpg','.jpeg','.png','.'];
+        return in_array($ekstenzija,$ekstenzije) ? true:false;
     }
 }

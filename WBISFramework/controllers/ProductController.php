@@ -17,6 +17,7 @@ class ProductController extends Controller
         $developers = new DevelopersModel();
         $model['tags'] = $tags->all();
         $model['developers'] = $developers->all();
+        $model['search'] = $_REQUEST['search'] ?? '';
 
         return $this->view("products", "main", $model);
     }

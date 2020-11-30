@@ -9,7 +9,7 @@ if ($errors !== false) {
     $model->greske = $errors;
 }
 
-// var_dump($model);
+//var_dump($_SESSION);
 ?>
 
 <section>
@@ -39,24 +39,19 @@ if ($errors !== false) {
             </div>
 
             <div class="tab-pane fade" id="options">
-                <form action="profileProcess" class="option-form">
+                <form action="profileUpdateProcess" enctype="multipart/form-data" method="POST" class="option-form">
                     <div class="col-sm-5">
                         <label for=" option-mail" class="form-label">Change email:</label></br>
-                        <input type="text" class="option-mail" placeholder="email@gmail.com" size="30"></br>
+                        <input type="text" name='mail' class="option-mail" placeholder="email@gmail.com" size="30"></br>
                     </div>
                     <div class="col-sm-5">
                         <label for="option-password" class="form-label">Change Password:</label></br>
-                        <input type="password" class="option-password" placeholder="password" size="30"></br>
-                    </div>
-                    <div class="col-sm-5">
-                        <?php echo Field::dateOfBirth() ?></br>
-                    </div>
-                    <div class="col-sm-5">
-                        <?php echo Field::inputCountry("country", "country") ?></br>
+                        <input type="password" name='password' class="option-password" placeholder="password" size="30"></br>
+                        
                     </div>
                     <div class="col-sm-8">
                         <label for="news-title" class="form-label" style="color:#a0b1c5;">Upload cover image:</label></br>
-                        <input type="file" class="news-upload" name="news-upload"></br>
+                        <input type="file" name="fileToUpload" class="news-upload" ></br>
                     </div>
                     <div class="col-sm-8">
                         <button type="submit" id="button-option">Submit</button>

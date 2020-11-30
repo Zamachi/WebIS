@@ -4,15 +4,16 @@ namespace app\controllers;
 
 use app\core\Controller;
 use app\core\Application;
-use app\models\CodesModel;
 use app\models\UserModel;
+use app\models\CodesModel;
+use app\models\UserUpdateModel;
 
-class UserController extends Controller 
+class UserController extends Controller
 {
-    
+
     public function profile()
     {
-        
+
         $model = new UserModel();
 
         $user = Application::$app->session->getAuth('user');
@@ -21,10 +22,11 @@ class UserController extends Controller
 
         $model->loadData($dbData);
 
-        return $this->view("profile","main",$model);
+        return $this->view("profile", "main", $model);
     }
 
-    public function uploadCodeProcess(){
+    public function uploadCodeProcess()
+    {
         $model = new CodesModel();
 
         $podaci = $this->getZahtev()->all();
@@ -35,12 +37,50 @@ class UserController extends Controller
         if ($model->greske === null) {
             if ($model->create()) {
                 Application::$app->session->setFlash('success', "Uspesno dodat kod!");
-                return $this->view("profile","main",$model);
+                return $this->view("profile", "main", $model);
             }
         }
 
         Application::$app->session->setFlash('profileErrors', $model->greske);
-        return $this->view("profile","main",$model);
+        return $this->view("profile", "main", $model);
+    }
+
+    public function profileUpdateProcess()
+    {
+        if (empty($_POST['mail']) && empty($_POST['password'] ) && !is_uploaded_file($_FILES['fileToUpload']['tmp_name'])) {
+            Application::$app->session->setFlash('errorsUpdate', 'You have to change at least one field!');
+            Application::$app->response->redirect("/profile");
+            exit;
+        }
+        $model = new UserUpdateModel();
+        $data = $this->zahtev->all();
+        $model->loadData($data);
+        $model->avatar = "." . strtolower(pathinfo($_FILES['fileToUpload']['name'], PATHINFO_EXTENSION));
+
+        $model->validate();
+
+        if ($model->greske === null) {
+            if (is_uploaded_file($_FILES['fileToUpload']['tmp_name'])) {
+                $imageFile = $_FILES['fileToUpload'];
+                $imageType = strtolower($_FILES['fileToUpload']['type']);
+                if (!$imageFile = Application::$app->image->imageUpload($imageFile, $imageType)) {
+                    Application::$app->session->setFlash('errorsUpdate', 'Error whilst uploading the file');
+                    Application::$app->response->redirect("/profile");
+                }
+                $model->avatar = $imageFile['name'];
+            } else {
+                $model->avatar = '';
+            }
+            if ($noviPodaci = $model->updateUser($model, $_SESSION['user']->user_id)) {
+                $_SESSION['user']->avatar = $noviPodaci['avatar'];
+                $_SESSION['user']->mail = $noviPodaci['mail'];
+                Application::$app->session->setFlash('success', "Successfully updated your data");
+                Application::$app->response->redirect("/profile");
+            }
+        }
+
+        Application::$app->session->setFlash('errorsUpdate', $model->greske);
+        Application::$app->response->redirect("/profile");
     }
 
     public function athorize()
@@ -52,6 +92,4 @@ class UserController extends Controller
 
         ];
     }
-
-
 }

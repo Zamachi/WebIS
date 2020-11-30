@@ -165,4 +165,23 @@ class ProductModel extends DBModel
         return [
             "tags" => $tags, "developers" => $developers];
     }
+
+    public function getTop4Games()
+    {
+        $db = $this->dbConnection->conn();
+        $sqlString= "SELECT g.title, g.`description`, g.image , c.game_id, COUNT(*) as broj 
+        FROM codes c INNER JOIN games g ON c.game_id = g.game_id 
+        WHERE is_sold=1 
+        GROUP BY c.game_id ORDER BY broj DESC 
+        LIMIT 4";
+       
+        $dataResult = $db->query($sqlString) or die();
+        $resultArray = [];
+
+        while ($result = $dataResult->fetch_assoc()) {
+            array_push($resultArray, $result);
+        }
+
+        return $resultArray;
+    }
 }

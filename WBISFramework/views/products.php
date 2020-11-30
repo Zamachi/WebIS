@@ -60,7 +60,7 @@
 	var tagId = '0';
 	var devId = '0';
 	var numberPage = 1;
-	var search = '';
+	var search = '<?php echo $model['search'];?>';
 	var url = "/productsJSON";
 
 	$(document).ready(function() {

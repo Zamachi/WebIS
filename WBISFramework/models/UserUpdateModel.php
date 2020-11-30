@@ -3,19 +3,13 @@
 
 namespace app\models;
 
-
+use app\core\Application;
 use app\core\DBModel;
 
-class UserModel extends DBModel
+class UserUpdateModel extends DBModel
 {
     public string $mail = '';
-    public string $country = '';
-    public string $datumRodjenja = '';
-    public string $username = '';
-    public string $role_name = '';
-    public $account_balance = 0;
-    public $is_active;
-    public $user_id = '';
+    public string $password = '';
     public $avatar = '';
 
     public function tableName()
@@ -27,21 +21,15 @@ class UserModel extends DBModel
     {
         return [
             'mail',
-            'country',
-            'datumRodjenja',
-            'username',
-            'role_name',
-            'user_id',
-            'is_active',
-            'avatar',
-            'account_balance'
+            'password',
+            'avatar'
         ];
     }
 
     public function rules(): array
     {
         return [
-            'mail' => [self::RULE_EMAIL, self::RULE_REQUIRED, self::RULE_EMAIL_UNIQUE],
+            'mail' => [self::RULE_EMAIL, self::RULE_EMAIL_UNIQUE],
             'password' => [self::RULE_PASSWORD],
             'avatar' => [self::RULE_AVATAR_EXTENSION]
         ];
@@ -49,7 +37,7 @@ class UserModel extends DBModel
 
     public function labels(): array
     {
-       return [];
+        return [];
     }
 
     public function readAllUserData($email)
@@ -78,15 +66,32 @@ class UserModel extends DBModel
         return $result;
     }
 
-    public function updateUser(UserModel $model)
+    public function updateUser(UserUpdateModel $model,$user_id)
     {
         $db = $this->dbConnection->conn();
+        $sql = "UPDATE `users` SET ";
+        $endSQL = " WHERE `user_id` = $user_id";
+        
+        $varijable = get_object_vars($model);
+        foreach ($varijable as $key => $value) {
+            if($value !== ''){
+                if (strtolower($key) === 'password') {
+                    $sql = $sql . "`$key` = '".password_hash($model->password, PASSWORD_DEFAULT)."',";
+                }
+                if (strtolower($key) === 'mail') {
+                    $sql = $sql . "`$key` = '$value',";
+                }
+                if (strtolower($key) === 'avatar') {
+                    $sql = $sql . "`$key` = ".("'/" . "user-data" . "/" . $model->avatar)."',";
+                }
+            }
+        }
 
-        $sqlString = "UPDATE users SET 'username' = '$model->username', 'country' = '$model->country', 'mail' = '$model->mail' WHERE `user_id`='$model->user_id'";
+        $sql = substr_replace($sql, "", -1);
+        $sql = $sql . $endSQL;
 
-        $db->query($sqlString) or die();
+        $db->query($sql) or die();
 
-        return true;
+        return $this->one("`user_id` = $user_id");
     }
-
 }

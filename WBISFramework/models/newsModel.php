@@ -9,7 +9,7 @@ class NewsModel extends DBModel
    public $news_title;
    public $news_image;
    public $news_content;
-   public $date_created;
+   
 
     public function tableName()
     {
@@ -20,8 +20,7 @@ class NewsModel extends DBModel
         return [
             "news_title",
             "news_image",            
-            "news_content",
-            "date_created"
+            "news_content"
         ];
     }
     
@@ -38,5 +37,21 @@ class NewsModel extends DBModel
            
        ];
     }
+    public function getFirstThreeNews()
+    {
+        $tableName = $this->tableName();
 
+        $db = $this->dbConnection->conn();
+
+        $sqlString = "SELECT * FROM $tableName ORDER BY `date_created` DESC LIMIT 3;";
+
+        $dataResult = $db->query($sqlString) or die();
+        $resultArray = [];
+
+        while ($result = $dataResult->fetch_assoc()) {
+            array_push($resultArray, $result);
+        }
+
+        return $resultArray;
+    }
 }

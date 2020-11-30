@@ -26,13 +26,13 @@ echo "</pre>";
         <div class="tab-content">
             <div class="tab-pane active " id="news-cms">
                 <div class="col-sm-8">
-                    <form action="newsProcess" class="news-form">
+                    <form action="makeNews" enctype="multipart/form-data" method="POST" class="news-form">
                         <label for="news-title" class="form-label" style="color:#a0b1c5;">Enter your title:</label></br>
-                        <input type="text" class="news-title" style="width:80%;" placeholder="title"></br>
+                        <input type="text" name="news_title" class="news-title" style="width:80%;" required placeholder="title"></br>
                         <label for="news-description" class="form-label" style="color:#a0b1c5;">Enter description:</label></br>
-                        <textarea class="news-description" name="news-description" rows="10" style="width:80%; resize: none;" placeholder="description"></textarea></br>
+                        <textarea class="news-description" required name="news_content" rows="10" style="width:80%; resize: none;" placeholder="description"></textarea></br>
                         <label for="news-title" class="form-label" style="color:#a0b1c5;">Upload cover image:</label></br>
-                        <input type="file" class="news-upload" name="news-upload"></br>
+                        <input type="file" required class="news-upload" name="news_image"></br>
                         <button type="submit" id="button-news">Submit</button>
                     </form>
                 </div>
