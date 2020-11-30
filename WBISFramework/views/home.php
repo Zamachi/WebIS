@@ -89,10 +89,7 @@ $success = Application::$app->session->getAuth('user');
 					<div class="category-tab">
 						<!--category-tab-->
 						<div class="col-sm-12">
-							<h2 class="title text-center">TOP 4 GAMES</h2>
-							<ul class="nav nav-tabs">
-								<li class="active" style="width: 100%; text-align: center;"><a href="#games" data-toggle="tab">GAMES</a></li>
-							</ul>
+							<h2 class="title text-center">TOP SELLERS</h2>
 						</div>
 						<div class="tab-content">
 							<div class="tab-pane fade active in" id="games">

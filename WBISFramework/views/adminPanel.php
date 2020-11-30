@@ -58,6 +58,9 @@ echo "</pre>";
                                     <th>Created At</th>
                                     <th>Account Balance</th>
                                     <th>Is Active</th>
+                                    <th>Grant/Revoke Admin</th>
+                                    <th>Grant/Revoke Superadmin</th>
+                                    <th>Deactivate</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -93,6 +96,8 @@ echo "</pre>";
                                     <th>User</th>
                                     <th>Price</th>
                                     <th>Is sold</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>

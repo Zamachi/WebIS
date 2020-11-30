@@ -186,7 +186,7 @@ if ($errors !== false)
 		<div class="footer-widget">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-sm-4">
 						<div class="single-widget">
 							<h2>Policies</h2>
 							<ul class="nav nav-pills nav-stacked" id="nav-footer">
@@ -196,13 +196,24 @@ if ($errors !== false)
 							</ul>
 						</div>
 					</div>
-					<div class="col-sm-6">
+					<div class="col-sm-4">
 						<div class="single-widget">
 							<h2>About</h2>
 							<ul class="nav nav-pills nav-stacked" id="nav-footer">
 								<li><a href="#">Company Info</a></li>
 								<li><a href="#">FAQ</a></li>
 								<li><a href="#">Partners</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-sm-4">
+						<div class="single-widget">
+							<h2>Contact</h2>
+							<ul class="nav nav-pills nav-stacked" id="nav-footer">
+								<li><a href="#">Numbers</a></li>
+								<li><a href="#">Locations</a></li>
+								<li><a href="#">Email Addresses</a></li>
 							</ul>
 						</div>
 					</div>
