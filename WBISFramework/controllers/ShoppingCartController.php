@@ -14,8 +14,8 @@ class ShoppingCartController extends Controller
 
     public function cart()
     {
-        $model = new CartModel();
-        return $this->view("shoppingCart", "main", $model);
+        
+        return $this->view("shoppingCart", "main");
     }
 
     public function addToCart()
@@ -40,7 +40,16 @@ class ShoppingCartController extends Controller
 
     public function checkout()
     {
-        //var_dump($_SESSION['cart']);
+        if($_SESSION['totalSumCart'] > $_SESSION['user']->account_balance){
+            Application::$app->session->setFlash('checkoutError', "You do not have enough resources on your account to perform this transaction. Please, remove the items from your cart, or add funds to your account.");
+            Application::$app->response->redirect("/shoppingCart");
+            exit;
+        }
+        if(count($_SESSION['cart']) === 0){
+            Application::$app->session->setFlash('checkoutError', "Cart is empty.");
+            Application::$app->response->redirect("/shoppingCart");
+            exit;
+        }
         $model = new CheckoutModel();
         $codeModel = new CodesModel();
         $userModel = new UserModel();
@@ -54,6 +63,7 @@ class ShoppingCartController extends Controller
                 $userModel->updateOne('account_balance',"account_balance - ".$item[3]."",'user_id',$model->user_id);
                 $_SESSION['user']->account_balance = $userModel->one("user_id = ". $model->user_id."")['account_balance'];
                 Application::$app->session->deleteCart($model->code_id);
+                unset($_SESSION['totalSumCart']);
             }
         }
         return $this->view("shoppingCart", "main");

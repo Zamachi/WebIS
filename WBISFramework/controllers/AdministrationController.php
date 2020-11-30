@@ -57,6 +57,16 @@ class AdministrationController extends Controller
         Application::$app->response->redirect("/adminPanel");
     }
 
+    public function makeAdmin(){
+        
+    }
+    public function makeSuperAdmin(){
+
+    }
+    public function banUser(){
+
+    }
+
     public function athorize()
     {
         return [

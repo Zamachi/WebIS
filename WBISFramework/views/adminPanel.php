@@ -71,8 +71,9 @@ echo "</pre>";
                                         <td><?php echo $item['created_at'] ?></td>
                                         <td><?php echo $item['account_balance'] ?></td>
                                         <td><?php echo $item['is_active'] ?></td>
-                                        <td><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                                        <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                        <td><a href="makeAdmin?user_id=<?php echo $item['user_id']; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                                        <td><a href="makeSuperAdmin?user_id=<?php echo $item['user_id']; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                                        <td><a href="banUser?user_id=<?php echo $item['user_id']; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
