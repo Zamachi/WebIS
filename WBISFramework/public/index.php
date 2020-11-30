@@ -28,6 +28,8 @@ $app->ruter->get("/deleteCart",[ShoppingCartController::class,'deleteCart']);
 $app->ruter->get("/checkout",[ShoppingCartController::class,'checkout']);
 $app->ruter->get("/productDetailsJSON",[ProductController::class, 'productDetailsJSON']);
 $app->ruter->get("/logout", [AuthController::class, 'logout']);
+$app->ruter->get("/codesPerMonthSold", [ProductController::class, 'codesPerMonthSold']);
+$app->ruter->get("/codesPerMonthPerTagSold", [ProductController::class, 'codesPerMonthPerTagSold']);
 $app->ruter->post("/loginProcess",[AuthController::class,'loginProcess']);
 $app->ruter->post("/registerProcess",[AuthController::class,'registerProcess']);
 $app->ruter->post("/addToCart",[ShoppingCartController::class,'addToCart']);

@@ -88,7 +88,7 @@ abstract class BaseModel
                 }
 
                 if ($ruleName === self::RULE_USERNAME) {
-                    $res = array("options"=>array("regexp"=>"/^([A-z]{3,}\s*){1,3}$/"));
+                    $res = array("options"=>array("regexp"=>"/^([A-z]{3,}[0-9]*[A-z]*\s*){1,3}$/"));
                     if(!filter_var($value,FILTER_VALIDATE_REGEXP,$res)){
                         $this->addErrors($attribute,$ruleName);
                     }

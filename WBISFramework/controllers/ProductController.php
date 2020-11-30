@@ -79,6 +79,71 @@ class ProductController extends Controller
         return json_encode($model);
     }
 
+    public function codesPerMonthSold()
+    {
+        $db = $this->getKonekcija()->conn();
+
+        $sqlString = "
+        SELECT datum, ifnull(broj_prodatih,0) as broj_prod
+        FROM (
+        select FROM_UNIXTIME(UNIX_TIMESTAMP(CONCAT(year(now()),'-',month(now()),'-',n)),'%Y-%m-%d') as `datum` from (
+                select (((b4.0 << 1 | b3.0) << 1 | b2.0) << 1 | b1.0) << 1 | b0.0 as n
+                        from  (select 0 union all select 1) as b0,
+                              (select 0 union all select 1) as b1,
+                              (select 0 union all select 1) as b2,
+                              (select 0 union all select 1) as b3,
+                              (select 0 union all select 1) as b4 ) t
+                where n > 0 and n <= day(last_day(now()))
+        order by `datum`
+        ) datumi LEFT JOIN 
+        (SELECT date_sold, COUNT(*) as broj_prodatih
+        FROM codes c 
+        INNER JOIN games g ON c.game_id = g.game_id 
+        LEFT JOIN checkouts ch ON ch.code_id = c.code_id
+        WHERE date_sold IS NULL OR date_sold BETWEEN (NOW() - INTERVAL 1 MONTH ) AND NOW()
+        GROUP BY date_sold
+        ORDER BY date_sold ASC) prodaja
+         ON datumi.`datum` = prodaja.`date_sold`  
+        ";
+
+        $dataResult = $db->query($sqlString) or die();
+
+        $resultArray = [];
+
+        while ($result = $dataResult->fetch_assoc()) {
+            array_push($resultArray, $result);
+        }
+
+        return json_encode($resultArray);
+    }
+
+    public function codesPerMonthPerTagSold()
+    {
+        $db = $this->getKonekcija()->conn();
+
+        $sqlString = "
+        SELECT t.tag_name, COUNT(*) as broj_prodatih
+        FROM codes c 
+        INNER JOIN checkouts ch ON c.code_id = ch.code_id
+        INNER JOIN games g ON c.game_id = g.game_id
+        INNER JOIN games_tags gt ON g.game_id = gt.game_id
+        INNER JOIN tags t ON gt.tag_id = t.tag_id
+        GROUP BY t.tag_name
+        ORDER BY broj_prodatih DESC
+        LIMIT 5; 
+        ";
+
+        $dataResult = $db->query($sqlString) or die();
+
+        $resultArray = [];
+
+        while ($result = $dataResult->fetch_assoc()) {
+            array_push($resultArray, $result);
+        }
+
+        return json_encode($resultArray);
+    }
+
     public function athorize()
     {
         return [
