@@ -766,8 +766,8 @@ h2.title {
 }
 
 .category-tab ul  li  a:hover{
-	background:darkgreen;
-	color:#a0b1c5;
+  color:#a0b1c5;
+  background-color: darkgreen !important;
 }
 
 .nav-tabs  li.active  a, .nav-tabs  li.active  a:hover, .nav-tabs  li.active  a:focus {

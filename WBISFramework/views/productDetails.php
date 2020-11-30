@@ -22,7 +22,8 @@ use app\core\Application;
 
 								</span>
 								<p><b>Availability:</b> <?php echo count($model['codes']) > 0 ? "In stock" : "Out of stock" ?></p>
-								<p><b>Publish_date:</b> <?php echo $model['codes'][0]['publish_date'] ?></p>
+								<p><b>Publish Date:</b> <?php echo $model['codes'][0]['publish_date'] ?></p>
+								<p><b>Base Price:</b> <?php echo $model['codes'][0]['base_price'] ?> $</p>
 								<p><b>Developer:</b> <?php foreach ($developers_and_tags['developers'] as $key => $value) {
 															echo "&nbsp; " . $value[0] . " &nbsp;";
 														} ?></p>
