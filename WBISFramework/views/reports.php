@@ -1,7 +1,7 @@
 <div class="row">
     <div class="card card-default col-md-12">
         <div class="card-header">
-            <h3 class="card-title" style="color: white;">Broj prodatih kodova u poslednjih mesec dana</h3>
+            <h3 class="card-title h1-view">Broj prodatih kodova u poslednjih mesec dana</h3>
         </div>
         <div class="card-body">
             <div class="chart">
@@ -24,7 +24,7 @@
     <div class="container-fluid col-md-6">
         <div class="card card-default">
             <div class="card-header">
-                <h3 class="card-title">Broj prodatih kodova po imenu taga</h3>
+                <h3 class="card-title h1-view">Broj prodatih kodova po imenu taga</h3>
             </div>
             <div class="card-body">
                 <div class="chart">

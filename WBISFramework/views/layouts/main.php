@@ -267,6 +267,17 @@ if ($errors !== false) {
 						</div>
 					</div>
 
+					<div class="col-sm-4">
+						<div class="single-widget">
+							<h2>Contact</h2>
+							<ul class="nav nav-pills nav-stacked" id="nav-footer">
+								<li><a href="#">Numbers</a></li>
+								<li><a href="#">Email Addresses</a></li>
+								<li><a href="#">Socials</a></li>
+							</ul>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		</div>

@@ -1039,6 +1039,26 @@ h2.title {
 
 /* JOVANA */
 
+/* FIREFOX */
+* {
+  scrollbar-color: darkgreen #152232;
+}
+
+/* CHROME | SAFARI | OPERA */
+
+*::-webkit-scrollbar {
+  width: 17px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #152232;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: darkgreen;
+  border-radius: 20px;
+  border: 3px solid #152232;
+}
+
 .girl {
   width: 1000px;
   height: 500px;

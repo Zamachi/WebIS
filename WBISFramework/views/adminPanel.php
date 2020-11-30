@@ -19,7 +19,6 @@ echo "</pre>";
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#news-cms" data-toggle="tab">News CMS</a></li>
                 <li><a href="#user-cms" data-toggle="tab">User CMS</a></li>
-                <li><a href="#code-cms" data-toggle="tab">Code CMS</a></li>
                 <li><a href="#game-cms" data-toggle="tab">Game CMS</a></li>
             </ul>
         </div>
@@ -82,46 +81,6 @@ echo "</pre>";
                             </tbody>
                         </table>
                     </div>    
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="code-cms">
-                <div class="col-sm-12">
-                <div class="table-wrapper">
-                        <table class="admin-table">
-                            <thead>
-                                <tr> 
-                                    <th>Code</th>
-                                    <th>Game</th>
-                                    <th>User</th>
-                                    <th>Price</th>
-                                    <th>Is sold</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>SHDOIDHSOIHSIODHSIODH</td>
-                                    <td>World of Warcraft</td>
-                                    <td>qweqwe</td>
-                                    <td>50</td>
-                                    <td>0</td>
-                                    <td><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                                    <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td>JCOIJSDIOJSIODJSODJIOD</td>
-                                    <td>Elder Scrolls Online</td>
-                                    <td>rtyrty</td>
-                                    <td>15</td>
-                                    <td>0</td>
-                                    <td><a href="#"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                                    <td><a href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>                   
                 </div>
             </div>
 

@@ -74,7 +74,7 @@ $success = Application::$app->session->getAuth('user');
 				<div class="col-sm-12">
 					<div class="blog-post-area">
 						<h2 class="title text-center">News</h2>
-						<div class="single-blog-post" style="overflow: scroll; height: 850px;">
+						<div class="single-blog-post" style="overflow: auto; height: 850px;">
 							<?php foreach ($novosti as $key => $value) { ?>
 								<a>
 									<img src="<?php echo $value['news_image'] ?>" alt="">
