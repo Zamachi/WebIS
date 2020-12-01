@@ -23,7 +23,7 @@ var_dump(Application::$app->session->getAuth('user'));
             </div>
         </div>
         <!-- /.card-body -->
-    </div>
+    </div></br></br>
 </div>
 
 <div class="row">
@@ -53,7 +53,7 @@ var_dump(Application::$app->session->getAuth('user'));
     <div class="container-fluid col-md-6">
         <div class="card card-default">
             <div class="card-header">
-                <h3 class="card-title">Ratio of active and inactive accounts</h3>
+                <h3 class="card-title h1-view">Ratio of active and inactive accounts</h3>
             </div>
             <div class="card-body">
                 <div class="chart">

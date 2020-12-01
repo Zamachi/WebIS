@@ -66,7 +66,6 @@ if ($errors !== false) {
                         <label for="option-code" class="form-label" style="color:#a0b1c5;">Enter your code:</label></br>
                         <input type="text" name="code" class="option-code" placeholder="code" style="width:80%;">
                         <div class="invalid-feedback"><?php echo Application::$app->session->getFlash('profileErrors')['code'][0] ?? ''; ?></div>
-                        </br>
                         <label for="option-price" class="form-label" style="color:#a0b1c5;">Set price:</label></br>
                         <input type="number" name="price" class="option-price" placeholder="price" style="width:80%;"></br>
                         <button type="submit" id="button-upload">Submit</button>

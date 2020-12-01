@@ -20,13 +20,13 @@ echo "</pre>";
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#news-cms" data-toggle="tab">News CMS</a></li>
                 <li><a href="#user-cms" data-toggle="tab">User CMS</a></li>
-                <li><a href="#game-cms" data-toggle="tab">Game CMS</a></li>
             </ul>
         </div>
         <div class="tab-content">
             <div class="tab-pane active " id="news-cms">
-                <div class="col-sm-8">
+                <div class="col-sm-10">
                     <div class="col-sm-12" >
+                        <h3 style="color: #a0b1c5;">Add News</h3>
                         <form action="makeNews" enctype="multipart/form-data" method="POST" class="news-form">
                             <label for="news-title" class="form-label" style="color:#a0b1c5;">Enter your title:</label></br>
                             <input type="text" name="news_title" class="news-title" style="width:80%;" required placeholder="title"></br>
@@ -37,8 +37,10 @@ echo "</pre>";
                             <button type="submit" id="button-news">Submit</button>
                         </form>
                     </div>
-                    <hr style="border: 0.5px solid white;">
+
                     <div class="col-sm-12" >
+                        <br/><br/>
+                        <h3 style="color: #a0b1c5;">Add Multiple News</h3>
                         <form action="makeNewsMassive" enctype="multipart/form-data" method="POST" class="news-form">
                             <label for="news-title" class="form-label" style="color:#a0b1c5;">Massively upload News via JSON file:</label></br>
                             <input type="file" required class="news-upload" name="newsJSON"></br>
@@ -104,11 +106,6 @@ echo "</pre>";
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
-
-            <div class="tab-pane active " id="game-cms">
-                <div class="col-sm-8">
                 </div>
             </div>
 
