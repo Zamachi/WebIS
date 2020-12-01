@@ -78,6 +78,38 @@ class UserModel extends DBModel
         return $result;
     }
 
+    public function readAllUserDataAdministration($email)
+    {
+        $db = $this->dbConnection->conn();
+        
+        $sqlString = "select 	
+                        u.mail, 
+                        u.country, 
+                        u.datumRodjenja,
+                        u.username, 
+                        r.role_name, 
+                        u.user_id,
+                        u.avatar,
+                        u.account_balance,
+                        u.is_active,
+                        u.created_at
+                from users u
+                inner join user_roles ur on u.user_id = ur.user_id
+                inner join roles r on r.role_id = ur.role_id
+                where `mail` <> '$email'
+                ORDER BY `username`, `user_id`
+                ";
+
+        $dataResult = $db->query($sqlString) or die();
+        $resultArray = [];
+        while($result = $dataResult->fetch_assoc()){
+            array_push($resultArray,$result);
+        }
+
+        return $resultArray;
+    }
+
+
     public function updateUser(UserModel $model)
     {
         $db = $this->dbConnection->conn();

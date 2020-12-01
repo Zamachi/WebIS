@@ -167,7 +167,7 @@ if ($errors !== false) {
 									<li><a href="/adminPanel"><i class="fa fa-cog"></i> Administrator panel</a></li>
 
 								<?php endif; ?>
-								<?php if ($user && ($user->role_name === 'Admin' || $user->role_name === 'SuperAdmin')) : ?>
+								<?php if ($user && $user->role_name === 'SuperAdmin') : ?>
 
 									<li><a href="/reports"><i class="fa fa-signal" aria-hidden="true"></i> Analytics</a></li>
 

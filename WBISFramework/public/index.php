@@ -23,6 +23,9 @@ $app->ruter->get("/getNumberOfActives",[UserController::class, 'getNumberOfActiv
 $app->ruter->get("/products",[ProductController::class, 'products']); 
 $app->ruter->get("/adminPanel",[AdministrationController::class, 'adminPanel']); 
 $app->ruter->get("/reports",[AdministrationController::class, 'reports']); 
+$app->ruter->get("/makeAdmin",[AdministrationController::class, 'makeAdmin']); 
+$app->ruter->get("/makeSuperAdmin",[AdministrationController::class, 'makeSuperAdmin']); 
+$app->ruter->get("/banUser",[AdministrationController::class, 'banUser']); 
 $app->ruter->get("/productsJSON",[ProductController::class, 'productsJSON']); 
 $app->ruter->get("/productDetails",[ProductController::class, 'productDetails']);
 $app->ruter->get("/deleteCart",[ShoppingCartController::class,'deleteCart']);

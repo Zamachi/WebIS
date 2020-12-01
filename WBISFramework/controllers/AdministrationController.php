@@ -6,6 +6,7 @@ use app\core\Controller;
 use app\core\Application;
 use app\models\NewsModel;
 use app\models\UserModel;
+use app\models\UserRolesModel;
 
 class AdministrationController extends Controller
 {
@@ -14,23 +15,21 @@ class AdministrationController extends Controller
     {
 
         $model = new UserModel();
-        $dbData = $model->all();
+        $dbData = $model->readAllUserDataAdministration(Application::$app->session->getAuth('user')->mail);
 
         return $this->view("adminPanel", "main", $dbData);
     }
 
     public function reports()
     {
-        $model = ["nesto"];
-
-        return $this->view("reports", "main", $model);
+        return $this->view("reports", "main");
     }
 
     public function makeNews()
     {
         $model = new NewsModel();
         $data = $this->zahtev->all();
-       // var_dump($this->zahtev->all());
+        // var_dump($this->zahtev->all());
         $model->loadData($data);
         $model->news_image = "." . strtolower(pathinfo($_FILES['news_image']['name'], PATHINFO_EXTENSION));
 
@@ -57,14 +56,40 @@ class AdministrationController extends Controller
         Application::$app->response->redirect("/adminPanel");
     }
 
-    public function makeAdmin(){
+    public function makeAdmin()
+    {
+        $model = new UserModel();
+        $userTomakeAdmin = $_GET['user_id'] ?? '';
+
+        $userRolesModel = new UserRolesModel();
+        $userRolesModel->updateOne('role_id',2,'user_id',$userTomakeAdmin);
+
+        $dbData = $model->readAllUserDataAdministration(Application::$app->session->getAuth('user')->mail);
+
+        return $this->view("adminPanel", "main", $dbData);
+    }
+    public function makeSuperAdmin()
+    {
+        $model = new UserModel();
+        $userTomakeSuperAdmin = $_GET['user_id'] ?? '';
+
+        $userRolesModel = new UserRolesModel();
+        $userRolesModel->updateOne('role_id',3,'user_id',$userTomakeSuperAdmin);
+
+        $dbData = $model->readAllUserDataAdministration(Application::$app->session->getAuth('user')->mail);
+
+        return $this->view("adminPanel", "main", $dbData);
+    }
+    public function banUser()
+    {
+        $model = new UserModel();
+        $userToBan = $_GET['user_id'] ?? '';
         
-    }
-    public function makeSuperAdmin(){
+        $model->updateOne('is_active',0,'user_id',$userToBan);
 
-    }
-    public function banUser(){
+        $dbData = $model->readAllUserDataAdministration(Application::$app->session->getAuth('user')->mail);
 
+        return $this->view("adminPanel", "main", $dbData);
     }
 
     public function makeNewsMassive()
@@ -85,7 +110,7 @@ class AdministrationController extends Controller
 
                 if ($model->greske === null) {
                     $model->create($model);
-                }else {
+                } else {
                     foreach ($model->greske as $attribute => $value) {
                         $errors[$br][$attribute] = $value;
                     }
@@ -96,7 +121,7 @@ class AdministrationController extends Controller
 
         if ($model->greske !== null) {
             Application::$app->session->setFlash('success', "Uspesno dodato!");
-        }else{
+        } else {
             Application::$app->session->setFlash('jsonErrors', $errors);
         }
 

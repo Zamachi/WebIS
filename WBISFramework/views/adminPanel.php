@@ -6,11 +6,11 @@ use app\core\Field;
 
 <?php
 
-/*
-echo "<pre>";
-var_dump($model);
-echo "</pre>";
-*/
+
+// echo "<pre>";
+// var_dump(Application::$app->session->getAuth('user'));
+// echo "</pre>";
+// exit;
 ?>
 
 <h1 class="h1-view">Admin Panel</h1>
@@ -19,13 +19,15 @@ echo "</pre>";
         <div class="col-sm-12">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#news-cms" data-toggle="tab">News CMS</a></li>
-                <li><a href="#user-cms" data-toggle="tab">User CMS</a></li>
+                <?php if (Application::$app->session->getAuth('user')->role_name === 'SuperAdmin') { ?>
+                    <li><a href="#user-cms" data-toggle="tab">User CMS</a></li>
+                <?php } ?>
             </ul>
         </div>
         <div class="tab-content">
             <div class="tab-pane active " id="news-cms">
                 <div class="col-sm-10">
-                    <div class="col-sm-12" >
+                    <div class="col-sm-12">
                         <h3 style="color: #a0b1c5;">Add News</h3>
                         <form action="makeNews" enctype="multipart/form-data" method="POST" class="news-form">
                             <label for="news-title" class="form-label" style="color:#a0b1c5;">Enter your title:</label></br>
@@ -38,8 +40,8 @@ echo "</pre>";
                         </form>
                     </div>
 
-                    <div class="col-sm-12" >
-                        <br/><br/>
+                    <div class="col-sm-12">
+                        <br /><br />
                         <h3 style="color: #a0b1c5;">Add Multiple News</h3>
                         <form action="makeNewsMassive" enctype="multipart/form-data" method="POST" class="news-form">
                             <label for="news-title" class="form-label" style="color:#a0b1c5;">Massively upload News via JSON file:</label></br>
@@ -62,53 +64,60 @@ echo "</pre>";
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="game-cms">
-                <div class="col-sm-8">
-
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="user-cms">
-                <div class="col-sm-12">
-                    <div class="table-wrapper">
-                        <table class="admin-table">
-                            <thead>
-                                <tr>
-                                    <th>User id</th>
-                                    <th>Username</th>
-                                    <th>Email</th>
-                                    <th>Country</th>
-                                    <th>Date of Birth</th>
-                                    <th>Created At</th>
-                                    <th>Account Balance</th>
-                                    <th>Is Active</th>
-                                    <th>Grant/Revoke Admin</th>
-                                    <th>Grant/Revoke Superadmin</th>
-                                    <th>Deactivate</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($model as $item) { ?>
+            <?php if (Application::$app->session->getAuth('user')->role_name === 'SuperAdmin') { ?>
+                <div class="tab-pane fade" id="user-cms">
+                    <div class="col-sm-12">
+                        <div class="table-wrapper">
+                            <table class="admin-table">
+                                <thead>
                                     <tr>
-                                        <td><?php echo $item['user_id'] ?></td>
-                                        <td><?php echo $item['username'] ?></td>
-                                        <td><?php echo $item['mail'] ?></td>
-                                        <td><?php echo $item['country'] ?></td>
-                                        <td><?php echo $item['datumRodjenja'] ?></td>
-                                        <td><?php echo $item['created_at'] ?></td>
-                                        <td><?php echo $item['account_balance'] ?></td>
-                                        <td><?php echo $item['is_active'] ?></td>
-                                        <td><a href="makeAdmin?user_id=<?php echo $item['user_id']; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                                        <td><a href="makeSuperAdmin?user_id=<?php echo $item['user_id']; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                                        <td><a href="banUser?user_id=<?php echo $item['user_id']; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                                        <th>User id</th>
+                                        <th>Username</th>
+                                        <th>Email</th>
+                                        <th>Country</th>
+                                        <th>Date of Birth</th>
+                                        <th>Created At</th>
+                                        <th>Account Balance</th>
+                                        <th>Is Active</th>
+                                        <th>Grant/Revoke Admin</th>
+                                        <th>Grant/Revoke Superadmin</th>
+                                        <th>Deactivate</th>
                                     </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($model as $item) { ?>
+                                        <tr>
+                                            <td><?php echo $item['user_id'] ?></td>
+                                            <td><?php echo $item['username'] ?></td>
+                                            <td><?php echo $item['mail'] ?></td>
+                                            <td><?php echo $item['country'] ?></td>
+                                            <td><?php echo $item['datumRodjenja'] ?></td>
+                                            <td><?php echo $item['created_at'] ?></td>
+                                            <td><?php echo $item['account_balance'] ?></td>
+                                            <td><?php echo $item['is_active'] ?></td>
+                                            <td>
+                                                <?php if ($item['role_name'] === 'User') { ?>
+                                                    <a class=".makeAdmin" href="makeAdmin?user_id="<?php echo $item['user_id']; ?>><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                <?php } ?>
+                                            </td>
+                                            <td>
+                                                <?php if (!($item['role_name'] === 'SuperAdmin' )) { ?>
+                                                    <a class=".makeSuperAdmin" href="makeSuperAdmin?user_id=<?php echo $item['user_id']; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                <?php } ?>
+                                            </td>
+                                            <td>
+                                                <?php if ($item['is_active'] === '1') { ?>
+                                                    <a class=".banUser" href="banUser?user_id=<?php echo $item['user_id']; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                <?php } ?>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            <?php } ?>
         </div>
     </div>
 </section>

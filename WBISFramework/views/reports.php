@@ -2,7 +2,7 @@
 
 use app\core\Application;
 
-var_dump(Application::$app->session->getAuth('user'));
+// var_dump(Application::$app->session->getAuth('user'));
 ?>
 <div class="row">
     <div class="card card-default col-md-12">
@@ -31,7 +31,9 @@ var_dump(Application::$app->session->getAuth('user'));
         <div class="card card-default">
             <div class="card-header">
                 <h3 class="card-title h1-view">Number of codes sold per tag name</h3>
+                <label for="date_from">Start from:</label>
                 <input type="date" name="date_from" id="date_from" class="nekaklasa">
+                <label for="date_to">&nbsp; go to:</label>
                 <input type="date" name="date_to" id="date_to" class="nekaklasa">
             </div>
             <div class="card-body">
