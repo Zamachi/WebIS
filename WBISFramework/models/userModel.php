@@ -147,8 +147,8 @@ class UserModel extends DBModel
         $sql = "
         select 
         case 
-        when `is_active` = 1 then 'Aktivan' 
-        else 'Neaktivan' 
+        when `is_active` = 1 then 'Active' 
+        else 'Inactive' 
         end as 'active', count(user_id) as 'numberOfCustomers' 
         from users u group by `is_active`
         ";
